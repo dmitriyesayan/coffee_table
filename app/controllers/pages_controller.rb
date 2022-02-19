@@ -11,4 +11,10 @@ class PagesController < ApplicationController
 
   def profile
   end
+
+  def become_an_expert
+  end
+
+  def about_us
+  end
 end
