@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'pages#dashboard'
   get 'profile', to: 'pages#profile'
   get 'confirmation', to: 'pages#confirmation'
+  get 'become-an-expert', to: 'pages#become_an_expert'
+  get 'about-us', to: 'pages#about_us'
 
   post 'bookings/:id/reviews', to: 'reviews#create'
 
