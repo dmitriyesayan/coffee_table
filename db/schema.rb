@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_17_190613) do
+ActiveRecord::Schema.define(version: 2022_02_19_150431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2022_02_17_190613) do
   create_table "coffee_chats", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "topic"
-    t.boolean "availability"
+    t.boolean "availability", default: false
     t.datetime "start"
     t.datetime "end"
     t.datetime "created_at", precision: 6, null: false
@@ -65,6 +65,13 @@ ActiveRecord::Schema.define(version: 2022_02_17_190613) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.boolean "expert_profile", default: false
+    t.string "language"
+    t.boolean "free_consultation", default: false
+    t.string "topic"
+    t.text "description"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

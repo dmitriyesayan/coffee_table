@@ -3,7 +3,7 @@ class CreateCoffeeChats < ActiveRecord::Migration[6.1]
     create_table :coffee_chats do |t|
       t.references :user, null: false, foreign_key: true
       t.string :topic
-      t.boolean :availability
+      t.boolean :availability, default: false
       t.datetime :start
       t.datetime :end
 
