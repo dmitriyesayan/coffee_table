@@ -21,6 +21,9 @@
 }
 
 .expert-page-search {
+  #search-bar {
+    width: 100%;
+  }
   form {
     input {
       height: 48px;
@@ -40,7 +43,7 @@
     margin-right: 24px;
     margin-bottom: 32px;
     background-color: white;
-    height: 230px;
+    height: 260px;
     row-gap: 24px;
     border-radius: 4px;
     .image-containter{
@@ -48,7 +51,7 @@
       border-radius: 2px;
       img {
         object-fit: none;
-        height: 150px;
+        height: 170px;
       }
     }
     .expert-card-bottom {
@@ -57,7 +60,9 @@
       padding-top: 5px;
       padding-right: 5px;
       padding-left: 10px;
+      height: 80px;
       .expert-card-bottom-left {
+        padding-right: 5px;
         h4 {
           margin-bottom: 0;
         }
@@ -73,9 +78,14 @@
         }
       }
       .expert-card-bottom-right {
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
         p {
           font-size: 12px;
           text-align: right;
+          margin-bottom: 0;
+          padding-bottom: 0;
         }
         a {
           border-top: 5px;
@@ -86,6 +96,8 @@
           align-self: bottom;
           text-decoration: none;
           margin-right: 0;
+          float: right;
+          text-align: center;
         }
         a:hover {
           background-color: $blue-hover;
