@@ -13,13 +13,76 @@
 @import "pages/index";
 
 
-body {background-color: #E5E5E5;}
-
 body {
   color: black;
+  background-color: #E5E5E5;
 }
 
-.content {
-  margin-left: 50px;
-  margin-right: 50px;
+h1 {
+  color: #FA7B5F
+}
+
+.container {
+  align-items: center;
+}
+
+.banner {
+  text-align: center;
+}
+
+.text-block {
+  text-align: start;
+  margin: 10px;
+}
+
+
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.search-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.search-wrapper input {
+  width: 80%;
+}
+
+.topic-container {
+  text-align: center;
+  border-style: solid;
+  border-width: thin;
+  border-color: #FA7B5F;
+}
+.topic-description {
+  font-size: 6;
+  inline-size: 150px;
+  text-align: center;
+  align-items: center;
+}
+
+.p {
+  font-size: 4;
+}
+
+.icon {
+  width:30%;
+  height:30%;
+}
+
+.usp {
+  text-align: center;
+  inline-size: 150px;
+  border-style: solid;
+  border-width: thin;
+  border-color: grey;
+
 }
