@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'experts', to: 'users#index'
-  get 'experts/:id', to: "users#show"
+  get 'experts/:id', to: "users#show", as: :expert
 
   get 'experts/:id/coffee_chats', to: 'coffee_chats#index'
   patch 'experts/:id/coffee_chats', to: 'coffee_chats#update'

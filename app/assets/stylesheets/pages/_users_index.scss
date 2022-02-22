@@ -1,0 +1,96 @@
+// .users-index-padding {
+//   width: 1000px;
+//   margin: 0 auto;
+// }
+
+.expert-page-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  h1 {
+    font-size: 72px;
+    color: #0069CA;
+  }
+  h2 {
+    font-size: 36px;
+    color: #FA7B5F;
+  }
+  .expert-page-top-left {
+    padding-bottom: 24px;
+  }
+}
+
+.expert-page-search {
+  form {
+    input {
+      height: 48px;
+      border: 2px solid $blue;
+      align-items: center;
+      font-size: 20px;
+      text-align: center;
+    }
+  }
+}
+
+.results {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  .expert-card {
+    margin-right: 24px;
+    margin-bottom: 32px;
+    background-color: white;
+    height: 230px;
+    row-gap: 24px;
+    border-radius: 4px;
+    .image-containter{
+      border: 1px solid $orange;
+      border-radius: 2px;
+      img {
+        object-fit: none;
+        height: 150px;
+      }
+    }
+    .expert-card-bottom {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 5px;
+      padding-right: 5px;
+      padding-left: 10px;
+      .expert-card-bottom-left {
+        h4 {
+          margin-bottom: 0;
+        }
+        p {
+          margin-top: 0;
+          margin-bottom: 0;
+          font-size: 15px;
+        }
+        .rating-inline {
+          margin-top: 0;
+          display: flex;
+          justify-content: left;
+        }
+      }
+      .expert-card-bottom-right {
+        p {
+          font-size: 12px;
+          text-align: right;
+        }
+        a {
+          border-top: 5px;
+          background-color: $blue;
+          color: white;
+          border-radius: 3px;
+          padding: 10px 10px;
+          align-self: bottom;
+          text-decoration: none;
+          margin-right: 0;
+        }
+        a:hover {
+          background-color: $blue-hover;
+        }
+      }
+    }
+  }
+}
