@@ -76,6 +76,13 @@
           display: flex;
           justify-content: left;
         }
+        .rating-inline {
+          i {
+            font-size: 20px;
+            color:rgb(228, 228, 0);
+            padding-top: 5px;
+          }
+        }
       }
       .expert-card-bottom-right {
         display:flex;

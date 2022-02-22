@@ -8,23 +8,23 @@
 require 'date'
 
 puts "creating 10 Experts"
-User.create({email: "papa.jones@gmail.com", password: "123456", expert_profile: true, language: "English", topic: "JavaScript", description: "bla bla bla", first_name: "Papa", last_name: "Jones"})
-User.create({email: "mama.jones@gmail.com", password: "123456", expert_profile: true, language: "Spanish", topic: "JavaScript", description: "bla bla bla", first_name: "Mama", last_name: "Jones"})
-User.create({email: "papi.jones@gmail.com", password: "123456", expert_profile: true, language: "English", topic: "JavaScript", description: "bla bla bla", first_name: "Papi", last_name: "Jones"})
+User.create({email: "zachariah.wallace@gmail.com", password: "123456", expert_profile: true, language: "English", topic: "JavaScript", description: "bla bla bla", first_name: "Zachariah", last_name: "Wallace"})
+User.create({email: "matias.jones@gmail.com", password: "123456", expert_profile: true, language: "Spanish", topic: "JavaScript", description: "bla bla bla", first_name: "Matias", last_name: "Jones"})
+User.create({email: "donavan.jones@gmail.com", password: "123456", expert_profile: true, language: "English", topic: "JavaScript", description: "bla bla bla", first_name: "Donavan", last_name: "Jones"})
 User.create({email: "lupita.gonzales@gmail.com", password: "123456", expert_profile: true, language: "German", topic: "Biology", description: "bla bla bla", first_name: "Lupita", last_name: "Gonzales"})
-User.create({email: "someone.rihanna@gmail.com", password: "123456", expert_profile: true, language: "Arabic", topic: "Rails", description: "bla bla bla", first_name: "Someone", last_name: "Rihanna"})
-User.create({email: "carina.madagascar@gmail.com", password: "123456", expert_profile: true, language: "English", topic: "Math", description: "bla bla bla", first_name: "Carina", last_name: "Madagascar"})
+User.create({email: "davon.vazquez@gmail.com", password: "123456", expert_profile: true, language: "Arabic", topic: "Rails", description: "bla bla bla", first_name: "Davon", last_name: "Vazquez"})
+User.create({email: "carina.barnett@gmail.com", password: "123456", expert_profile: true, language: "English", topic: "Math", description: "bla bla bla", first_name: "Carina", last_name: "Barnett"})
 User.create({email: "julius.ceasar@gmail.com", password: "123456", expert_profile: true, language: "Greek", topic: "Math", description: "bla bla bla", first_name: "Julius", last_name: "Ceasar"})
 User.create({email: "catrina.rodrigo@gmail.com", password: "123456", expert_profile: true, language: "Spanish", topic: "Biology", description: "bla bla bla", first_name: "Catrina", last_name: "Rodrigo"})
-User.create({email: "lasagna.mozzarela@gmail.com", password: "123456", expert_profile: true, language: "English", topic: "Cooking", description: "bla bla bla", first_name: "Lasagna", last_name: "Mozzarela"})
-User.create({email: "octopus.baddie@gmail.com", password: "123456", expert_profile: true, language: "English", topic: "Home Decor", description: "bla bla bla", first_name: "octopus", last_name: "Baddie"})
+User.create({email: "alejandro.gomez@gmail.com", password: "123456", expert_profile: true, language: "English", topic: "Cooking", description: "bla bla bla", first_name: "Alejandro", last_name: "Gomez"})
+User.create({email: "david.middleton@gmail.com", password: "123456", expert_profile: true, language: "English", topic: "Home Decor", description: "bla bla bla", first_name: "David", last_name: "Middleton"})
 puts "10 Experts created!"
 
 puts "creating 5 Users"
-User.create({email: "lunch.mcdonalds@gmail.com", password: "123456", first_name: "Lunch", last_name: "McDonalds"})
-User.create({email: "barista.something@gmail.com", password: "123456", first_name: "Barista", last_name: "Something"})
-User.create({email: "catalonia.balenciaga@gmail.com", password: "123456", first_name: "Catalonia", last_name: "Balenciaga"})
-User.create({email: "ukraine.smith@gmail.com", password: "123456", first_name: "Ukrain", last_name: "Smith"})
+User.create({email: "ronald.mcdonalds@gmail.com", password: "123456", first_name: "Ronald ", last_name: "McDonalds"})
+User.create({email: "harry.potter@gmail.com", password: "123456", first_name: "Harry ", last_name: "Potter"})
+User.create({email: "hermione.granger@gmail.com", password: "123456", first_name: "Hermione", last_name: "Granger"})
+User.create({email: "Madison.smith@gmail.com", password: "123456", first_name: "Madison", last_name: "Smith"})
 User.create({email: "kylie.jenner@gmail.com", password: "123456", first_name: "Kylie", last_name: "Jenner"})
 puts "10 Users created!"
 
