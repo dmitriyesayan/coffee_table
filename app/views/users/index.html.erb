@@ -1,9 +1,47 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
-<div class="container"><center><%= render "shared/search_bar" %></center></div>
-<div class="results">
-  <% @experts.each do |expert| %>
-  <p><%=expert.first_name%> <%=expert.last_name%></p>
-  <p><%=expert.topic %></p>
-  <% end  %>
+<div class="container">
+
+  <div class="expert-page-top">
+
+    <div class="expert-page-top-left">
+      <% if params[:query].empty? %>
+        <h1>Experts on <strong>all topics</strong>
+      <% else %>
+        <h1>Experts on <strong><%= params[:query] %></h1></strong>
+      <% end %>
+      <h2>Found <%=@experts.count%> experts </h4>
+    </div>
+
+    <%= image_tag "expert-page-top-illustration.png", alt: "expert-page-top-illustration", width: 400 %>
+
+  </div>
+  <div class="expert-page-search">
+    <%= render "shared/search_bar" %>
+  </div>
+
+  <div class="results">
+    <% @experts.each do |expert| %>
+    <div class="expert-card">
+      <div class="image-containter">
+        <%= image_tag "example-profile-image.jpg", alt: "example-profile-image", width: 300 %>
+      </div>
+      <div class="expert-card-bottom">
+        <div class="expert-card-bottom-left">
+          <h4><strong><%=expert.first_name%> <%=expert.last_name%></strong></h4>
+          <p><%=expert.topic %> expert</p>
+          <% rating = expert.reviews.average(:rating).to_f.round  %>
+          <div class="rating-inline">
+            <% rating.times do %>
+                <p>#</p>
+            <% end %>
+          </div>
+        </div>
+        <div class="expert-card-bottom-right">
+          <p><strong><%= expert.experience %> years</strong> of experience</p>
+          <%= link_to "Open profile", expert_path(expert.id) %>
+        </div>
+      </div>
+    </div>
+    <% end  %>
+  </div>
+
 </div>
