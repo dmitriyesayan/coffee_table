@@ -7,6 +7,15 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
+          <%= f.input :first_name,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "First Name" }%>
+          <%= f.input :last_name,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "Last Name" }%>
+          <%= f.input :expert_profile, label: "Sign up as", as: :radio_buttons, collection: [['Student',false], ['Expert',true]], required: true, include_blank: true %>
           <%= f.input :email,
                       required: true,
                       autofocus: true,
