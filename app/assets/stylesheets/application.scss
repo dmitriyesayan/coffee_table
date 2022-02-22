@@ -22,6 +22,7 @@ h1 {
   color: #FA7B5F
 }
 
+
 .container {
   align-items: center;
 }
@@ -31,7 +32,7 @@ h1 {
 }
 
 .text-block {
-  text-align: start;
+  text-align: left;
   margin: 10px;
 }
 
@@ -80,9 +81,18 @@ h1 {
 
 .usp {
   text-align: center;
-  inline-size: 150px;
+  inline-size: 200px;
   border-style: solid;
   border-width: thin;
   border-color: grey;
+  border-radius: 15px;
 
+}
+
+.learn-more {
+  border-radius: 25px;
+  background-color: black;
+  color: white;
+  height: 60px;
+  width: 130px;
 }
