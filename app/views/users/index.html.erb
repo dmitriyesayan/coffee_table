@@ -1,5 +1,4 @@
 <div class="container">
-
   <div class="expert-page-top">
 
     <div class="expert-page-top-left">
@@ -26,17 +25,21 @@
       </div>
       <div class="expert-card-bottom">
         <div class="expert-card-bottom-left">
-          <h4><strong><%=expert.first_name%> <%=expert.last_name%></strong></h4>
+          <% if expert.first_name.length + expert.last_name.length > 15 %>
+            <h4><strong><%=expert.first_name%> <%=expert.last_name.chars[0]%>.</strong></h4>
+          <% else %>
+            <h4><strong><%=expert.first_name%> <%=expert.last_name%></strong></h4>
+          <% end %>
           <p><%=expert.topic %> expert</p>
           <% rating = expert.reviews.average(:rating).to_f.round  %>
           <div class="rating-inline">
             <% rating.times do %>
-                <p>#</p>
+                <p><i class="lni lni-star-filled"></i></p>
             <% end %>
           </div>
         </div>
         <div class="expert-card-bottom-right">
-          <p><strong><%= expert.experience %> years</strong> of experience</p>
+          <p><strong><%= expert.bookings.count %> sessions</strong> completed</p>
           <%= link_to "Open profile", expert_path(expert.id) %>
         </div>
       </div>
@@ -45,3 +48,5 @@
   </div>
 
 </div>
+
+<%# //sads %>
