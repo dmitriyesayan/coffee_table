@@ -14,6 +14,7 @@
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <% if user_signed_in? %>
             <a class="dropdown-item" href="/">Home</a>
+            <a class="dropdown-item" href="/dashboard">My Dashboard</a>
             <a class="dropdown-item" href="/profile">My Profile</a>
             <a class="dropdown-item" href="logout"><%= button_to "Log out", destroy_user_session_path, method: :delete  %></a>
           <% else %>

@@ -1,0 +1,33 @@
+.dashboard-container {
+  margin-bottom: 40px;
+  .dashboard-banner {
+    display: flex;
+    background: white;
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-top: 8px;
+    margin-bottom: 16px;
+    // padding-bottom: 6px;
+    i {
+      font-size: 32px;
+      margin-right: 16px;
+    }
+    h2 {
+      color: $orange;
+      font-size: 32px;
+    }
+  }
+  .dashboard-list {
+    .booking {
+      display: flex;
+      background-color: white;
+      height: 84px;
+      margin-bottom: 16px;
+    }
+  }
+}
+
+
+.booking {
+  display: flex;
+}
