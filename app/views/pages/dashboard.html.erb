@@ -1,0 +1,69 @@
+<div class="container">
+
+  <% if current_user.expert_profile == true %>
+    <div class="dashboard-container">
+
+      <div class="dashboard-banner">
+        <i class="lni lni-coffee-cup"></i>
+        <h2>Upcoming Coffee Chats</h2>
+      </div>
+
+      <div class="dashboard-list">
+        <% if !@upcoming_bookings.empty? %>
+          <% @upcoming_bookings.each do |booking| %>
+          <div class="booking">
+            <%=booking.start%>
+            <div class="booking-col">
+              <%=booking.start%>
+              <%=booking.coffee_chat.topic%>
+              <%=booking.end - booking.start%>
+            </div>
+            <div class="booking-col">
+              <%= link_to "Cancel", '#' %>
+              <%= link_to "Enter Video Call", '#' %>
+            </div>
+            <div class="booking-col">
+              <%= "photo" %>
+              <%= booking.user.first_name%> <%= booking.user.last_name %>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="dashboard-container">
+
+      <div class="dashboard-banner">
+        <i class="lni lni-coffee-cup"></i>
+        <h2>Completed Coffee Chats</h2>
+      </div>
+
+      <div class="dashboard-list">
+        <% if !@completed_bookings.empty? %>
+          <% @completed_bookings.each do |booking| %>
+            <div class="booking">
+              <%=booking.start%>
+              <div class="booking-col">
+                <%=booking.start%>
+                <%=booking.coffee_chat.topic%>
+                <%=booking.end - booking.start%>
+              </div>
+              <div class="booking-col">
+                <%= link_to "Cancel", '#' %>
+                <%= link_to "Enter Video Call", '#' %>
+              </div>
+              <div class="booking-col">
+                <%= "photo" %>
+                <%= booking.user.first_name%> <%= booking.user.last_name %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <%# <% elsif current_user.expert_profile == true && !current_user.bookings.empty? %>
+
+  <% end %>
+
+</div>
