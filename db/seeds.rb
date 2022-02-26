@@ -61,8 +61,8 @@ User.create({email: "kylie.jenner@gmail.com", password: "123456", first_name: "K
 puts "10 Users created!"
 
 puts "creating coffee_chats for 2 experts - Feb 19, 2022 all day"
-CoffeeChat.create({user_id: 1, topic: User.find(1).topic, availability: true, start: DateTime.new(2022,2,19,0,0,0), end: DateTime.new(2022,2,19,23,59,59)})
-CoffeeChat.create({user_id: 2, topic: User.find(2).topic, availability: true, start: DateTime.new(2022,2,19,0,0,0), end: DateTime.new(2022,2,19,23,59,59)})
+CoffeeChat.create({user_id: 1, availability: true, start: DateTime.new(2022,2,19,0,0,0), end: DateTime.new(2022,2,19,23,59,59)})
+CoffeeChat.create({user_id: 2, availability: true, start: DateTime.new(2022,2,19,0,0,0), end: DateTime.new(2022,2,19,23,59,59)})
 puts "coffee_chat for Feb 19, 2022 all day created!"
 
 puts "creating 5 bookings for 2 experts"
