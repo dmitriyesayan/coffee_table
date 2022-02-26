@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
   # get 'experts/:id/coffee_chats/:id/bookings', to: 'bookings#new', as: 'new_booking'
   # post 'experts/:id/coffee_chats/:id/bookings', to: 'bookings#create'
-  # get 'experts/:id/coffee_chats/:id/bookings/:id', to: 'bookings#show'
+  get 'bookings/:id', to: 'bookings#show', as: :booking
   # patch 'experts/:id/coffee_chats/:id/bookings/:id', to: 'bookings#update'
   # delete 'experts/:id/coffee_chats/:id/bookings/:id', to: 'bookings#destroy'
 
