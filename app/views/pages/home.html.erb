@@ -21,72 +21,23 @@
   </div>
 
 <div class="container">
- <%= @topic_with_expert %>
+  <div class="row">
+  <% @topic_with_expert.each do |x| %>
+
+    <div class="col">
+          <div class="topic-container">
+            <img src="assets/rails.png" class="icon" alt="rails"><br>
+            <h6><%= x.topic_name %></h6><br>
+            <p><%= x.topic_description.truncate(40) %></p>
+          </div>
+
+    </div>
+  <%  end %>
+
+  </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="topic-container">
-        <img src="assets/rails.png" class="icon" alt="rails"><br>
-        <h6>Learn Rails</h6><br>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, esse.</p>
-      </div>
-    </div>
-     <div class="col">
-      <div class="topic-container">
-        <img src="assets/rails.png" class="icon" alt="rails"><br>
-        <h6>Learn Rails</h6><br>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, esse.</p>
-      </div>
-     </div>
-     <div class="col">
-      <div class="topic-container">
-        <img src="assets/rails.png" class="icon" alt="rails"><br>
-        <h6>Learn Rails</h6><br>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, esse.</p>
-      </div>
-    </div>
-     <div class="col">
-      <div class="topic-container">
-        <img src="assets/rails.png" class="icon" alt="rails"><br>
-        <h6>Learn Rails</h6><br>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, esse.</p>
-      </div>
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col">
-      <div class="topic-container">
-        <img src="assets/rails.png" class="icon" alt="rails"><br>
-        <h6>Learn Rails</h6><br>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, esse.</p>
-      </div>
-    </div>
-     <div class="col">
-      <div class="topic-container">
-        <img src="assets/rails.png" class="icon" alt="rails"><br>
-        <h6>Learn Rails</h6><br>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, esse.</p>
-      </div>
-     </div>
-     <div class="col">
-      <div class="topic-container">
-        <img src="assets/rails.png" class="icon" alt="rails"><br>
-        <h6>Learn Rails</h6><br>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, esse.</p>
-      </div>
-    </div>
-     <div class="col">
-      <div class="topic-container">
-        <img src="assets/rails.png" class="icon" alt="rails"><br>
-        <h6>Learn Rails</h6><br>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, esse.</p>
-      </div>
-    </div>
-  </div>
-</div>
+
 <br><br>
  <div class="row">
   <div class="col-sm-2"></div>
