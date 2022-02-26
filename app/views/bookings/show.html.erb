@@ -1,2 +1,12 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+
+<div class="container">
+  <div class="card" style="width: 30rem;">
+    <div class="card-body">
+      <h2 class="card-title">Booking confirmed!</h2>
+      <p>Expert: <%= @booking.coffee_chat.user.first_name %> <%= @booking.coffee_chat.user.last_name %></p>
+      <p>Date and Time: <%= @booking.coffee_chat.start %> <%= @booking.coffee_chat.end %></p>
+      <p>Topic: <%= @booking.coffee_chat.topic %></p>
+      <p>Zoom link:<%= @booking.video_link %></p></p>
+       <a href="#" class="card-link">Cancel</a>
+  </div>
+</div>
