@@ -1,6 +1,15 @@
 class PagesController < ApplicationController
 
   def home
+    topics = Topic.all
+    topics_expert = ExpertTopic.all
+    topics_expert.map { |i| i.topic }
+    @topic_with_expert = []
+    for topic in topics do
+      if topic.id in topics_expert
+      @topic_with_expert << topic
+      end
+    end
   end
 
   def dashboard
@@ -20,9 +29,9 @@ class PagesController < ApplicationController
   end
 
   def become_an_expert
-
   end
 
   def about_us
   end
+
 end

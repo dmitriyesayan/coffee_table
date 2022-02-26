@@ -7,18 +7,50 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'date'
 
+puts "creating 10 topics"
+Topic.create({topic_name: "JavaScript", topic_description: "JavaScript (often shortened to JS) is a lightweight, interpreted, object-oriented language with first-class functions, and is best known as the scripting language for Web pages, but it's used in many non-browser environments as well."})
+Topic.create({topic_name: "English", topic_description: "The English language is an Indo-European language in the West Germanic language group. Modern English is widely considered to be the lingua franca of the world and is the standard language in a wide variety of fields, including computer coding, international business, and higher education."})
+Topic.create({topic_name: "Spanish", topic_description: "castellano, lit. 'Castilian') is a Romance language of the Indo-European language family that evolved from colloquial spoken Latin in the Iberian Peninsula. Today, it is a global language with nearly 500 million native speakers, mainly in the Americas and Spain."})
+Topic.create({topic_name: "Biology", topic_description: "The word biology is derived from the greek words /bios/ meaning /life/ and /logos/ meaning /study/ and is defined as the science of life and living organisms. An organism is a living entity consisting of one cell e.g. bacteria, or several cells e.g. animals, plants and fungi."})
+Topic.create({topic_name: "Rails", topic_description: "Rails is a model–view–controller (MVC) framework, providing default structures for a database, a web service, and web pages. It encourages and facilitates the use of web standards such as JSON or XML for data transfer and HTML, CSS and JavaScript for user interfacing."})
+Topic.create({topic_name: "Math", topic_description: "Mathematics is the science and study of quality, structure, space, and change. Mathematicians seek out patterns, formulate new conjectures, and establish truth by rigorous deduction from appropriately chosen axioms and definitions."})
+Topic.create({topic_name: "Cooking", topic_description: "Cooking, cookery, or culinary arts is the art, science, and craft of using heat to prepare food for consumption. Cooking techniques and ingredients vary widely, from grilling food over an open fire to using electric stoves, to baking in various types of ovens, reflecting local conditions."})
+Topic.create({topic_name: "Home Decor", topic_description: "Home decor is inclusive of physical items and objects (furniture, art, and accessories), placement of physical items and objects, and room colors and materials (flooring, wall coverings, window coverings, and ceilings)."})
+Topic.create({topic_name: "HTML", topic_description: "HTML stands for Hypertext Markup Language, and it is the most widely used language to write Web Pages. Hypertext refers to the way in which Web pages (HTML documents) are linked together. Thus, the link available on a webpage is called Hypertext."})
+Topic.create({topic_name: "Management", topic_description: "Management is the coordination and administration of tasks to achieve a goal. Such administration activities include setting the organization's strategy and coordinating the efforts of staff to accomplish these objectives through the application of available resources."})
+puts "10 topics created!"
+
 puts "creating 10 Experts"
-User.create({email: "zachariah.wallace@gmail.com", password: "123456", expert_profile: true, language: "English", topic: "JavaScript", description: "bla bla bla", first_name: "Zachariah", last_name: "Wallace"})
-User.create({email: "matias.jones@gmail.com", password: "123456", expert_profile: true, language: "Spanish", topic: "JavaScript", description: "bla bla bla", first_name: "Matias", last_name: "Jones"})
-User.create({email: "donavan.jones@gmail.com", password: "123456", expert_profile: true, language: "English", topic: "JavaScript", description: "bla bla bla", first_name: "Donavan", last_name: "Jones"})
-User.create({email: "lupita.gonzales@gmail.com", password: "123456", expert_profile: true, language: "German", topic: "Biology", description: "bla bla bla", first_name: "Lupita", last_name: "Gonzales"})
-User.create({email: "davon.vazquez@gmail.com", password: "123456", expert_profile: true, language: "Arabic", topic: "Rails", description: "bla bla bla", first_name: "Davon", last_name: "Vazquez"})
-User.create({email: "carina.barnett@gmail.com", password: "123456", expert_profile: true, language: "English", topic: "Math", description: "bla bla bla", first_name: "Carina", last_name: "Barnett"})
-User.create({email: "julius.ceasar@gmail.com", password: "123456", expert_profile: true, language: "Greek", topic: "Math", description: "bla bla bla", first_name: "Julius", last_name: "Ceasar"})
-User.create({email: "catrina.rodrigo@gmail.com", password: "123456", expert_profile: true, language: "Spanish", topic: "Biology", description: "bla bla bla", first_name: "Catrina", last_name: "Rodrigo"})
-User.create({email: "alejandro.gomez@gmail.com", password: "123456", expert_profile: true, language: "English", topic: "Cooking", description: "bla bla bla", first_name: "Alejandro", last_name: "Gomez"})
-User.create({email: "david.middleton@gmail.com", password: "123456", expert_profile: true, language: "English", topic: "Home Decor", description: "bla bla bla", first_name: "David", last_name: "Middleton"})
+User.create({email: "zachariah.wallace@gmail.com", password: "123456", expert_profile: true, language: "English", description: "bla bla bla", first_name: "Zachariah", last_name: "Wallace"})
+User.create({email: "matias.jones@gmail.com", password: "123456", expert_profile: true, language: "Spanish", description: "bla bla bla", first_name: "Matias", last_name: "Jones"})
+User.create({email: "donavan.jones@gmail.com", password: "123456", expert_profile: true, language: "English", description: "bla bla bla", first_name: "Donavan", last_name: "Jones"})
+User.create({email: "lupita.gonzales@gmail.com", password: "123456", expert_profile: true, language: "German", description: "bla bla bla", first_name: "Lupita", last_name: "Gonzales"})
+User.create({email: "davon.vazquez@gmail.com", password: "123456", expert_profile: true, language: "Arabic", description: "bla bla bla", first_name: "Davon", last_name: "Vazquez"})
+User.create({email: "carina.barnett@gmail.com", password: "123456", expert_profile: true, language: "English", description: "bla bla bla", first_name: "Carina", last_name: "Barnett"})
+User.create({email: "julius.ceasar@gmail.com", password: "123456", expert_profile: true, language: "Greek", description: "bla bla bla", first_name: "Julius", last_name: "Ceasar"})
+User.create({email: "catrina.rodrigo@gmail.com", password: "123456", expert_profile: true, language: "Spanish", description: "bla bla bla", first_name: "Catrina", last_name: "Rodrigo"})
+User.create({email: "alejandro.gomez@gmail.com", password: "123456", expert_profile: true, language: "English", description: "bla bla bla", first_name: "Alejandro", last_name: "Gomez"})
+User.create({email: "david.middleton@gmail.com", password: "123456", expert_profile: true, language: "English", description: "bla bla bla", first_name: "David", last_name: "Middleton"})
 puts "10 Experts created!"
+
+puts "creating 16 expert_topics"
+ExpertTopic.create({user_id: 1, topic_id: 1})
+ExpertTopic.create({user_id: 1, topic_id: 5})
+ExpertTopic.create({user_id: 1, topic_id: 9})
+ExpertTopic.create({user_id: 2, topic_id: 4})
+ExpertTopic.create({user_id: 3, topic_id: 2})
+ExpertTopic.create({user_id: 3, topic_id: 3})
+ExpertTopic.create({user_id: 4, topic_id: 5})
+ExpertTopic.create({user_id: 4, topic_id: 9})
+ExpertTopic.create({user_id: 5, topic_id: 6})
+ExpertTopic.create({user_id: 5, topic_id: 10})
+ExpertTopic.create({user_id: 6, topic_id: 7})
+ExpertTopic.create({user_id: 7, topic_id: 8})
+ExpertTopic.create({user_id: 8, topic_id: 9})
+ExpertTopic.create({user_id: 9, topic_id: 10})
+ExpertTopic.create({user_id: 10, topic_id: 10})
+ExpertTopic.create({user_id: 10, topic_id: 1})
+puts "16 expert_topics created!"
 
 puts "creating 5 Users"
 User.create({email: "ronald.mcdonalds@gmail.com", password: "123456", first_name: "Ronald ", last_name: "McDonalds"})
@@ -29,8 +61,8 @@ User.create({email: "kylie.jenner@gmail.com", password: "123456", first_name: "K
 puts "10 Users created!"
 
 puts "creating coffee_chats for 2 experts - Feb 19, 2022 all day"
-CoffeeChat.create({user_id: 1, topic: User.find(1).topic, availability: true, start: DateTime.new(2022,2,19,0,0,0), end: DateTime.new(2022,2,19,23,59,59)})
-CoffeeChat.create({user_id: 2, topic: User.find(2).topic, availability: true, start: DateTime.new(2022,2,19,0,0,0), end: DateTime.new(2022,2,19,23,59,59)})
+CoffeeChat.create({user_id: 1, availability: true, start: DateTime.new(2022,2,19,0,0,0), end: DateTime.new(2022,2,19,23,59,59)})
+CoffeeChat.create({user_id: 2, availability: true, start: DateTime.new(2022,2,19,0,0,0), end: DateTime.new(2022,2,19,23,59,59)})
 puts "coffee_chat for Feb 19, 2022 all day created!"
 
 puts "creating 5 bookings for 2 experts"

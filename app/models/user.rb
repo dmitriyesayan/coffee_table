@@ -12,7 +12,10 @@ class User < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_topic_and_language,
-    against: [ :topic, :language ],
+    against: :language,
+    associated_against: {
+      topics: :topic_name
+    },
     using: {
       tsearch: { prefix: true }
     }
