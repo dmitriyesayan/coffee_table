@@ -1,0 +1,42 @@
+.profile-section {
+
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 4%;
+  row-gap: 7%;
+  height: 500px;
+
+  h1 {
+    text-align: center;
+  }
+
+  .profile, .activities, .badges {
+    background-color: white;
+    border-radius: 5px;
+    padding: 3%;
+  }
+  .activities {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .profile {
+    grid-row: 1 / span 2;
+    height: 100%;
+    text-align: center;
+    .icon {
+      width: 80px;
+      height: 80px;
+    }
+  }
+  table {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    tbody tr td:nth-child(1) {
+      font-weight: 600;
+    }
+  }
+}

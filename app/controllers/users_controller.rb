@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   def index
     if params[:query].present?
-      sql_query = "topic ILIKE :query OR language ILIKE :query"
-      @experts = User.where(sql_query, query: "%#{params[:query]}%")
+      sql_query = "topic_name ILIKE :query"
+      topic = Topic.where(sql_query, query: "%#{params[:query]}%")[0]
+      @experts = topic.users
     else
       @experts = User.where(expert_profile: true)
     end
