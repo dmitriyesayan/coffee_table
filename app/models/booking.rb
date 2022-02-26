@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :coffee_chat
-  has_many :messages
+  belongs_to :topic
   has_many :reviews
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_24_193839) do
+ActiveRecord::Schema.define(version: 2022_02_26_153412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,15 +21,16 @@ ActiveRecord::Schema.define(version: 2022_02_24_193839) do
     t.datetime "start"
     t.datetime "end"
     t.string "video_link"
+    t.bigint "topic_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["coffee_chat_id"], name: "index_bookings_on_coffee_chat_id"
+    t.index ["topic_id"], name: "index_bookings_on_topic_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "coffee_chats", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "topic"
     t.boolean "availability", default: false
     t.datetime "start"
     t.datetime "end"
@@ -95,6 +96,7 @@ ActiveRecord::Schema.define(version: 2022_02_24_193839) do
   end
 
   add_foreign_key "bookings", "coffee_chats"
+  add_foreign_key "bookings", "topics"
   add_foreign_key "bookings", "users"
   add_foreign_key "coffee_chats", "users"
   add_foreign_key "expert_topics", "topics"

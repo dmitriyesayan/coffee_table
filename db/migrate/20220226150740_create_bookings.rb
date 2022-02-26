@@ -6,6 +6,7 @@ class CreateBookings < ActiveRecord::Migration[6.1]
       t.datetime :start
       t.datetime :end
       t.string :video_link
+      t.references :topic, null: false, foreign_key: true
 
       t.timestamps
     end
