@@ -1,3 +1,4 @@
 class Topic < ApplicationRecord
-has_many :expert_topics
+  has_many :expert_topics
+
 end
