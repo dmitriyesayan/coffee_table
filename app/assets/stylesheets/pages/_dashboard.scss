@@ -20,14 +20,49 @@
   .dashboard-list {
     .booking {
       display: flex;
+      justify-content: space-between;
       background-color: white;
-      height: 84px;
+      height: 100px;
       margin-bottom: 16px;
+      .booking-left {
+        display: flex;
+        justify-content: left;
+      }
+      .booking-right {
+        display: flex;
+        justify-content: right;
+        .booking-col {
+          h2 {
+            margin-bottom: 0;
+          }
+          p {
+            text-align: center;
+            a {
+              color: black;
+              padding-bottom: 0;
+              padding-top: 0;
+            }
+          }
+          .text-small {
+            font-size: 16px;
+          }
+        }
+        .width-static {
+          width: 240px;
+        }
+      }
+      .booking-col {
+        display:block;
+        padding-right: 24px;
+        padding-left: 8px;
+        p {
+          font-size: 20px;
+          margin-bottom: 0;
+        }
+      }
+      .right-border {
+        border-right: 1px solid rgb(146, 146, 146);;
+      }
     }
   }
-}
-
-
-.booking {
-  display: flex;
 }
