@@ -30,7 +30,29 @@
           <% else %>
             <h4><strong><%=expert.first_name%> <%=expert.last_name%></strong></h4>
           <% end %>
-          <p><%=expert.topic %> expert</p>
+          <% topics = expert.topics %>
+          <% if topics.count == 1 %>
+            <% if topics[0].topic_name.length > 21 %>
+              <p><%= topics[0].topic_name.truncate(21) %></p>
+            <% else %>
+              <p><%=topics[0].topic_name%> expert</p>
+            <% end %>
+          <% else %>
+            <% topics_string = "" %>
+            <% topics.each do |topic| %>
+            <% if topics_string == "" %>
+              <% topics_string += topic.topic_name %>
+            <% else %>
+              <% topics_string += ", #{topic.topic_name}" %>
+            <% end %>
+            <% end %>
+            <% if topics_string.length > 21 %>
+              <p><%= topics_string.truncate(21) %></p>
+            <% else %>
+              <p><%=topics_string%> expert</p>
+            <% end %>
+          <% end %>
+
           <% rating = expert.reviews.average(:rating).to_f.round  %>
           <div class="rating-inline">
             <% rating.times do %>
