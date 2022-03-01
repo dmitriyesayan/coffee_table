@@ -38,6 +38,8 @@ gem 'font-awesome-sass'
 gem "font-awesome-rails"
 gem 'simple_form'
 gem "simple_calendar", "~> 2.4"
+gem 'dotenv-rails', groups: [:development, :test]
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
