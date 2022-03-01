@@ -27,7 +27,8 @@
     <div class="col">
           <div class="topic-container">
             <img src="assets/rails.png" class="icon" alt="rails"><br>
-            <h6><%= x.topic_name %></h6><br>
+            <h6><a href="http://localhost:3000/experts?query=<%= x.topic_name %>&commit=Search">
+            <%= x.topic_name %></a></h6><br>
             <p><%= x.topic_description.truncate(40) %></p>
           </div>
 
