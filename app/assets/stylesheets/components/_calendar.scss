@@ -1,10 +1,16 @@
 .simple-calendar {
+  width: 50%;
+
+  .day {
+    height: 30px;
+  }
   table {
-    min-height: 80vh;
+    height: 50px;
     background-color: white;
+    border: #5b62be solid 5px;
   }
   .today {
-    background-color: #FAF3DD;
+    background-color: #d3965c;
   }
 }
 
@@ -19,4 +25,33 @@
 .meeting:hover {
   background: #6eaee2;
   color: white;
+}
+
+.card-body {
+  padding-bottom: 0px;
+}
+
+.expert-card{
+  width: 900px;
+  background-color: white;
+}
+
+.card-expert-description {
+  margin: 20px auto;
+  background-color: white;
+  box-shadow: 0px  5px 10px rgb(36, 36, 37)
+}
+
+.card-expert {
+  display: flex;
+  background: white;
+  align-items: center;
+  margin: 32px auto;
+  box-shadow: 0px  5px 10px rgb(36, 36, 37)
+}
+
+.card-expert img {
+  height: 300px;
+  margin-right: 16px;
+
 }
