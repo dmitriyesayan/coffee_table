@@ -10,3 +10,38 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+header {
+  padding: 0;
+}
+
+.navbar-new {
+  width: 100%;
+  background-color: white;
+  font-size: 1.1em;
+  height: 60px;
+  color: black;
+  margin-bottom: 2%;
+  box-shadow: 0 2px 15px -2px rgb(20, 114, 255);
+  .container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 3% 1fr 16% 10% 13%;
+  }
+  i {
+    font-size: 1.5em;
+  }
+  .dropdown {
+    justify-self: end;
+  }
+  .exp {
+    justify-self: end;
+  }
+  .nav-link {
+    color: black;
+  }
+
+  .dropdown button {
+    border-radius: 18px;
+  }
+}
