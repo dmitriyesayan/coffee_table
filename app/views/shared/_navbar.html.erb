@@ -1,18 +1,16 @@
-<header class="p-3 mb-3">
-    <div class="container">
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-
-          <li><a href="/" class="nav-link px-2 navbar-link">Home</a></li>
-          <li><a href="/become-an-expert" class="nav-link px-2 navbar-link">Become an expert</a></li>
-
-          <li><%= link_to "About us", about_us_path, class: "nav-link px-2 navbar-link" %></li>
-          <div class="dropdown show">
-          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            User<i class="fa-solid fa-square-user"></i>
-          </a>
-
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <% if user_signed_in? %>
+ <header>
+ <div class='navbar-new'>
+    <nav class="container ">
+        <i class="fas fa-coffee"></i>
+        <%= link_to "Coffee Table", root_path, class: "nav-link px-2 navbar-link" %>
+        <%= link_to "Become an expert", become_an_expert_path, class: "nav-link px-2 navbar-link" %>
+        <%= link_to "About us", about_us_path, class: "nav-link px-2 navbar-link" %>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <% if user_signed_in? %>
             <a class="dropdown-item" href="/">Home</a>
             <a class="dropdown-item" href="/dashboard">My Dashboard</a>
             <a class="dropdown-item" href="/profile">My Profile</a>
@@ -22,10 +20,6 @@
             <a href="/users/sign_up" class="nav-link px-2 navbar-link">Sign Up</a>
           <% end %>
           </div>
-        </div>
-        </ul>
-
-
-      </div>
-    </div>
-  </header>
+        </nav>
+</div>
+</header>
