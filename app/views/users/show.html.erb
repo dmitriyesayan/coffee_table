@@ -1,16 +1,47 @@
-<h1>Book an expert</h1>
-
 <div class="container">
 
-  <%= month_calendar(events: @coffee_chats, attribute: :start, end_attribute: :end) do |date, coffee_chats| %>
-    <%= date %>
 
-    <% coffee_chats.each do |coffee_chat| %>
-    <%= link_to expert_bookings_path(@expert, coffee_chat: coffee_chat), method: :post do %>
-      <div class="meeting">
-        <small><%= coffee_chat.time unless coffee_chat.multi_days? %></small>
+
+    <div class="card-expert">
+      <%= image_tag "testimonial2.png"%>
+
+      <div>
+        <h5 class="card-title">Mike Mitchel</h5>
+            <p class="card-text">&#x2B50 &#x2B50 &#x2B50</p>
+            <p class="card-text">Speaks English</p>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+
+          <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/xwKbtUP87Dk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+    </div>
+
+    <div class="card-expert-description">
+      <div class="card-body">
+        <h2>About the expert</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type
+        specimen book. It has survived not only five centuries,</p>
       </div>
+    </div>
+
+
+
+<h1>Make a booking</h1>
+
+
+    <%= month_calendar(events: @coffee_chats, attribute: :start, end_attribute: :end) do |date, coffee_chats| %>
+      <%= date %>
+
+      <% coffee_chats.each do |coffee_chat| %>
+      <%= link_to expert_bookings_path(@expert, coffee_chat: coffee_chat), method: :post do %>
+        <div class="meeting">
+          <small><%= coffee_chat.time unless coffee_chat.multi_days? %></small>
+        </div>
+      <% end %>
+      <% end %>
     <% end %>
-    <% end %>
-  <% end %>
 </div>
