@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'messages/create'
   devise_for :users
   root to: 'pages#home'
 
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
   get 'about-us', to: 'pages#about_us'
 
   post 'bookings/:id/reviews', to: 'reviews#create'
+  post 'bookings/:id/messages/:id', to: 'messages#create', as: :booking_messages
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

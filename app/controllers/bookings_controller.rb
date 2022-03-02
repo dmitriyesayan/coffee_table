@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id].to_i)
-
+    @message = Message.new
   end
 
   def destroy
