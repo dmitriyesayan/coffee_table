@@ -2,22 +2,36 @@
   <div class='profile-section'>
     <div class='profile-details'>
       <img src="assets/default-user.png" class="icon" alt="rails">
-      <h1><strong>First name</strong> and <strong>Last name</strong></h1>
-      <h4>Location</h4>
+      <h1><strong><%= current_user.first_name %> <%= current_user.last_name %></strong></h1>
+      <h4><%= current_user.email %></h4>
+      <h4><%= current_user.description %></h4>
       <br><br>
-      <h5>Member since Feb 2022</h5>
+      <h5>Member since <%= (Date::MONTHNAMES[current_user.created_at.month])%> <%= current_user.created_at.year %> -- <%= current_user.id %></h5>
+
+      <h5 id='edit-profile-a'><%= link_to "Edit Profile", edit_user_registration_path(current_user) %></h5>
     </div>
 
-    <div class='expert-section'>
-      <h5>EXPERT SECTION</h5>
-      <hr>
-      <h3>Expert in <strong>English, Dutch</strong><h3>
-    </div>
+    <% if current_user.expert_profile %>
+      <div class='expert-section'>
+        <h5>EXPERT SECTION</h5>
+        <hr>
+
+        <h3>Expert in
+          <strong>
+            <% ExpertTopic.all.each do |expert_topics| %>
+              <% if expert_topics.user_id == current_user.id
+                  topic = Topic.find(expert_topics.topic_id).topic_name
+                  end %>
+            <% end %>
+          </strong>
+        <h3>
+      </div>
+    <% end %>
 
     <div class='learner-section'>
       <h5>LEARNER SECTION</h5>
       <hr>
-      <h3>Learning <strong>JavaScript, OOP</strong><h3>
+      <h3>Learning <strong></strong><h3>
     </div>
 
     <div class='history'>
@@ -35,20 +49,21 @@
       <tbody>
         <tr>
           <th scope="row">As a learner</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
         </tr>
         <tr>
           <th scope="row">As an expert</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
         </tr>
         <tr>
           <th scope="row">Attendance</th>
-          <td>Larry the Bird</td>
-          <td>@twitter</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
         </tr>
       </tbody>
     </table>
