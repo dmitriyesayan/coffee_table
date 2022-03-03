@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   patch 'experts/:id/coffee_chats', to: 'coffee_chats#update'
   delete 'experts/:id/coffee_chats', to: 'coffee_chats#destroy'
 
-  resources :experts, controller: 'users', only: [:index, :show] do
+  resources :experts, controller: 'users', only: [:index, :show, :update] do
     resources :bookings
   end
   # get 'experts/:id/coffee_chats/:id/bookings', to: 'bookings#new', as: 'new_booking'
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   post 'bookings/:id/reviews', to: 'reviews#create'
   post 'bookings/:id/messages/:id', to: 'messages#create', as: :booking_messages
-
+  post 'bookings/:id/reviews', to: 'reviews#create', as: :booking_reviews
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -62,7 +62,7 @@
         </div>
         <div class="expert-card-bottom-right">
           <p><strong><%= expert.bookings.count %> sessions</strong> completed</p>
-          <%= link_to "Open profile", expert_path(expert.id) %>
+          <%= link_to "Open profile", expert_path(expert.id, q: params[:query]) %>
         </div>
       </div>
     </div>
