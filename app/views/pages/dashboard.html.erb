@@ -84,5 +84,11 @@
   <%# <% elsif current_user.expert_profile == true && !current_user.bookings.empty? %>
 
   <% end %>
+<div class="container">
+  <h5>Upload Your Availability</h5>
+  <%= month_calendar(events: @coffee_chats, attribute: :start, end_attribute: :end) do |date, coffee_chats| %>
+    <%= date %>
+  <% end %>
+
 
 </div>

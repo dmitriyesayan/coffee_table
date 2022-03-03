@@ -20,6 +20,7 @@ class PagesController < ApplicationController
     @completed_bookings = @bookings.select do |booking|
       booking.end < DateTime.now
     end
+     @coffee_chats = CoffeeChat.all
   end
 
   def confirmation
