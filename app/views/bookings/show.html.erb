@@ -12,6 +12,12 @@
 
 </div>
 
+<script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
+<script>
+  callFrame = window.DailyIframe.createFrame();
+  callFrame.join({ url: 'https://d28usdh7.daily.co/hello-daily' });
+</script>
+
 <div class="chatbox">
   <div id="messages" data-booking-id="<%= @booking.id %>">
     <% messages = @booking.messages.last(10) %>
