@@ -3,7 +3,8 @@
 
 
     <div class="card-expert">
-      <%= image_tag "testimonial2.png"%>
+      <%= cl_image_tag("cld-sample",
+      width: 300, height: 310, crop: :fill) %>
 
       <div>
         <h5 class="card-title">Mike Mitchel</h5>
@@ -14,7 +15,7 @@
           </div>
 
           <div>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/xwKbtUP87Dk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="400" height="290" src="https://www.youtube.com/embed/xwKbtUP87Dk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
     </div>
 
@@ -37,11 +38,15 @@
       <%= date %>
 
       <% coffee_chats.each do |coffee_chat| %>
-      <%= link_to expert_bookings_path(@expert, coffee_chat: coffee_chat), method: :post do %>
+      <%= link_to expert_bookings_path(@expert, coffee_chat: coffee_chat, topic: params[:q]), method: :post do %>
         <div class="meeting">
           <small><%= coffee_chat.time unless coffee_chat.multi_days? %></small>
         </div>
       <% end %>
       <% end %>
     <% end %>
+
+
+
+
 </div>

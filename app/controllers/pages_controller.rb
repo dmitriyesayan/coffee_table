@@ -26,6 +26,7 @@ class PagesController < ApplicationController
   end
 
   def profile
+    @user = current_user
   end
 
   def become_an_expert
