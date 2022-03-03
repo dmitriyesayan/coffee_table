@@ -57,3 +57,14 @@
     </div>
   </div>
 </div>
+
+
+  <div class="form-inputs">
+    <%= simple_form_for(@user, url: experts_path, method: :patch ) do |f| %>
+    <%= f.input :photo, as: :file %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <% end %>
+  </div>

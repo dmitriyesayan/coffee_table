@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
     booking.coffee_chat = CoffeeChat.find(params[:coffee_chat].to_i)
     booking.start = booking.coffee_chat.start
     booking.end = booking.coffee_chat.end
+    booking.topic = Topic.find_by("topic_name ILIKE ?", params[:topic])
     booking.video_link = "zoom link"
     if booking.save
       booking.coffee_chat.update(availability: false)

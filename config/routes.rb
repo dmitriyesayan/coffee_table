@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   patch 'experts/:id/coffee_chats', to: 'coffee_chats#update'
   delete 'experts/:id/coffee_chats', to: 'coffee_chats#destroy'
 
-  resources :experts, controller: 'users', only: [:index, :show] do
+  resources :experts, controller: 'users', only: [:index, :show, :update] do
     resources :bookings
   end
   # get 'experts/:id/coffee_chats/:id/bookings', to: 'bookings#new', as: 'new_booking'
