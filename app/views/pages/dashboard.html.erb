@@ -26,8 +26,7 @@
               <div class="booking-right">
                 <div class="booking-col">
                   <p><%= link_to "Cancel", expert_booking_path(current_user, booking), method: :delete, remote: true, data: {confirm: "Are you sure?"} %></p>
-                  <p><%= link_to "Message learner" %></p>
-                  <p><%= link_to "Enter Video Call" %></p>
+                  <p><%= link_to "Go to Booking", expert_booking_path(current_user, booking)  %></p>
                 </div>
                 <div class="booking-col width-static">
                   <%= "photo" %>
@@ -82,7 +81,89 @@
       </div>
     </div>
   <%# <% elsif current_user.expert_profile == true && !current_user.bookings.empty? %>
+  <% else %>
+    <div class="dashboard-container">
 
+      <div class="dashboard-banner">
+        <i class="lni lni-coffee-cup"></i>
+        <h2>Upcoming Coffee Chats</h2>
+      </div>
+
+      <div class="dashboard-list">
+        <% if !@user_upcoming_bookings.empty? %>
+          <% @user_upcoming_bookings.each do |booking| %>
+          <div class="booking">
+              <div class="booking-left">
+                <div class="booking-col right-border">
+                  <h2><%=booking.start.strftime("%d")%></h2>
+                  <h2><%=booking.start.strftime("%b")%></h2>
+                </div>
+                <div class="booking-col">
+                  <h2><%=booking.start.strftime("%H")%>:<%=booking.start.strftime("%M")%></h2>
+                  <%=booking.topic.topic_name%>
+                  <p><%=(booking.end - booking.start).to_i/60%> mins</p>
+                </div>
+              </div>
+              <div class="booking-right">
+                <div class="booking-col">
+                  <p><%= link_to "Cancel", expert_booking_path(current_user, booking), method: :delete, remote: true, data: {confirm: "Are you sure?"} %></p>
+                  <p><%= link_to "Go to Booking",  expert_booking_path(booking.coffee_chat.user, booking) %></p>
+                </div>
+                <div class="booking-col width-static">
+                  <%= "photo" %>
+                  <p><%= booking.coffee_chat.user.first_name%> <%= booking.coffee_chat.user.last_name %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="dashboard-container">
+
+      <div class="dashboard-banner">
+        <i class="lni lni-coffee-cup"></i>
+        <h2>Completed Coffee Chats</h2>
+      </div>
+
+      <div class="dashboard-list">
+        <% if !@user_completed_bookings.empty? %>
+          <% @user_completed_bookings.each do |booking| %>
+            <div class="booking">
+              <div class="booking-left">
+                <div class="booking-col right-border">
+                  <h2><%=booking.start.strftime("%d")%></h2>
+                  <h2><%=booking.start.strftime("%b")%></h2>
+                </div>
+                <div class="booking-col">
+                  <h2><%=booking.start.strftime("%H")%>:<%=booking.start.strftime("%M")%></h2>
+                  <%=booking.topic.topic_name%>
+                  <p><%=(booking.end - booking.start).to_i/60%> mins</p>
+                </div>
+              </div>
+              <div class="booking-right">
+                <div class="booking-col">
+                  <% if !booking.reviews.empty? %>
+                    <p>Rating <%= booking.reviews[0].rating %>/5</p>
+                    <p class="text-small"><%= booking.reviews[0].content %></p>
+                  <% else %>
+                    <%= simple_form_for([ booking, @review ], remote: true) do |f| %>
+                      <%= f.input :rating %>
+                      <%= f.input :content %>
+                      <%= f.submit "Submit", class: "btn btn-secondary" %>
+                    <% end %>
+                  <% end %>                </div>
+                <div class="booking-col width-static">
+                  <%= "photo" %>
+                  <p><%= booking.coffee_chat.user.first_name%> <%= booking.coffee_chat.user.last_name %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 
 </div>
