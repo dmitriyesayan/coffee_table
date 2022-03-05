@@ -1,14 +1,20 @@
 <div class='container'>
   <div class='profile-section'>
     <div class='profile-details'>
+
+    <% if @user.photo.key %>
+      <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
       <img src="assets/default-user.png" class="icon" alt="rails">
+    <% end %>
+
       <h1><strong><%= current_user.first_name %> <%= current_user.last_name %></strong></h1>
       <h4><%= current_user.id %></h4>
       <h4><%= current_user.description %></h4>
       <br><br>
       <h5>Member since <%= (Date::MONTHNAMES[current_user.created_at.month])%> <%= current_user.created_at.year %> -- <%= current_user.id %></h5>
 
-      <h5 id='edit-profile-a'><%= link_to "Edit Profile", edit_user_registration_path(current_user) %></h5>
+      <h5 id='edit-profile-a'><%= link_to "Edit Profile", edit_user_registration_path %></h5>
     </div>
       <div class='expert-section'>
         <h5>EXPERT SECTION</h5>
@@ -69,14 +75,3 @@
     </div>
   </div>
 </div>
-
-
-  <div class="form-inputs">
-    <%= simple_form_for(@user, url: experts_path, method: :patch ) do |f| %>
-    <%= f.input :photo, as: :file %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-    <% end %>
-  </div>
