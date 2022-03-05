@@ -3,36 +3,6 @@
 @import "users_index";
 @import "dashboard";
 @import "profile";
+@import "about";
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
-
-
-.footer-section {
-  height: 8%;
-  width: 100%;
-  background-color: rgb(112, 112, 112);
-  color: white;
-
-
-  h3 {
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-  }
-  h5 {
-    font-family: 'Poppins', sans-serif;
-
-  }
-  .contact, .connect, .office-address {
-  }
-  .footer-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 1%;
-    column-gap: 5%;
-  }
-  p {
-    text-align: center;
-    color: rgb(63, 63, 63);
-  }
-  margin-top: 7%;
-}
