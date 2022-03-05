@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'experts/:id/coffee_chats', to: 'coffee_chats#index'
   patch 'experts/:id/coffee_chats', to: 'coffee_chats#update'
   delete 'experts/:id/coffee_chats', to: 'coffee_chats#destroy'
+  post 'coffee_chats', to: 'coffee_chats#create'
+  get 'dashboard/new', to: 'coffee_chats#new'
 
   resources :experts, controller: 'users', only: [:index, :show, :update] do
     resources :bookings
