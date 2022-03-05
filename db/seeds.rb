@@ -115,7 +115,7 @@ Booking.create({user_id: 12, coffee_chat_id: 1, start: CoffeeChat.find(1).start,
 Booking.create({user_id: 11, coffee_chat_id: 1, start: CoffeeChat.find(1).start, end: CoffeeChat.find(1).end, topic_id: CoffeeChat.find(1).user.topics[0].id})
 Booking.create({user_id: 11, coffee_chat_id: 2, start: CoffeeChat.find(2).start, end: CoffeeChat.find(2).end, topic_id: CoffeeChat.find(2).user.topics[0].id})
 Booking.create({user_id: 13, coffee_chat_id: 2, start: CoffeeChat.find(2).start, end: CoffeeChat.find(2).end, topic_id: CoffeeChat.find(2).user.topics[0].id})
-Booking.create({user_id: 11, coffee_chat_id: 3, start: CoffeeChat.find(3).start, end: CoffeeChat.find(3).end, topic_id: CoffeeChat.find(3).user.topics[0].id})
+Booking.create({user_id: 11, video_link: "https://d28usdh7.daily.co/6", coffee_chat_id: 3, start: CoffeeChat.find(3).start, end: CoffeeChat.find(3).end, topic_id: CoffeeChat.find(3).user.topics[0].id})
 Booking.create({user_id: 12, coffee_chat_id: 4, start: CoffeeChat.find(4).start, end: CoffeeChat.find(4).end, topic_id: CoffeeChat.find(4).user.topics[0].id})
 Booking.create({user_id: 11, coffee_chat_id: 5, start: CoffeeChat.find(5).start, end: CoffeeChat.find(5).end, topic_id: CoffeeChat.find(5).user.topics[0].id})
 Booking.create({user_id: 11, coffee_chat_id: 6, start: CoffeeChat.find(6).start, end: CoffeeChat.find(6).end, topic_id: CoffeeChat.find(6).user.topics[0].id})
