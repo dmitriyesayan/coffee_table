@@ -68,16 +68,16 @@ CoffeeChat.create({user_id: 2, availability: true, start: DateTime.new(2023,1,2,
 puts "coffee_chat for Feb 19, 2022 all day created!"
 
 puts "creating 5 bookings for 2 experts"
-Booking.create({user_id: 11, coffee_chat_id: 1, start: DateTime.new(2022,2,19,12,0,0), end: DateTime.new(2022,2,19,13,0,0), video_link: "#", topic_id: CoffeeChat.find(1).user.topics[0].id})
-Booking.create({user_id: 12, coffee_chat_id: 1, start: DateTime.new(2022,2,19,15,0,0), end: DateTime.new(2022,2,19,16,0,0), video_link: "#", topic_id: CoffeeChat.find(1).user.topics[0].id})
-Booking.create({user_id: 11, coffee_chat_id: 1, start: DateTime.new(2022,2,19,19,0,0), end: DateTime.new(2022,2,19,20,0,0), video_link: "#", topic_id: CoffeeChat.find(1).user.topics[0].id})
-Booking.create({user_id: 11, coffee_chat_id: 2, start: DateTime.new(2022,2,19,22,0,0), end: DateTime.new(2022,2,19,23,0,0), video_link: "#", topic_id: CoffeeChat.find(2).user.topics[0].id})
-Booking.create({user_id: 13, coffee_chat_id: 2, start: DateTime.new(2022,2,19,11,0,0), end: DateTime.new(2022,2,19,12,0,0), video_link: "#", topic_id: CoffeeChat.find(2).user.topics[0].id})
-Booking.create({user_id: 11, coffee_chat_id: 3, start: DateTime.new(2023,1,1,12,0,0), end: DateTime.new(2023,1,1,13,0,0), video_link: "#", topic_id: CoffeeChat.find(1).user.topics[0].id})
-Booking.create({user_id: 12, coffee_chat_id: 3, start: DateTime.new(2023,1,1,12,0,0), end: DateTime.new(2023,1,1,13,0,0), video_link: "#", topic_id: CoffeeChat.find(1).user.topics[0].id})
-Booking.create({user_id: 11, coffee_chat_id: 3, start: DateTime.new(2023,1,1,12,0,0), end: DateTime.new(2023,1,1,13,0,0), video_link: "#", topic_id: CoffeeChat.find(1).user.topics[0].id})
-Booking.create({user_id: 11, coffee_chat_id: 4, start: DateTime.new(2023,1,2,14,0,0), end: DateTime.new(2023,1,2,15,0,0), video_link: "#", topic_id: CoffeeChat.find(2).user.topics[0].id})
-Booking.create({user_id: 13, coffee_chat_id: 4, start: DateTime.new(2023,1,2,14,0,0), end: DateTime.new(2023,1,2,15,0,0), video_link: "#", topic_id: CoffeeChat.find(2).user.topics[0].id})
+Booking.create({user_id: 11, coffee_chat_id: 1, start: DateTime.new(2022,2,19,12,0,0), end: DateTime.new(2022,2,19,13,0,0), topic_id: CoffeeChat.find(1).user.topics[0].id})
+Booking.create({user_id: 12, coffee_chat_id: 1, start: DateTime.new(2022,2,19,15,0,0), end: DateTime.new(2022,2,19,16,0,0), topic_id: CoffeeChat.find(1).user.topics[0].id})
+Booking.create({user_id: 11, coffee_chat_id: 1, start: DateTime.new(2022,2,19,19,0,0), end: DateTime.new(2022,2,19,20,0,0), topic_id: CoffeeChat.find(1).user.topics[0].id})
+Booking.create({user_id: 11, coffee_chat_id: 2, start: DateTime.new(2022,2,19,22,0,0), end: DateTime.new(2022,2,19,23,0,0), topic_id: CoffeeChat.find(2).user.topics[0].id})
+Booking.create({user_id: 13, coffee_chat_id: 2, start: DateTime.new(2022,2,19,11,0,0), end: DateTime.new(2022,2,19,12,0,0), topic_id: CoffeeChat.find(2).user.topics[0].id})
+Booking.create({user_id: 11, coffee_chat_id: 3, start: DateTime.new(2023,1,1,12,0,0), end: DateTime.new(2023,1,1,13,0,0), topic_id: CoffeeChat.find(1).user.topics[0].id})
+Booking.create({user_id: 12, coffee_chat_id: 3, start: DateTime.new(2023,1,1,12,0,0), end: DateTime.new(2023,1,1,13,0,0), topic_id: CoffeeChat.find(1).user.topics[0].id})
+Booking.create({user_id: 11, coffee_chat_id: 3, start: DateTime.new(2023,1,1,12,0,0), end: DateTime.new(2023,1,1,13,0,0), topic_id: CoffeeChat.find(1).user.topics[0].id})
+Booking.create({user_id: 11, coffee_chat_id: 4, start: DateTime.new(2023,1,2,14,0,0), end: DateTime.new(2023,1,2,15,0,0), topic_id: CoffeeChat.find(2).user.topics[0].id})
+Booking.create({user_id: 13, coffee_chat_id: 4, start: DateTime.new(2023,1,2,14,0,0), end: DateTime.new(2023,1,2,15,0,0), topic_id: CoffeeChat.find(2).user.topics[0].id})
 puts "creted 5 bookings for 2 experts!"
 
 puts "creating 5 reviews for 5 bookings / 2 experts"
