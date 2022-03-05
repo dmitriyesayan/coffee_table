@@ -15,6 +15,7 @@
                   hint: "About yourself",
                   required: false
                   %>
+      <%= f.input :photo, as: :file, direct_upload: true %>
       <%= f.input :current_password,
                   hint: "we need your current password to confirm your changes",
                   required: true,
