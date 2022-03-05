@@ -21,7 +21,7 @@
     <% @experts.each do |expert| %>
     <div class="expert-card">
       <div class="image-containter">
-        <%= image_tag "example-profile-image.jpg", alt: "example-profile-image", width: 300 %>
+        <%= cl_image_tag expert.photo.key, width: 300, crop: :fill %>
       </div>
       <div class="expert-card-bottom">
         <div class="expert-card-bottom-left">
