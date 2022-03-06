@@ -1,86 +1,267 @@
 <div class="container">
-
   <% if current_user.expert_profile == true %>
-    <div class="dashboard-container">
-
-      <div class="dashboard-banner">
-        <i class="lni lni-coffee-cup"></i>
-        <h2>Upcoming Coffee Chats</h2>
+    <% if (!Booking.find_by(user_id: current_user) != nil) && (params[:interface] == nil) %>
+      <div class="switch-box">
+        <%= link_to "Learner", dashboard_path(interface: "learner") %>
+        <%= link_to "Expert", dashboard_path, { class: "background-blue" }  %>
       </div>
 
-      <div class="dashboard-list">
-        <% if !@upcoming_bookings.empty? %>
-          <% @upcoming_bookings.each do |booking| %>
-          <div class="booking">
-              <div class="booking-left">
-                <div class="booking-col right-border">
-                  <h2><%=booking.start.strftime("%d")%></h2>
-                  <h2><%=booking.start.strftime("%b")%></h2>
-                </div>
-                <div class="booking-col">
-                  <h2><%=booking.start.strftime("%H")%>:<%=booking.start.strftime("%M")%></h2>
-                  <%=booking.topic.topic_name%>
-                  <p><%=(booking.end - booking.start).to_i/60%> mins</p>
-                </div>
-              </div>
-              <div class="booking-right">
-                <div class="booking-col">
-                  <p><%= link_to "Cancel", expert_booking_path(current_user, booking), method: :delete, remote: true, data: {confirm: "Are you sure?"} %></p>
-                  <p><%= link_to "Go to Booking", expert_booking_path(current_user, booking)  %></p>
-                </div>
-                <div class="booking-col width-static">
-                  <%= "photo" %>
-                  <p><%= booking.user.first_name%> <%= booking.user.last_name %></p>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
+        <div class="dashboard-container">
 
-    <div class="dashboard-container">
+        <div class="dashboard-banner">
+          <i class="lni lni-coffee-cup"></i>
+          <h2>Upcoming Coffee Chats</h2>
+        </div>
 
-      <div class="dashboard-banner">
-        <i class="lni lni-coffee-cup"></i>
-        <h2>Completed Coffee Chats</h2>
-      </div>
-
-      <div class="dashboard-list">
-        <% if !@completed_bookings.empty? %>
-          <% @completed_bookings.each do |booking| %>
+        <div class="dashboard-list">
+          <% if !@upcoming_bookings.empty? %>
+            <% @upcoming_bookings.each do |booking| %>
             <div class="booking">
-              <div class="booking-left">
-                <div class="booking-col right-border">
-                  <h2><%=booking.start.strftime("%d")%></h2>
-                  <h2><%=booking.start.strftime("%b")%></h2>
+                <div class="booking-left">
+                  <div class="booking-col right-border">
+                    <h2><%=booking.start.strftime("%d")%></h2>
+                    <h2><%=booking.start.strftime("%b")%></h2>
+                  </div>
+                  <div class="booking-col">
+                    <h2><%=booking.start.strftime("%H")%>:<%=booking.start.strftime("%M")%></h2>
+                    <%=booking.topic.topic_name%>
+                    <p><%=(booking.end - booking.start).to_i/60%> mins</p>
+                  </div>
                 </div>
-                <div class="booking-col">
-                  <h2><%=booking.start.strftime("%H")%>:<%=booking.start.strftime("%M")%></h2>
-                  <%=booking.topic.topic_name%>
-                  <p><%=(booking.end - booking.start).to_i/60%> mins</p>
-                </div>
-              </div>
-              <div class="booking-right">
-                <div class="booking-col">
-                  <% if !booking.reviews.empty? %>
-                    <p>Rating <%= booking.reviews[0].rating %>/5</p>
-                    <p class="text-small"><%= booking.reviews[0].content %></p>
-                  <% else %>
-                    <p>No rating yet</p>
-                  <% end %>
-                </div>
-                <div class="booking-col width-static">
-                  <%= "photo" %>
-                  <p><%= booking.user.first_name%> <%= booking.user.last_name %></p>
+                <div class="booking-right">
+                  <div class="booking-col">
+                    <p><%= link_to "Cancel", expert_booking_path(current_user, booking), method: :delete, remote: true, data: {confirm: "Are you sure?"} %></p>
+                    <p><%= link_to "Go to Booking", expert_booking_path(current_user, booking)  %></p>
+                  </div>
+                  <div class="booking-col width-static">
+                    <%= "photo" %>
+                    <p><%= booking.user.first_name%> <%= booking.user.last_name %></p>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
+
+      <div class="dashboard-container">
+
+        <div class="dashboard-banner">
+          <i class="lni lni-coffee-cup"></i>
+          <h2>Completed Coffee Chats</h2>
+        </div>
+
+        <div class="dashboard-list">
+          <% if !@completed_bookings.empty? %>
+            <% @completed_bookings.each do |booking| %>
+              <div class="booking">
+                <div class="booking-left">
+                  <div class="booking-col right-border">
+                    <h2><%=booking.start.strftime("%d")%></h2>
+                    <h2><%=booking.start.strftime("%b")%></h2>
+                  </div>
+                  <div class="booking-col">
+                    <h2><%=booking.start.strftime("%H")%>:<%=booking.start.strftime("%M")%></h2>
+                    <%=booking.topic.topic_name%>
+                    <p><%=(booking.end - booking.start).to_i/60%> mins</p>
+                  </div>
+                </div>
+                <div class="booking-right">
+                  <div class="booking-col">
+                    <% if !booking.reviews.empty? %>
+                      <p>Rating <%= booking.reviews[0].rating %>/5</p>
+                      <p class="text-small"><%= booking.reviews[0].content %></p>
+                    <% else %>
+                      <p>No rating yet</p>
+                    <% end %>
+                  </div>
+                  <div class="booking-col width-static">
+                    <%= "photo" %>
+                    <p><%= booking.user.first_name%> <%= booking.user.last_name %></p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% elsif params[:interface] == "learner" %>
+        <div class="switch-box">
+          <%= link_to "Learner", dashboard_path(interface: "learner"), { class: "background-blue" } %>
+          <%= link_to "Expert", dashboard_path %>
+        </div>
+
+        <div class="dashboard-container">
+
+        <div class="dashboard-banner">
+          <i class="lni lni-coffee-cup"></i>
+          <h2>Upcoming Coffee Chats</h2>
+        </div>
+
+        <div class="dashboard-list">
+          <% if !@user_upcoming_bookings.empty? %>
+            <% @user_upcoming_bookings.each do |booking| %>
+            <div class="booking">
+                <div class="booking-left">
+                  <div class="booking-col right-border">
+                    <h2><%=booking.start.strftime("%d")%></h2>
+                    <h2><%=booking.start.strftime("%b")%></h2>
+                  </div>
+                  <div class="booking-col">
+                    <h2><%=booking.start.strftime("%H")%>:<%=booking.start.strftime("%M")%></h2>
+                    <%=booking.topic.topic_name%>
+                    <p><%=(booking.end - booking.start).to_i/60%> mins</p>
+                  </div>
+                </div>
+                <div class="booking-right">
+                  <div class="booking-col">
+                    <p><%= link_to "Cancel", expert_booking_path(current_user, booking), method: :delete, remote: true, data: {confirm: "Are you sure?"} %></p>
+                    <p><%= link_to "Go to Booking",  expert_booking_path(booking.coffee_chat.user, booking) %></p>
+                  </div>
+                  <div class="booking-col width-static">
+                    <%= "photo" %>
+                    <p><%= booking.coffee_chat.user.first_name%> <%= booking.coffee_chat.user.last_name %></p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="dashboard-container">
+
+        <div class="dashboard-banner">
+          <i class="lni lni-coffee-cup"></i>
+          <h2>Completed Coffee Chats</h2>
+        </div>
+
+        <div class="dashboard-list">
+          <% if !@user_completed_bookings.empty? %>
+            <% @user_completed_bookings.each do |booking| %>
+              <div class="booking">
+                <div class="booking-left">
+                  <div class="booking-col right-border">
+                    <h2><%=booking.start.strftime("%d")%></h2>
+                    <h2><%=booking.start.strftime("%b")%></h2>
+                  </div>
+                  <div class="booking-col">
+                    <h2><%=booking.start.strftime("%H")%>:<%=booking.start.strftime("%M")%></h2>
+                    <%=booking.topic.topic_name%>
+                    <p><%=(booking.end - booking.start).to_i/60%> mins</p>
+                  </div>
+                </div>
+                <div class="booking-right">
+                  <div class="booking-col">
+                    <% if !booking.reviews.empty? %>
+                      <p>Rating <%= booking.reviews[0].rating %>/5</p>
+                      <p class="text-small"><%= booking.reviews[0].content %></p>
+                    <% else %>
+                      <%= simple_form_for([ booking, @review ], remote: true) do |f| %>
+                        <%= f.input :rating %>
+                        <%= f.input :content %>
+                        <%= f.submit "Submit", class: "btn btn-secondary" %>
+                      <% end %>
+                    <% end %>                </div>
+                  <div class="booking-col width-static">
+                    <%= "photo" %>
+                    <p><%= booking.coffee_chat.user.first_name%> <%= booking.coffee_chat.user.last_name %></p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+      <div class="dashboard-container">
+
+        <div class="dashboard-banner">
+          <i class="lni lni-coffee-cup"></i>
+          <h2>Upcoming Coffee Chats</h2>
+        </div>
+
+        <div class="dashboard-list">
+          <% if !@upcoming_bookings.empty? %>
+            <% @upcoming_bookings.each do |booking| %>
+            <div class="booking">
+                <div class="booking-left">
+                  <div class="booking-col right-border">
+                    <h2><%=booking.start.strftime("%d")%></h2>
+                    <h2><%=booking.start.strftime("%b")%></h2>
+                  </div>
+                  <div class="booking-col">
+                    <h2><%=booking.start.strftime("%H")%>:<%=booking.start.strftime("%M")%></h2>
+                    <%=booking.topic.topic_name%>
+                    <p><%=(booking.end - booking.start).to_i/60%> mins</p>
+                  </div>
+                </div>
+                <div class="booking-right">
+                  <div class="booking-col">
+                    <p><%= link_to "Cancel", expert_booking_path(current_user, booking), method: :delete, remote: true, data: {confirm: "Are you sure?"} %></p>
+                    <p><%= link_to "Go to Booking", expert_booking_path(current_user, booking)  %></p>
+                  </div>
+                  <div class="booking-col width-static">
+                    <%= "photo" %>
+                    <p><%= booking.user.first_name%> <%= booking.user.last_name %></p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="dashboard-container">
+
+        <div class="dashboard-banner">
+          <i class="lni lni-coffee-cup"></i>
+          <h2>Completed Coffee Chats</h2>
+        </div>
+
+        <div class="dashboard-list">
+          <% if !@completed_bookings.empty? %>
+            <% @completed_bookings.each do |booking| %>
+              <div class="booking">
+                <div class="booking-left">
+                  <div class="booking-col right-border">
+                    <h2><%=booking.start.strftime("%d")%></h2>
+                    <h2><%=booking.start.strftime("%b")%></h2>
+                  </div>
+                  <div class="booking-col">
+                    <h2><%=booking.start.strftime("%H")%>:<%=booking.start.strftime("%M")%></h2>
+                    <%=booking.topic.topic_name%>
+                    <p><%=(booking.end - booking.start).to_i/60%> mins</p>
+                  </div>
+                </div>
+                <div class="booking-right">
+                  <div class="booking-col">
+                    <% if !booking.reviews.empty? %>
+                      <p>Rating <%= booking.reviews[0].rating %>/5</p>
+                      <p class="text-small"><%= booking.reviews[0].content %></p>
+                    <% else %>
+                      <p>No rating yet</p>
+                    <% end %>
+                  </div>
+                  <div class="booking-col width-static">
+                    <%= "photo" %>
+                    <p><%= booking.user.first_name%> <%= booking.user.last_name %></p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <div class="container">
+      <h5>Upload Your Availability</h5>
+      <%= month_calendar(events: @coffee_chats, attribute: :start, end_attribute: :end) do |date, coffee_chats| %>
+        <%= date %>
+      <% end %>
     </div>
   <%# <% elsif current_user.expert_profile == true && !current_user.bookings.empty? %>
+
   <% else %>
     <div class="dashboard-container">
 
@@ -165,11 +346,5 @@
       </div>
     </div>
   <% end %>
-<div class="container">
-  <h5>Upload Your Availability</h5>
-  <%= month_calendar(events: @coffee_chats, attribute: :start, end_attribute: :end) do |date, coffee_chats| %>
-    <%= date %>
-  <% end %>
-
 
 </div>
