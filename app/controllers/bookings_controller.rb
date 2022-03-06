@@ -13,7 +13,11 @@ class BookingsController < ApplicationController
     booking.coffee_chat = CoffeeChat.find(params[:coffee_chat].to_i)
     booking.start = booking.coffee_chat.start
     booking.end = booking.coffee_chat.end
-    booking.topic = Topic.find_by("topic_name ILIKE ?", params[:topic])
+    if (params[:topic] != "") && Topic.find_by("topic_name ILIKE ?", params[:topic]) != nil
+      booking.topic = Topic.find_by("topic_name ILIKE ?", params[:topic])
+    else
+      booking.topic = booking.coffee_chat.user.topics[0]
+    end
     if booking.save
       booking.coffee_chat.update(availability: false)
       redirect_to booking_path(booking)
@@ -50,7 +54,9 @@ class BookingsController < ApplicationController
 
   def destroy
     booking = Booking.find(params[:id])
+    coffee_chat = booking.coffee_chat
     booking.destroy
+    coffee_chat.update(availability: true)
     redirect_to dashboard_path
   end
 
