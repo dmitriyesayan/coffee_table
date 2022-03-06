@@ -39,7 +39,7 @@
   margin-top: 60px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  .expert-card {
+  .expert-card-width {
     margin-right: 24px;
     margin-bottom: 32px;
     background-color: white;
@@ -50,8 +50,11 @@
       border: 1px solid $orange;
       border-radius: 2px;
       img {
-        object-fit: none;
+        // object-fit: none;
         height: 170px;
+        object-fit:cover;
+        overflow: hidden;
+        object-position: top;
       }
     }
     .expert-card-bottom {

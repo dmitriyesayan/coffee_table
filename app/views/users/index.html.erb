@@ -19,9 +19,13 @@
 
   <div class="results">
     <% @experts.each do |expert| %>
-    <div class="expert-card">
+    <div class="expert-card-width">
       <div class="image-containter">
-        <%= cl_image_tag expert.photo.key, width: 300, crop: :fill %>
+        <% if expert.id > 10 %>
+          <%= cl_image_tag expert.photo.key, width: 300, crop: :fill %>
+        <% else %>
+          <%= image_tag "expert-#{expert.id}.jpg", width: 300, height: 170, crop: :fill %>
+        <% end %>
       </div>
       <div class="expert-card-bottom">
         <div class="expert-card-bottom-left">

@@ -23,43 +23,16 @@ puts "10 topics created!"
 
 
 puts "creating 10 Experts"
-expert1 = User.new({email: "zachariah.wallace@gmail.com", password: "123456", expert_profile: true, language: "English", description: "bla bla bla", first_name: "Zachariah", last_name: "Wallace"})
-expert1.photo.attach(io: URI.open('https://minimaltoolkit.com/images/randomdata/male/63.jpg'), filename: 'nes.png', content_type: 'image/png')
-expert1.save
-expert2 = User.new({email: "matias.jones@gmail.com", password: "123456", expert_profile: true, language: "Spanish", description: "bla bla bla", first_name: "Matias", last_name: "Jones"})
-expert2.photo.attach(io: URI.open('https://minimaltoolkit.com/images/randomdata/male/83.jpg'), filename: 'nes.png', content_type: 'image/png')
-expert2.save
-expert3 = User.new({email: "donavan.jones@gmail.com", password: "123456", expert_profile: true, language: "English", description: "bla bla bla", first_name: "Donavan", last_name: "Jones"})
-expert3.photo.attach(io: URI.open('https://minimaltoolkit.com/images/randomdata/male/74.jpg'), filename: 'nes.png', content_type: 'image/png')
-expert3.save
-expert4 = User.new({email: "lupita.gonzales@gmail.com", password: "123456", expert_profile: true, language: "German", description: "bla bla bla", first_name: "Lupita", last_name: "Gonzales"})
-expert4.photo.attach(io: URI.open('https://minimaltoolkit.com/images/randomdata/male/26.jpg'), filename: 'nes.png', content_type: 'image/png')
-expert4.save
-
-expert5 = User.new({email: "davon.vazquez@gmail.com", password: "123456", expert_profile: true, language: "Arabic", description: "bla bla bla", first_name: "Davon", last_name: "Vazquez"})
-expert5.photo.attach(io: URI.open('https://minimaltoolkit.com/images/randomdata/female/91.jpg'), filename: 'nes.png', content_type: 'image/png')
-expert5.save
-
-expert6 = User.new({email: "carina.barnett@gmail.com", password: "123456", expert_profile: true, language: "English", description: "bla bla bla", first_name: "Carina", last_name: "Barnett"})
-expert6.photo.attach(io: URI.open('https://minimaltoolkit.com/images/randomdata/female/37.jpg'), filename: 'nes.png', content_type: 'image/png')
-expert6.save
-
-expert7 = User.new({email: "julius.ceasar@gmail.com", password: "123456", expert_profile: true, language: "Greek", description: "bla bla bla", first_name: "Julius", last_name: "Ceasar"})
-expert7.photo.attach(io: URI.open('https://minimaltoolkit.com/images/randomdata/male/2.jpg'), filename: 'nes.png', content_type: 'image/png')
-expert7.save
-
-expert8 = User.new({email: "catrina.rodrigo@gmail.com", password: "123456", expert_profile: true, language: "Spanish", description: "bla bla bla", first_name: "Catrina", last_name: "Rodrigo"})
-expert8.photo.attach(io: URI.open('https://minimaltoolkit.com/images/randomdata/female/30.jpg'), filename: 'nes.png', content_type: 'image/png')
-expert8.save
-
-expert9 = User.new({email: "alejandro.gomez@gmail.com", password: "123456", expert_profile: true, language: "English", description: "bla bla bla", first_name: "Alejandro", last_name: "Gomez"})
-expert9.photo.attach(io: URI.open('https://minimaltoolkit.com/images/randomdata/female/70.jpg'), filename: 'nes.png', content_type: 'image/png')
-expert9.save
-
-expert10 = User.new({email: "david.middleton@gmail.com", password: "123456", expert_profile: true, language: "English", description: "bla bla bla", first_name: "David", last_name: "Middleton"})
-expert10.photo.attach(io: URI.open('https://minimaltoolkit.com/images/randomdata/female/15.jpg'), filename: 'nes.png', content_type: 'image/png')
-expert10.save
-
+User.create({email: "zachariah.wallace@gmail.com", password: "123456", expert_profile: true, language: "English", description: "bla bla bla", first_name: "Zachariah", last_name: "Wallace"})
+User.create({email: "matias.jones@gmail.com", password: "123456", expert_profile: true, language: "Spanish", description: "bla bla bla", first_name: "Matias", last_name: "Jones"})
+User.create({email: "donavan.jones@gmail.com", password: "123456", expert_profile: true, language: "English", description: "bla bla bla", first_name: "Donavan", last_name: "Jones"})
+User.create({email: "lupita.gonzales@gmail.com", password: "123456", expert_profile: true, language: "German", description: "bla bla bla", first_name: "Lupita", last_name: "Gonzales"})
+User.create({email: "davon.vazquez@gmail.com", password: "123456", expert_profile: true, language: "Arabic", description: "bla bla bla", first_name: "Davon", last_name: "Vazquez"})
+User.create({email: "carina.barnett@gmail.com", password: "123456", expert_profile: true, language: "English", description: "bla bla bla", first_name: "Carina", last_name: "Barnett"})
+User.create({email: "julius.ceasar@gmail.com", password: "123456", expert_profile: true, language: "Greek", description: "bla bla bla", first_name: "Julius", last_name: "Ceasar"})
+User.create({email: "catrina.rodrigo@gmail.com", password: "123456", expert_profile: true, language: "Spanish", description: "bla bla bla", first_name: "Catrina", last_name: "Rodrigo"})
+User.create({email: "alejandro.gomez@gmail.com", password: "123456", expert_profile: true, language: "English", description: "bla bla bla", first_name: "Alejandro", last_name: "Gomez"})
+User.create({email: "david.middleton@gmail.com", password: "123456", expert_profile: true, language: "English", description: "bla bla bla", first_name: "David", last_name: "Middleton"})
 puts "10 Experts created!"
 
 
