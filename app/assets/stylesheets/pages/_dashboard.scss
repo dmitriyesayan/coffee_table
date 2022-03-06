@@ -1,3 +1,28 @@
+.switch-box {
+  display: flex;
+  width: 30%;
+  margin: 0 auto;
+  justify-content: space-between;
+  margin-bottom: 64px;
+  font-weight: bold;
+  a {
+    background-color: white;
+    font-size: 32px;
+    color: $orange;
+    padding: 16px 12px;
+    text-decoration: none;
+  }
+  a:hover {
+    background-color: rgb(218, 218, 218);
+  }
+  .background-blue {
+    background-color: $blue;
+  }
+  .background-blue:hover {
+    background-color: $blue;
+  }
+}
+
 .dashboard-container {
   margin-bottom: 40px;
   .dashboard-banner {
@@ -63,6 +88,9 @@
       .right-border {
         border-right: 1px solid rgb(146, 146, 146);;
       }
+    }
+    .booking:hover {
+      background-color: rgb(218, 218, 218);
     }
   }
 }
