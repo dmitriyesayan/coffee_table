@@ -41,14 +41,10 @@ class PagesController < ApplicationController
 
   def profile
     @user = current_user
-    @topics_all = Topic.all
-    @data = []
 
-    @test = current_user.expert_topics #Returns records from expert topics
+    @learner_bookings = Booking.where(user: current_user)
+    @expert_bookings = current_user.bookings
 
-    @test.each do |x|
-      @data << @topics_all.find(x.topic_id)
-    end
 
   end
 
