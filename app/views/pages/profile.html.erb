@@ -5,7 +5,7 @@
     <% if @user.photo.key %>
       <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
     <% else %>
-      <img src="assets/default-user.png" class="icon" alt="rails">
+      <%= image_tag("default-user.png", class: "icon") %>
     <% end %>
 
 

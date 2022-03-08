@@ -1,56 +1,24 @@
 
-<div class="container">
+<div class="container booking-show-flex">
   <div class="card" style="width: 30rem;">
     <div class="card-body">
       <h2 class="card-title">Booking confirmed!</h2>
       <p>Expert: <%= @booking.coffee_chat.user.first_name %> <%= @booking.coffee_chat.user.last_name %></p>
+      <p>Student: <%= @booking.user.first_name %> <%= @booking.user.last_name %></p>
       <p>Date and Time: <%= @booking.coffee_chat.start %> <%= @booking.coffee_chat.end %></p>
       <p>Topic: <%= @booking.topic.topic_name %></p>
-      <p>Videochat link:<%= @booking.video_link %></p></p>
-       <a href="#" class="card-link">Cancel</a>
+      <p><%= link_to "JOIN VIDEOCHAT", @booking.video_link, target: :_blank %></p>
+      <p><%= link_to "Cancel the Booking", expert_booking_path(@booking.coffee_chat.user, @booking), method: :delete, remote: true, data: {confirm: "Are you sure?"} %></p>
   </div>
 
+
 </div>
 
-<%# <script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
-<script>
-  callFrame = window.DailyIframe.createFrame();
-  callFrame.join({ url: 'https://d28usdh7.daily.co/hello-daily' });
-</script> %>
 
-<div class="videochat-box">
-  <script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
-  <script>
-  let myLink = '<%= (@start_session_link) %>'
-  if (window.innerWidth <= 400) {
-    callFrame = window.DailyIframe.createFrame({
-    showLeaveButton: true,
-        iframeStyle: {
-        position: 'fixed',
-        bottom: 0,
-        width: '100%',
-        height: '100%'
-        }
-  });
+<%# <%= render "bookings/videochat" %>
 
-    callFrame.join({ url: myLink })
-  } else {
-        callFrame = window.DailyIframe.createFrame({
-        showLeaveButton: true,
-        iframeStyle: {
-        position: 'fixed',
-        top: 0,
-        right: 0,
-        width: '50%',
-        height: '100%'
-        }
-  });
 
-    callFrame.join({ url: myLink })
-  }
 
-  </script>
-</div>
 
 <div class="chatbox">
   <div id="messages" data-booking-id="<%= @booking.id %>">
@@ -64,7 +32,4 @@
     <%= f.input :message, label: false, placeholder: "Write your message..." %>
     <%= f.submit "Send",class: "btn btn-secondary" %>
   <% end %>
-
-
-
 </div>
