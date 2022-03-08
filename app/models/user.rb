@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :reviews, through: :bookings
   has_many :topics, through: :expert_topics
   has_one_attached :photo
+  has_one_attached :video
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 

@@ -1,13 +1,12 @@
 <div class="container">
 
 
-
     <div class="card-expert">
-      <%= cl_image_tag("cld-sample",
+      <%= cl_image_tag("td47obdmkgabrcl7x86kr4unhx0w",
       width: 300, height: 310, crop: :fill) %>
 
       <div>
-        <h5 class="card-title">Mike Mitchel</h5>
+        <h5 class="card-title"><%= @expert.first_name %> <%= @expert.last_name %></h5>
             <p class="card-text">&#x2B50 &#x2B50 &#x2B50</p>
             <p class="card-text">Speaks English</p>
             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -15,9 +14,15 @@
           </div>
 
           <div>
-            <iframe width="400" height="290" src="https://www.youtube.com/embed/xwKbtUP87Dk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <% if @expert.video.key %>
+              <%= cl_video_tag @expert.video.key, controls: true, transformation: [ width: 400, height: 290, crop: 'pad' ] %>
+             <% else %>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/xwKbtUP87Dk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <% end %>
           </div>
+
     </div>
+
 
     <div class="card-expert-description">
       <div class="card-body">
