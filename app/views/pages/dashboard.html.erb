@@ -84,6 +84,33 @@
             <% end %>
           <% end %>
         </div>
+        <div class="calendar", data-controller="open-timeslots-controller">
+          <div class="calendar-days container">
+            <%= month_calendar(events: @coffee_chats, attribute: :start, end_attribute: :end) do |date, coffee_chats| %>
+              <%= link_to date, "#", remote: true, data: {
+                open_timeslots_target: 'days',
+                action: 'click->open-timeslots#open'
+              } %>
+              <%# maybe you will need to put the target in the link_to%>
+
+              <% coffee_chats.each do |coffee_chat| %>
+              <%= link_to coffee_chat_path(current_user, coffee_chat), method: :delete, data: { confirm: "Would you like to remove your availability?" }, remote: true do %>
+                <div class="meeting">
+                  <small><%= coffee_chat.time unless coffee_chat.multi_days? %></small>
+                </div>
+              <% end %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="calendar-times",style="visibility: hidden; display: none", data-open-timeslots-target="times">
+            <%= form_with url: "/experts/#{current_user.id}/coffee_chats", method: :post do |f| %>
+                <%= f.text_field(:start_time, class: 'time-selector')%>
+                <%= f.text_field(:end_time, class: 'time-selector')%>
+                <%= f.text_field(:date_range, class: 'date-selector')%>
+                <%= f.button "Submit", type: 'submit'%>
+            <% end %>
+          </div>
+        </div>
       </div>
     <% elsif params[:interface] == "learner" %>
         <div class="switch-box">
@@ -255,33 +282,7 @@
       </div>
     <% end %>
 
-    <div class="calendar", data-controller="open-timeslots-controller">
-      <div class="calendar-days container">
-        <%= month_calendar(events: @coffee_chats, attribute: :start, end_attribute: :end) do |date, coffee_chats| %>
-          <%= link_to date, "#", remote: true, data: {
-            open_timeslots_target: 'days',
-            action: 'click->open-timeslots#open'
-          } %>
-          <%# maybe you will need to put the target in the link_to%>
 
-          <% coffee_chats.each do |coffee_chat| %>
-          <%= link_to coffee_chat_path(current_user, topic: params[:q]), method: :post, remote: true do %>
-            <div class="meeting">
-              <small><%= coffee_chat.time unless coffee_chat.multi_days? %></small>
-            </div>
-          <% end %>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="calendar-times",style="visibility: hidden; display: none", data-open-timeslots-target="times">
-        <%= form_with url: "/experts/#{current_user.id}/coffee_chats", method: :post do |f| %>
-            <%= f.text_field(:start_time, class: 'time-selector')%>
-            <%= f.text_field(:end_time, class: 'time-selector')%>
-            <%= f.text_field(:date_range, class: 'date-selector')%>
-            <%= f.button "Submit", type: 'submit'%>
-        <% end %>
-      </div>
-    </div>
   <%# <% elsif current_user.expert_profile == true && !current_user.bookings.empty? %>
 
   <% else %>
