@@ -22,7 +22,7 @@ class PagesController < ApplicationController
       booking.end < DateTime.now
     end
 
-     @coffee_chats = CoffeeChat.all
+    @coffee_chats = CoffeeChat.all
 
     @user_bookings = Booking.where(user_id: current_user)
     @user_upcoming_bookings = @user_bookings.select do |booking|
