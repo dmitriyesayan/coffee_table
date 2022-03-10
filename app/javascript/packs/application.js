@@ -28,6 +28,18 @@ import { initBookingCable } from '../channels/booking_channel';
 
 // import { initSelect2 } from '../components/init_select2';
 
+
 document.addEventListener('turbolinks:load', () => {
   initBookingCable();
+  flatpickr('.time-selector', {
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "H:i",
+  });
+  flatpickr('.date-selector', {
+    mode: "multiple",
+    dateFormat: "Y-m-d"
+  })
 });
+
+import "controllers"
