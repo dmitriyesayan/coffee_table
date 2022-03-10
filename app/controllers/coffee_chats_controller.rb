@@ -14,12 +14,33 @@ class CoffeeChatsController < ApplicationController
 
   def create
     coffee_chat_params.each do |param|
-      @coffee_chat = CoffeeChat.new(param)
-      @coffee_chat.user = current_user
-      @coffee_chat.availability = true
-      unless @coffee_chat.save
+      duration = (param[:end] - param[:start])*24*60.to_f
+      if duration == 30
+        @coffee_chat = CoffeeChat.new(param)
+        @coffee_chat.user = current_user
+        @coffee_chat.availability = true
+        unless @coffee_chat.save
+          raise
+        end
+      elsif duration > 30
+        slot_number = (duration/30).floor
+        @coffee_chat = CoffeeChat.new(param)
+        start_time = @coffee_chat.start
+        slot_number.times do
+          @coffee_chat = CoffeeChat.new
+          @coffee_chat.start = start_time
+          @coffee_chat.end = @coffee_chat.start + 30*60
+          @coffee_chat.user = current_user
+          @coffee_chat.availability = true
+          unless @coffee_chat.save
+            raise
+          end
+          start_time += 30
+        end
+      else
         raise
       end
+
     end
     redirect_to dashboard_path
   end
@@ -48,9 +69,5 @@ class CoffeeChatsController < ApplicationController
     end
     array
   end
-  
+
 end
-
-
-"start(1i)"=>"2022", "start(2i)"=>"3", "start(3i)"=>"10", "start(4i)"=>"16", "start(5i)"=>"41", "end(1i)"=>"2022", "end(2i)"=>"3", "end(3i)"=>"10", "end(4i)"=>"17", "end(5i)"=>"41", "commit"=>"Save", "controller"=>"coffee_chats", "action"=>"create"} permitted: false>
->>
