@@ -369,11 +369,5 @@
     </div>
   <% end %>
 
-<div class="container">
-  <h5><%= link_to "Upload My Availability", dashboard_new_path %></h5>
-  <%= month_calendar(events: @coffee_chats, attribute: :start, end_attribute: :end) do |date, coffee_chats| %>
-    <%= date %>
-  <% end %>
-
 
 </div>
