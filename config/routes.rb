@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # get 'experts/:id', to: "users#show", as: :expert
 
   get 'experts/:id/coffee_chats', to: 'coffee_chats#index'
+  post 'experts/:id/coffee_chats', to: 'coffee_chats#create', as: :coffee_chat
   patch 'experts/:id/coffee_chats', to: 'coffee_chats#update'
   delete 'experts/:id/coffee_chats', to: 'coffee_chats#destroy'
 

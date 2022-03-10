@@ -33,7 +33,7 @@ class PagesController < ApplicationController
     end
 
     @review = Review.new
-
+    @coffee_chats = current_user.coffee_chats
   end
 
   def confirmation
