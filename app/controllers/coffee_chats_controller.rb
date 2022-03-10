@@ -49,6 +49,9 @@ class CoffeeChatsController < ApplicationController
   end
 
   def destroy
+    @coffee_chat = CoffeeChat.find(params["format"].to_i)
+    @coffee_chat.destroy
+    redirect_to dashboard_path
   end
 
   def show
