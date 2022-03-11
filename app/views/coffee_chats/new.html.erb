@@ -1,0 +1,30 @@
+
+
+
+
+<%= form_with url: coffee_chats_path, method: :post do |f| %>
+  <%# <%= f.label :coffee_chats_duration, "Coffee Chats Duration (minutes)"%>
+  <%# <%= f.select :coffee_chats_duration, [20, 25, 30, 50, 55, 60]%>
+<br>
+  <%# <%= f.label :break_between_each_coffee_chat, "Break Between Each Coffee Chat (minutes)"%>
+  <%# <%= f.select :break_between_each_coffee_chat, [5, 10, 15, 20, 25, 30] %>
+
+<br>
+  <%= f.label :start, "Start"%>
+  <%= f.datetime_select :start %><br>
+  <%= f.label :end, "End"%>
+  <%= f.datetime_select :end %>
+
+<%# <br>
+  <%= f.label :date_range_start, "Available Date:Start"%>
+  <%# <%= f.date_select :available_date_start %>
+  <%# <%= f.label :available_date_end, "End"%>
+  <%# <%= f.date_select :available_date_end %>
+<%# <% end %>
+<%# <br> %>
+  <%# <%= f.label :available_weekday, "Available Weekday"%>
+  <%# <%= f.select :days, ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], multiple: true %>
+<br>
+  <%= f.submit :Save%>
+<br>
+<% end %>

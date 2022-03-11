@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+log/*
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
@@ -40,3 +41,6 @@ yarn-debug.log*
 *.swp
 .DS_Store
 .env*
+
+log/*
+tmp/*
