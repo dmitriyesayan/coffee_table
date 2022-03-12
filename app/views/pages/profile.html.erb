@@ -21,14 +21,14 @@
         <h5>EXPERT SECTION</h5>
         <hr>
 
+      <% if current_user.expert_profile == true %>
         <h3>Expert in
-            <% @data.each do |t| %>
-              <strong>
-                <% t %>,
-              </strong>
+            <% current_user.topics.each do |topic| %>
+              <%= topic.topic_name %>
             <% end %>
         <h3>
       </div>
+      <% end %>
 
     <div class='learner-section'>
       <h5>LEARNER SECTION</h5>
@@ -43,7 +43,7 @@
     <div class='history'>
     <h5>COMPLETED COFFEE CHATS</h5>
     <hr>
-    <table class="table table-bordered table-dark">
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th scope="col"></th>
@@ -55,21 +55,23 @@
       <tbody>
         <tr>
           <th scope="row">As a learner</th>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
+          <% last_30_days = @learner_bookings.map { |booking| booking.end > (DateTime.now - 30*1440) }
+%>
+          <% last_90_days = @learner_bookings.map { |booking| booking.end > (DateTime.now - 90*1440) }
+          %>
+          <td><%= last_30_days.count %></td>
+          <td><%= last_90_days.count %></td>
+          <td><%= @learner_bookings.count %></td>
         </tr>
         <tr>
           <th scope="row">As an expert</th>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <th scope="row">Attendance</th>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
+          <% last_30_days = @expert_bookings.map { |booking| booking.end > (DateTime.now - 30*1440) }
+%>
+          <% last_90_days = @expert_bookings.map { |booking| booking.end > (DateTime.now - 90*1440) }
+          %>
+          <td><%= last_30_days.count %></td>
+          <td><%= last_90_days.count %></td>
+          <td><%= @expert_bookings.count %></td>
         </tr>
       </tbody>
     </table>
