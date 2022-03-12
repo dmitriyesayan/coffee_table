@@ -42,8 +42,8 @@ class PagesController < ApplicationController
   def profile
     @user = current_user
 
-    @learner_bookings = Booking.where(user: current_user)
-    @expert_bookings = current_user.bookings
+    @learner_bookings = Booking.where(user: current_user).select { |booking| booking.end < DateTime.now}
+    @expert_bookings = current_user.bookings.select { |booking| booking.end < DateTime.now}
 
 
   end

@@ -1,16 +1,17 @@
 .footer-section {
   background-color: rgb(255, 255, 255);
-  margin-top: 4%;
   margin-bottom: 0%;
   color: rgb(0, 0, 0);
   text-align: center;
   box-shadow: 10px 1px 20px -2px rgb(212, 212, 212);
-  position:absolute;
-  height: 170px;
-   width: 100%;
+  position:sticky;
+  bottom: 0;
+  height: 140px;
+  width: 100%;
+  padding-top: 16px;
+  margin-top: 200px;
   .footer-content {
     display: grid;
-    margin-top: 4%;
     grid-template-columns: 1fr 1fr 1fr;
   }
   a {
@@ -22,15 +23,13 @@
   }
   h4 {
     font-weight: 600;
-    font-size: 24px;
+    font-size: 20px;
   }
   h5 {
-    font-size: 18px;
+    font-size: 16px;
   }
   p {
     margin-top: 2%;
     color: gray;
-  }
-  .container {
   }
 }
