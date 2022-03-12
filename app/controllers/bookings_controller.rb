@@ -4,8 +4,6 @@ require 'openssl'
 require 'json'
 
 class BookingsController < ApplicationController
-  before_action :authenticate_user!
-
 
   def create
     booking = Booking.new
