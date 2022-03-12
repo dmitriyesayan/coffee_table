@@ -27,7 +27,7 @@ body {
 }
 
 h1 {
-  color: #FA7B5F
+  color: $orange;
 }
 
 
@@ -57,7 +57,7 @@ h1 {
 
 .left {
   left: 0;
-  background-color: grey;
+  background-color: $light-pink;
 }
 
 .right {
@@ -106,7 +106,7 @@ h1 {
   text-align: center;
   border-style: solid;
   border-width: thin;
-  border-color: #FA7B5F;
+  border-color: $orange;
 }
 
 .topic-description {
@@ -130,7 +130,7 @@ h1 {
   inline-size: 200px;
   border-style: solid;
   border-width: thin;
-  border-color: grey;
+  border-color: $light-pink;
   border-radius: 15px;
 
 }

@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:home, :become_an_expert, :about_us ]
 
   def home
     topics = Topic.all
