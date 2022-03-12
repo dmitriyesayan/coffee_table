@@ -1,3 +1,4 @@
+
 .simple-calendar {
   width: 50%;
 
@@ -16,10 +17,11 @@
 
 .meeting {
   color: white;
-  padding: 8px 24px;
+  padding: 2px 4px;
   border-radius: 4px;
   background: #5b62be;
   transition: background 0.3s ease;
+  font-size: 70%;
 }
 
 .meeting:hover {
@@ -53,5 +55,36 @@
 .card-expert img {
   height: 300px;
   margin-right: 16px;
+}
 
+//example below
+
+.card-trip {
+  background: rgba(241, 238, 238, 0.918);
+  width: 600px;
+  margin: 32px auto;
+}
+
+.card-trip-footer {
+  padding: 16px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  position: relative;
+}
+
+.my_class {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.card-trip p {
+  margin: 0;
+  font-size: 16px;
 }
