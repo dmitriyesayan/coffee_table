@@ -1,6 +1,6 @@
 
 .simple-calendar {
-  width: 50%;
+  width: 100%;
 
   .day {
     height: 30px;
@@ -8,24 +8,25 @@
   table {
     height: 50px;
     background-color: white;
-    border: #5b62be solid 5px;
+    border: #e26d0e solid 1px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
   }
   .today {
-    background-color: #d3965c;
+    background-color: rgba(255, 166, 0, 0.596);
   }
 }
 
 .meeting {
-  color: white;
-  padding: 2px 4px;
+  color: orange;
+  padding: 8px 24px;
   border-radius: 4px;
-  background: $orange;
+  background: rgb(233, 236, 5);
   transition: background 0.3s ease;
   font-size: 70%;
 }
 
 .meeting:hover {
-  background: #6eaee2;
+  background: #f0c506ea;
   color: white;
 }
 

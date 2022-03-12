@@ -22,57 +22,60 @@
 
 
 
+
     <div class="card-expert">
+      <%= cl_image_tag('https://res.cloudinary.com/gisla36/image/upload/v1647102307/development/pexels-mart-production-7577806_w2djf5.jpg',
+        width: 900, height: 250, crop: :fill) %>
+      <div class="card-infos">
 
-
-      <div>
-        <h5 class="card-title"><%= @expert.first_name %> <%= @expert.last_name %></h5>
-            <p class="card-text">&#x2B50 &#x2B50 &#x2B50</p>
-            <p class="card-text">Speaks English</p>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <div class="card-body">
+          <h2 class="card-title"><%= @expert.first_name %> <%= @expert.last_name %></h2>
+          <p>&#x2B50 &#x2B50 &#x2B50 &#x2B50</p>
+          <p>JavaScript expert</p>
+        </div>
+        <div class="expert-img">
+          <%= cl_image_tag('https://res.cloudinary.com/gisla36/image/upload/v1647078211/development/skovz4d6nzzr7smjaaevby8scx0a.jpg',
+          width: 150, height: 150, crop: :fill) %>
           </div>
-
-          <div>
-            <% if @expert.video.key %>
-              <%= cl_video_tag @expert.video.key, controls: true, transformation: [ width: 400, height: 290, crop: 'pad' ] %>
-             <% else %>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/xwKbtUP87Dk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <% end %>
-          </div>
-
-    </div>
-
-
-    <div class="card-expert-description">
-      <div class="card-body">
-        <h2>About the expert</h2>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to make a type
-        specimen book. It has survived not only five centuries,</p>
       </div>
     </div>
 
 
+  <div class="card-tutorial">
+    <div class="card-expert-info">
+      <h5 class="card-title">What can I teach you?</h5>
+      <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+      <p class="card-text"><small class="text-muted">Last updated 1 day ago</small></p>
+    </div>
 
-<h1 id="cal">Make a booking</h1>
-
-
-    <%= month_calendar(events: @coffee_chats, attribute: :start, end_attribute: :end) do |date, coffee_chats| %>
-      <%= date %>
-
-      <% coffee_chats.each do |coffee_chat| %>
-      <% id = @expert.id %>
-      <%= link_to expert_bookings_path(@expert, coffee_chat: coffee_chat, topic: params[:q]), method: :post do %>
-        <div class="meeting">
-          <small><%= coffee_chat.time unless coffee_chat.multi_days? %></small>
-        </div>
+    <div class="card-video">
+      <% if @expert.video.key %>
+        <%= cl_video_tag @expert.video.key, controls: true, transformation: [ width: 200, height: 190, crop: 'pad' ] %>
+      <% else %>
+        <iframe width="400" height="250" src="https://www.youtube.com/embed/c-I5S_zTwAc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <% end %>
+    </div>
+  </div>
+
+
+
+
+
+    <div>
+      <h2 id="cal">Make a booking</h2>
+        <%= month_calendar(events: @coffee_chats, attribute: :start, end_attribute: :end) do |date, coffee_chats| %>
+          <%= date %>
+        <% coffee_chats.each do |coffee_chat| %>
+      <% id = @expert.id %>
+        <%= link_to expert_bookings_path(@expert, coffee_chat: coffee_chat, topic: params[:q]), method: :post do %>
+          <div class="meeting">
+            <small><%= coffee_chat.time unless coffee_chat.multi_days? %></small>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
 
-
+</div>
 
 
 </div>
