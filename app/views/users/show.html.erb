@@ -1,9 +1,29 @@
 <div class="container">
 
+    <div class="card-trip">
+      <%= cl_image_tag("https://res.cloudinary.com/gisla36/image/upload/v1646769562/development/mountain_expert_kzp1jz.jpg",
+      width: 1000, height: 310, crop: :fill) %>
+
+      <div class="card-trip-footer">
+        <div>
+          <h2>Zachariah Wallace</h2>
+          <p>expert in...</p>
+        </div>
+
+          <h2>stars</h2>
+
+          <% if @expert.id > 10 %>
+            <%= cl_image_tag @expert.photo.key, width: 300, crop: :fill %>
+          <% else %>
+            <%= image_tag "expert-#{@expert.id}.jpg", width: 300, height: 170, crop: :fill %>
+          <% end %>
+        </div>
+     </div>
+
+
 
     <div class="card-expert">
-      <%= cl_image_tag("td47obdmkgabrcl7x86kr4unhx0w",
-      width: 300, height: 310, crop: :fill) %>
+
 
       <div>
         <h5 class="card-title"><%= @expert.first_name %> <%= @expert.last_name %></h5>
@@ -36,13 +56,14 @@
 
 
 
-<h1>Make a booking</h1>
+<h1 id="cal">Make a booking</h1>
 
 
     <%= month_calendar(events: @coffee_chats, attribute: :start, end_attribute: :end) do |date, coffee_chats| %>
       <%= date %>
 
       <% coffee_chats.each do |coffee_chat| %>
+      <% id = @expert.id %>
       <%= link_to expert_bookings_path(@expert, coffee_chat: coffee_chat, topic: params[:q]), method: :post do %>
         <div class="meeting">
           <small><%= coffee_chat.time unless coffee_chat.multi_days? %></small>

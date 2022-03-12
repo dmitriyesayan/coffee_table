@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  SyntaxError: /home/dmitri/code/coffee_table/package.json: Unexpected token < in JSON at position 202
+  SyntaxError: /home/dmitri/code/coffee_table/package.json: Unexpected token } in JSON at position 406
       at JSON.parse (<anonymous>)
       at /home/dmitri/.nvm/versions/node/v14.15.5/lib/node_modules/yarn/lib/cli.js:1625:59
       at Generator.next (<anonymous>)
@@ -30,16 +30,14 @@ npm manifest:
       "@rails/activestorage": "^6.0.0",
       "@rails/ujs": "^6.0.0",
       "@rails/webpacker": "5.4.3",
-  <<<<<<< HEAD
       "bootstrap": "4.6",
-  =======
-      "bootstrap": "4.0.0-alpha.6",
-  >>>>>>> 4ccc2e4113b39668c238bd2f4b2d2fb6763cc790
       "jquery": "^3.6.0",
       "popper.js": "^1.16.1",
+      "stimulus": "^3.0.1",
       "turbolinks": "^5.2.0",
       "webpack": "^4.46.0",
-      "webpack-cli": "^3.3.12"
+      "webpack-cli": "^3.3.12",
+      "flatpickr"
     },
     "version": "0.1.0",
     "devDependencies": {
@@ -970,6 +968,16 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
     integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
   
+  "@hotwired/stimulus-webpack-helpers@^1.0.0":
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/@hotwired/stimulus-webpack-helpers/-/stimulus-webpack-helpers-1.0.1.tgz#4cd74487adeca576c9865ac2b9fe5cb20cef16dd"
+    integrity sha512-wa/zupVG0eWxRYJjC1IiPBdt3Lruv0RqGN+/DTMmUWUyMAEB27KXmVY6a8YpUVTM7QwVuaLNGW4EqDgrS2upXQ==
+  
+  "@hotwired/stimulus@^3.0.1":
+    version "3.0.1"
+    resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.0.1.tgz#141f15645acaa3b133b7c247cad58ae252ffae85"
+    integrity sha512-oHsJhgY2cip+K2ED7vKUNd2P+BEswVhrCYcJ802DSsblJFv7mPFVk3cQKvm2vHgHeDVdnj7oOKrBbzp1u8D+KA==
+  
   "@jridgewell/resolve-uri@^3.0.3":
     version "3.0.5"
     resolved "https://registry.yarnpkg.com/@jridgewell/resolve-uri/-/resolve-uri-3.0.5.tgz#68eb521368db76d040a6315cdb24bf2483037b9c"
@@ -1602,20 +1610,10 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
     integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
   
-  <<<<<<< HEAD
   bootstrap@4.6:
     version "4.6.1"
     resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.6.1.tgz#bc25380c2c14192374e8dec07cf01b2742d222a2"
     integrity sha512-0dj+VgI9Ecom+rvvpNZ4MUZJz8dcX7WCX+eTID9+/8HgOkv3dsRzi8BGeZJCQU6flWQVYxwTQnEZFrmJSEO7og==
-  =======
-  bootstrap@4.0.0-alpha.6:
-    version "4.0.0-alpha.6"
-    resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.0.0-alpha.6.tgz#4f54dd33ac0deac3b28407bc2df7ec608869c9c8"
-    integrity sha1-T1TdM6wN6sOyhAe8LffsYIhpycg=
-    dependencies:
-      jquery ">=1.9.1"
-      tether "^1.4.0"
-  >>>>>>> 4ccc2e4113b39668c238bd2f4b2d2fb6763cc790
   
   brace-expansion@^1.1.7:
     version "1.1.11"
@@ -3899,7 +3897,7 @@ Lockfile:
       merge-stream "^2.0.0"
       supports-color "^7.0.0"
   
-  jquery@>=1.9.1, jquery@^3.6.0:
+  jquery@^3.6.0:
     version "3.6.0"
     resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
     integrity sha512-JVzAR/AjBvVt2BmYhxRCSYysDsPcssdmTFnzyLEts9qNwmjmu4JTAMYubEfwVOSwpQ1I1sKKFcxhZCI2buerfw==
@@ -6316,6 +6314,14 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
     integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
   
+  stimulus@^3.0.1:
+    version "3.0.1"
+    resolved "https://registry.yarnpkg.com/stimulus/-/stimulus-3.0.1.tgz#370e3054eb3b8068904af1888949821255d375d3"
+    integrity sha512-73uZG5E5bwH7W2BldieTXg4yJuEmOfIHgtO/aqwU0JkWNjwY75ZaoOAD2EEPvi5AK43N9adEeOQOmlgWf59HOg==
+    dependencies:
+      "@hotwired/stimulus" "^3.0.1"
+      "@hotwired/stimulus-webpack-helpers" "^1.0.0"
+  
   stream-browserify@^2.0.1:
     version "2.0.2"
     resolved "https://registry.yarnpkg.com/stream-browserify/-/stream-browserify-2.0.2.tgz#87521d38a44aa7ee91ce1cd2a47df0cb49dd660b"
@@ -6537,11 +6543,6 @@ Lockfile:
       commander "^2.20.0"
       source-map "~0.7.2"
       source-map-support "~0.5.20"
-  
-  tether@^1.4.0:
-    version "1.4.7"
-    resolved "https://registry.yarnpkg.com/tether/-/tether-1.4.7.tgz#d56a818590d8fe72e387f77a67f93ab96d8e1fb2"
-    integrity sha512-Z0J1aExjoFU8pybVkQAo/vD2wfSO63r+XOPfWQMC5qtf1bI7IWqNk4MiyBcgvvnY8kqnY06dVdvwTK2S3PU/Fw==
   
   through2@^2.0.0:
     version "2.0.5"

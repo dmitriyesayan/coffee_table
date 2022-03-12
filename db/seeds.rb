@@ -66,17 +66,15 @@ User.create({email: "kylie.jenner@gmail.com", password: "123456", first_name: "K
 puts "10 Users created!"
 
 puts "creating coffee_chats for 2 experts - Feb 19, 2022 all day"
-CoffeeChat.create({user_id: 1, availability: true, start: DateTime.new(2022,2,19,0,0,0), end: DateTime.new(2022,2,19,23,59,59)})
-CoffeeChat.create({user_id: 2, availability: true, start: DateTime.new(2022,2,19,0,0,0), end: DateTime.new(2022,2,19,23,59,59)})
-
+CoffeeChat.create({user_id: 1, availability: true, start: DateTime.new(2022,2,19,0,0,0), end: DateTime.new(2022,2,19,0,30,0)})
+CoffeeChat.create({user_id: 2, availability: true, start: DateTime.new(2022,2,19,0,0,0), end: DateTime.new(2022,2,19,0,30,0)})
 CoffeeChat.create({user_id: 1, availability: true, start: DateTime.new(2022,3,28,12,0,0), end: DateTime.new(2022,3,28,12,30,0)})
 CoffeeChat.create({user_id: 1, availability: true, start: DateTime.new(2022,3,28,12,0,0), end: DateTime.new(2022,3,28,12,30,0)})
-CoffeeChat.create({user_id: 1, availability: true, start: DateTime.new(2022,3,28,15,30,0), end: DateTime.new(2022,3,28,14,0,0)})
-CoffeeChat.create({user_id: 1, availability: true, start: DateTime.new(2022,3,29,12,0,0), end: DateTime.new(2022,3,29,13,0,0)})
+CoffeeChat.create({user_id: 1, availability: true, start: DateTime.new(2022,3,28,15,30,0), end: DateTime.new(2022,3,28,16,0,0)})
+CoffeeChat.create({user_id: 1, availability: true, start: DateTime.new(2022,3,29,12,0,0), end: DateTime.new(2022,3,29,12,30,0)})
 CoffeeChat.create({user_id: 1, availability: true, start: DateTime.new(2022,3,30,19,30,0), end: DateTime.new(2022,3,30,18,0,0)})
 CoffeeChat.create({user_id: 1, availability: true, start: DateTime.new(2022,3,30,11,0,0), end: DateTime.new(2022,3,30,11,30,0)})
-
-CoffeeChat.create({user_id: 2, availability: true, start: DateTime.new(2022,3,27,14,0,0), end: DateTime.new(2022,3,27,15,0,0)})
+CoffeeChat.create({user_id: 2, availability: true, start: DateTime.new(2022,3,27,14,0,0), end: DateTime.new(2022,3,27,14,30,0)})
 CoffeeChat.create({user_id: 2, availability: true, start: DateTime.new(2022,3,28,16,0,0), end: DateTime.new(2022,3,28,16,30,0)})
 CoffeeChat.create({user_id: 2, availability: true, start: DateTime.new(2022,3,28,8,0,0), end: DateTime.new(2022,3,28,8,30,0)})
 CoffeeChat.create({user_id: 2, availability: true, start: DateTime.new(2022,3,30,9,30,0), end: DateTime.new(2022,3,30,10,0,0)})
@@ -88,14 +86,6 @@ Booking.create({user_id: 12, coffee_chat_id: 1, start: CoffeeChat.find(1).start,
 Booking.create({user_id: 11, coffee_chat_id: 1, start: CoffeeChat.find(1).start, end: CoffeeChat.find(1).end, topic_id: CoffeeChat.find(1).user.topics[0].id})
 Booking.create({user_id: 11, coffee_chat_id: 2, start: CoffeeChat.find(2).start, end: CoffeeChat.find(2).end, topic_id: CoffeeChat.find(2).user.topics[0].id})
 Booking.create({user_id: 13, coffee_chat_id: 2, start: CoffeeChat.find(2).start, end: CoffeeChat.find(2).end, topic_id: CoffeeChat.find(2).user.topics[0].id})
-Booking.create({user_id: 11, video_link: "https://d28usdh7.daily.co/6", coffee_chat_id: 3, start: CoffeeChat.find(3).start, end: CoffeeChat.find(3).end, topic_id: CoffeeChat.find(3).user.topics[0].id})
-Booking.create({user_id: 12, coffee_chat_id: 4, start: CoffeeChat.find(4).start, end: CoffeeChat.find(4).end, topic_id: CoffeeChat.find(4).user.topics[0].id})
-Booking.create({user_id: 11, coffee_chat_id: 5, start: CoffeeChat.find(5).start, end: CoffeeChat.find(5).end, topic_id: CoffeeChat.find(5).user.topics[0].id})
-Booking.create({user_id: 11, coffee_chat_id: 6, start: CoffeeChat.find(6).start, end: CoffeeChat.find(6).end, topic_id: CoffeeChat.find(6).user.topics[0].id})
-Booking.create({user_id: 13, coffee_chat_id: 11, start: CoffeeChat.find(11).start, end: CoffeeChat.find(11).end, topic_id: CoffeeChat.find(11).user.topics[0].id})
-Booking.create({user_id: 14, coffee_chat_id: 10, start: CoffeeChat.find(10).start, end: CoffeeChat.find(10).end, topic_id: CoffeeChat.find(10).user.topics[0].id})
-Booking.create({user_id: 15, coffee_chat_id: 9, start: CoffeeChat.find(9).start, end: CoffeeChat.find(9).end, topic_id: CoffeeChat.find(9).user.topics[0].id})
-
 puts "creted 5 bookings for 2 experts!"
 
 puts "creating 5 reviews for 5 bookings / 2 experts"
