@@ -4,8 +4,7 @@
   margin-bottom: 0%;
   color: rgb(0, 0, 0);
   text-align: center;
-  box-shadow: 10px 1px 20px -2px rgb(255, 134, 20);
-
+  box-shadow: 10px 1px 20px -2px rgb(212, 212, 212);
   position:absolute;
    width: 100%;
   .footer-content {
@@ -15,9 +14,16 @@
   }
   h4 {
     font-weight: 600;
+    font-size: 24px;
+  }
+  h5 {
+    font-size: 18px;
   }
   p {
     margin-top: 2%;
     color: gray;
+  }
+  .container {
+    height: 90px;
   }
 }
