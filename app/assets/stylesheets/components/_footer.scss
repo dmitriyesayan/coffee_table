@@ -6,11 +6,19 @@
   text-align: center;
   box-shadow: 10px 1px 20px -2px rgb(212, 212, 212);
   position:absolute;
+  height: 170px;
    width: 100%;
   .footer-content {
     display: grid;
     margin-top: 4%;
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  a {
+    font-size: 32px;
+    color:rgb(151, 151, 151);
+  }
+  a:hover {
+    color:rgb(65, 65, 65);
   }
   h4 {
     font-weight: 600;
@@ -24,6 +32,5 @@
     color: gray;
   }
   .container {
-    height: 90px;
   }
 }
