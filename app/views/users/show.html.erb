@@ -1,5 +1,26 @@
 <div class="container">
 
+    <div class="card-trip">
+      <%= cl_image_tag("https://res.cloudinary.com/gisla36/image/upload/v1646769562/development/mountain_expert_kzp1jz.jpg",
+      width: 1000, height: 310, crop: :fill) %>
+
+      <div class="card-trip-footer">
+        <div>
+          <h2>Zachariah Wallace</h2>
+          <p>expert in...</p>
+        </div>
+
+          <h2>stars</h2>
+
+          <% if @expert.id > 10 %>
+            <%= cl_image_tag @expert.photo.key, width: 300, crop: :fill %>
+          <% else %>
+            <%= image_tag "expert-#{@expert.id}.jpg", width: 300, height: 170, crop: :fill %>
+          <% end %>
+        </div>
+     </div>
+
+
 
 
     <div class="card-expert">
@@ -35,9 +56,6 @@
       <% end %>
     </div>
   </div>
-
-
-
 
 
 
