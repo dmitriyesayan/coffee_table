@@ -8,13 +8,6 @@ class CoffeeChatsController < ApplicationController
   end
 
   def create
-    @coffee_chat = CoffeeChat.new(coffee_chat_params).valid?
-    raise
-  end
-
-<<<<<<< HEAD
-=======
-  def create
     coffee_chat_params.each do |param|
       duration = (param[:end] - param[:start])*24*60.to_f
       if duration == 30
@@ -47,7 +40,6 @@ class CoffeeChatsController < ApplicationController
     redirect_to dashboard_path
   end
 
->>>>>>> master
   def update
   end
 
@@ -65,8 +57,4 @@ class CoffeeChatsController < ApplicationController
   def coffee_chat_params
     params[:start, :end]
   end
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 end
