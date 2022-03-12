@@ -10,10 +10,13 @@
 
     grid-column: 1/2 span;
     text-align: center;
+    margin-bottom: 48px;
     img {
       margin-top: 2%;
-      height: 100px;
-      width: 100px;
+      height: 200px;
+      width: 200px;
+      object-fit: cover;
+      margin-bottom: 32px;
     }
     h5 {
       color: grey;
@@ -50,4 +53,31 @@ background: linear-gradient(90deg, rgb(255, 163, 42) 0%, rgba(242, 255, 0, 0.116
     margin-bottom: 1%;
   }
 
+}
+
+.history-learner {
+  padding-top: 48px;
+  margin: 0 auto;
+  align-self: center;
+  h5 {
+    text-align: center;
+  }
+}
+
+#edit-profile-a{
+  margin-top: 16px;
+  a {
+    border-top: 5px;
+    background-color: $blue;
+    color: white;
+    border-radius: 3px;
+    padding: 10px 10px;
+    align-self: bottom;
+    text-decoration: none;
+    margin-right: 0;
+    text-align: center;
+  }
+  a:hover {
+    background-color: $blue-hover;
+  }
 }

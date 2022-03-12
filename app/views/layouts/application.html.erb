@@ -21,8 +21,9 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
-    <%= yield %>
+    <div id="min-height">
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </body>
