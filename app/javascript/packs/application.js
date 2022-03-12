@@ -27,7 +27,23 @@ import "bootstrap";
 import { initBookingCable } from '../channels/booking_channel';
 
 // import { initSelect2 } from '../components/init_select2';
+import { openCalendar } from '../components/open-calendar';
+import { keepCalendarOpen } from '../components/open-calendar';
+
 
 document.addEventListener('turbolinks:load', () => {
   initBookingCable();
+  openCalendar();
+  keepCalendarOpen();
+  flatpickr('.time-selector', {
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "H:i",
+  });
+  flatpickr('.date-selector', {
+    mode: "multiple",
+    dateFormat: "Y-m-d"
+  })
 });
+
+import "controllers"

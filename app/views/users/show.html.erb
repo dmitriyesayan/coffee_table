@@ -63,6 +63,7 @@
       <%= date %>
 
       <% coffee_chats.each do |coffee_chat| %>
+      <% id = @expert.id %>
       <%= link_to expert_bookings_path(@expert, coffee_chat: coffee_chat, topic: params[:q]), method: :post do %>
         <div class="meeting">
           <small><%= coffee_chat.time unless coffee_chat.multi_days? %></small>

@@ -14,10 +14,17 @@
 @import "components/index";
 @import "pages/index";
 
+@import "flatpickr";
+
+@import "flatpickr/themes/dark";
 
 body {
   color: black;
+<<<<<<< HEAD
   background-color: white;
+=======
+  background-color: #FFFFFF;
+>>>>>>> master
 }
 
 h1 {
@@ -33,11 +40,48 @@ h1 {
   text-align: center;
 }
 
+.search-container {
+  height: 100%;
+  width: 50%;
+
+}
+
+.split {
+  height: 30%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  background-color: grey;
+}
+
+.right {
+  right: 0;
+  background-color: #ffffff;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
 .text-block {
   text-align: left;
   margin: 10px;
 }
 
+.search-panel{
+  align-items: left;
+}
 
 .wrapper {
   position: relative;
