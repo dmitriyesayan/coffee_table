@@ -1,5 +1,6 @@
 .simple-calendar {
   width: 100%;
+  height: 60%;
 
   .day {
     height: 30px;
@@ -7,23 +8,79 @@
   table {
     height: 50px;
     background-color: white;
-    border: #e26d0e solid 1px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
   }
   .today {
-    background-color: rgba(255, 166, 0, 0.596);
+    background-color: #5693ad;
   }
 }
 
 .meeting {
-  color: orange;
+  color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: rgb(233, 236, 5);
+  background: #8bc0d6;
   transition: background 0.3s ease;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .meeting:hover {
-  background: #f0c506ea;
+  background: rgba(232, 236, 5, 0.26);
+  color: #5693ad;
+}
+
+.btn-outline-primary {
+    color: #5693ad;
+    border-color: #5693ad;
+}
+
+.btn-outline-primary:hover {
+  border-color: rgb(233, 236, 5);
   color: white;
+  background-color: #5693ad;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #5693ad;
+    border-color: #7094a3;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #5693ad;
+    border-color: #5693ad;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.simple-calendar .prev-month {
+    background: rgb(252, 252, 252);
+}
+
+.simple-calendar .next-month {
+    background: rgb(252, 252, 252);
+}
+
+.simple-calendar td {
+    padding: 6px;
+    vertical-align: top;
+    width: 14%;
+    border: 1px solid rgb(233, 236, 5);
+    border-top-color: rgb(233, 236, 5);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: rgb(233, 236, 5);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: rgb(233, 236, 5);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: rgb(233, 236, 5);
+    border-left-style: solid;
+    border-left-width: 1px;
 }
