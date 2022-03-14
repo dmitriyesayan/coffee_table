@@ -38,9 +38,9 @@
          <h5>MY EXPERTISE</h5>
           <hr>
           <h3>Expert in
-            <% @data.each do |t| %>
-              <% t %>,
-            <% end %>
+              <% current_user.topics.each do |topic| %>
+                <%= topic.topic_name %>
+              <% end %>
         </h3>
         </div>
 
@@ -96,10 +96,5 @@
 
 
     </div>
-    <% if @user.photo.key %>
-      <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
-    <% else %>
-      <%= image_tag("default-user.png", class: "icon") %>
-    <% end %>
 
 </div>
