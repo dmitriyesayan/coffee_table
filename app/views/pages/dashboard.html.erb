@@ -14,10 +14,10 @@
 
         <div class="calendar invisible", data-controller="open-timeslots-controller">
           <div class="calendar-banner">
-            <div class="calendar-left">
+            <%# <div class="calendar-left">
               <h2>Here are your available hours...</h1>
               <h3>To Cancel, click on the available hour you could like to cancel</h2>
-            </div>
+            </div> %>
               <div class="calendar-days container">
                 <%= month_calendar(events: @coffee_chats, attribute: :start, end_attribute: :end) do |date, coffee_chats| %>
                   <%= date %>
@@ -26,6 +26,9 @@
                   <% coffee_chats.each do |coffee_chat| %>
                   <%= link_to coffee_chat_path(current_user, coffee_chat), method: :delete, data: { confirm: "Would you like to remove your availability?" }, remote: true do %>
                     <div class="meeting">
+                      <div class="cancel-btn">
+                        <%= link_to 'x', coffee_chat_path(current_user, coffee_chat), method: :delete, data: { confirm: "Would you like to remove your availability?" }, remote: true %>
+                      </div>
                       <small><%= coffee_chat.time unless coffee_chat.multi_days? %></small>
                     </div>
                   <% end %>
@@ -35,15 +38,15 @@
           </div>
           <div class="calendar-banner">
             <div class="calendar-left">
-              <h3>Add new available hours! </h2>
+              <h3>ADD AVAILABLE HOURS</h3>
             </div>
             <div class="set-availability",style="visibility: hidden; display: none", data-open-timeslots-target="times">
               <%= form_with url: "/experts/#{current_user.id}/coffee_chats", method: :post do |f| %>
-                  <%= f.label :start_time, "Start time:" %>
+                  <%= f.label :start_time, "START TIME:" %>
                   <%= f.text_field(:start_time, class: 'time-selector')%>
-                  <%= f.label :start_time, "End time:" %>
+                  <%= f.label :start_time, "END TIME:" %>
                   <%= f.text_field(:end_time, class: 'time-selector')%>
-                  <%= f.label :start_time, "Dates:" %>
+                  <%= f.label :start_time, "DATES:" %>
                   <%= f.text_field(:date_range, class: 'date-selector')%>
                   <%= f.button "Submit", type: 'submit'%>
               <% end %>
