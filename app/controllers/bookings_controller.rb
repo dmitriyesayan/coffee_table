@@ -27,8 +27,9 @@ class BookingsController < ApplicationController
       request = Net::HTTP::Post.new(URI("https://api.daily.co/v1/rooms"))
       request["content-type"] = 'application/json'
       request["Authorization"] = 'Bearer 48bed1ab8baee181ddb45a71737471a15c306e2ced7e95d1b51a0398dcc5073c'
-      if booking.id
-        request.body = "{\"name\":\"#{booking.id}\",\"properties\":{\"max_participants\":2,\"autojoin\":false,\"enable_knocking\":true,\"enable_screenshare\":true,\"enable_chat\":true,\"start_video_off\":false,\"start_audio_off\":false}}"
+      random_number = rand(10 ** 10)
+      if random_number
+        request.body = "{\"name\":\"#{random_number}\",\"properties\":{\"max_participants\":2,\"autojoin\":false,\"enable_knocking\":true,\"enable_screenshare\":true,\"enable_chat\":true,\"start_video_off\":false,\"start_audio_off\":false}}"
       else
         request.body = "{\"properties\":{\"max_participants\":2,\"autojoin\":false,\"enable_knocking\":true,\"enable_screenshare\":true,\"enable_chat\":true,\"start_video_off\":false,\"start_audio_off\":false}}"
       end
