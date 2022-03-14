@@ -55,6 +55,16 @@ class CoffeeChatsController < ApplicationController
   private
 
   def coffee_chat_params
-    params[:start, :end]
+    coffee_chat_param_array = []
+    date_range = params["date_range"].split(",")
+    array = []
+    date_range.each do |date|
+      param_hash = {
+      start: DateTime.new(date.split("-")[0].to_i,date.split("-")[1].to_i,date.split("-")[2].to_i,params["start_time"].split(":")[0].to_i,params["start_time"].split(":")[1].to_i,0),
+      end: DateTime.new(date.split("-")[0].to_i,date.split("-")[1].to_i,date.split("-")[2].to_i,params["end_time"].split(":")[0].to_i,params["end_time"].split(":")[1].to_i,0)
+    }
+    array << param_hash
+    end
+    array
   end
 end
