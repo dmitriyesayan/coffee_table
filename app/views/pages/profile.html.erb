@@ -1,9 +1,11 @@
 <div class='container'>
 
+
   <div class="card-profile">
     <%= cl_image_tag('https://res.cloudinary.com/gisla36/image/upload/v1647103762/development/pexels-mart-production-7577765_hssayu.jpg',
     width: 1200, height: 250, crop: :fill) %>
       <div class="card-infos">
+
 
           <div class="card-body">
               <h1><strong><%= current_user.first_name %> <%= current_user.last_name %></strong></h1>
@@ -19,6 +21,7 @@
           <h5 id='edit-profile-a'><%= link_to "Edit Profile", edit_user_registration_path %></h5>
       </div>
   </div>
+
 
 
     <div>
@@ -39,7 +42,8 @@
               <% t %>,
             <% end %>
         </h3>
-      </div>
+        </div>
+
 
         <div class="card-box">
           <h5>LEARNER SECTION</h5>
@@ -97,6 +101,5 @@
     <% else %>
       <%= image_tag("default-user.png", class: "icon") %>
     <% end %>
-
 
 </div>

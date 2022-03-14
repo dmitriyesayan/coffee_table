@@ -1,3 +1,4 @@
+
 .simple-calendar {
   width: 100%;
   height: 60%;
@@ -21,7 +22,11 @@
   border-radius: 4px;
   background: #8bc0d6;
   transition: background 0.3s ease;
+
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  font-size: 70%;
+
 }
 
 .meeting:hover {
@@ -83,4 +88,64 @@ tbody {
     border-left-color: rgb(233, 236, 5);
     border-left-style: solid;
     border-left-width: 1px;
+}
+
+.card-body {
+  padding-bottom: 0px;
+}
+
+.expert-card{
+  width: 900px;
+  background-color: white;
+}
+
+.card-expert-description {
+  margin: 20px auto;
+  background-color: white;
+  box-shadow: 0px  5px 10px rgb(36, 36, 37)
+}
+
+.card-expert {
+  display: flex;
+  background: white;
+  align-items: center;
+  margin: 32px auto;
+  box-shadow: 0px  5px 10px rgb(36, 36, 37)
+}
+
+.card-expert img {
+  height: 300px;
+  margin-right: 16px;
+}
+
+//example below
+
+.card-trip {
+  background: rgba(241, 238, 238, 0.918);
+  width: 600px;
+  margin: 32px auto;
+}
+
+.card-trip-footer {
+  padding: 16px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  position: relative;
+}
+
+.my_class {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.card-trip p {
+  margin: 0;
+  font-size: 16px;
 }

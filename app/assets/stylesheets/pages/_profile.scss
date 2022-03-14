@@ -1,4 +1,5 @@
 
+
 .profile-stripe {
   background: #5693ad;
   padding: 5px 5px;
@@ -44,4 +45,31 @@
 
 .table-dark th, .table-dark td, .table-dark thead th {
     border-color: #5693ad4b;
+}
+
+.history-learner {
+  padding-top: 48px;
+  margin: 0 auto;
+  align-self: center;
+  h5 {
+    text-align: center;
+  }
+}
+
+#edit-profile-a{
+  margin-top: 16px;
+  a {
+    border-top: 5px;
+    background-color: $blue;
+    color: white;
+    border-radius: 3px;
+    padding: 10px 10px;
+    align-self: bottom;
+    text-decoration: none;
+    margin-right: 0;
+    text-align: center;
+  }
+  a:hover {
+    background-color: $blue-hover;
+  }
 }

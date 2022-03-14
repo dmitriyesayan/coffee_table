@@ -20,11 +20,14 @@
 
 body {
   color: black;
-  background-color: #FFFFFF;
+  background-color: white;
+  #min-height {
+    min-height: 300px;
+  }
 }
 
 h1 {
-  color: #21617c
+  color: $orange;
 }
 
 
@@ -54,7 +57,7 @@ h1 {
 
 .left {
   left: 0;
-  background-color: grey;
+  background-color: $light-pink;
 }
 
 .right {
@@ -103,7 +106,7 @@ h1 {
   text-align: center;
   border-style: solid;
   border-width: thin;
-  border-color: #FA7B5F;
+  border-color: $orange;
 }
 
 .topic-description {
@@ -127,7 +130,7 @@ h1 {
   inline-size: 200px;
   border-style: solid;
   border-width: thin;
-  border-color: grey;
+  border-color: $light-pink;
   border-radius: 15px;
 
 }
