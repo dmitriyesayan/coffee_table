@@ -1,9 +1,10 @@
 .splash {
-  background: #e5e5e5;
+  background: rgba(65, 116, 246, .1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, .1);
   border-radius: 8px;
   position: relative;
   display: flex;
-  margin: 0 0 40px;
+  margin: 0 0 80px;
   overflow: hidden;
 }
 
@@ -42,7 +43,7 @@
 }
 
 .splash-content #search-bar form .btn-orange {
-  background: #4174F6;
+  background: $blue;
   color: white;
   font-size: 18px;
   font-weight: bold;
@@ -52,7 +53,7 @@
 }
 
 .splash-content #search-bar form .btn-orange:hover {
-  background: #3063e4;
+  background: $blue;
 }
 
 .splash-image {

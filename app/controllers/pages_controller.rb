@@ -45,7 +45,12 @@ class PagesController < ApplicationController
 
     @learner_bookings = Booking.where(user: current_user).select { |booking| booking.end < DateTime.now}
     @expert_bookings = current_user.bookings.select { |booking| booking.end < DateTime.now}
-
+    @learner_topics = []
+    Booking.where(user: current_user).each do | booking |
+      unless @learner_topics.include?(booking.topic.topic_name)
+        @learner_topics << booking.topic.topic_name
+      end
+    end
 
   end
 
