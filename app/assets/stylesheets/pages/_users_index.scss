@@ -39,20 +39,21 @@
   margin-top: 60px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 4%;
+  column-gap: 2%;
   .expert-card-width {
-    margin-right: 24px;
-    margin-bottom: 32px;
     background-color: white;
     height: 260px;
     row-gap: 24px;
-    border-radius: 4px;
     .image-containter{
       border: 1px solid $orange;
-      border-radius: 2px;
+      height: 70%;
+      border-radius: 4px;
       img {
-        // object-fit: none;
-        height: 170px;
-        object-fit:cover;
+        border-radius: 4px;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
         overflow: hidden;
         object-position: top;
       }
@@ -60,10 +61,8 @@
     .expert-card-bottom {
       display: flex;
       justify-content: space-between;
-      padding-top: 5px;
-      padding-right: 5px;
-      padding-left: 10px;
       height: 80px;
+      margin-top: 2%;
       .expert-card-bottom-left {
         padding-right: 5px;
         h4 {

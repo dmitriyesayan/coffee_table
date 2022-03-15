@@ -15,6 +15,8 @@
                   hint: "About yourself",
                   required: false
                   %>
+      <%= f.input :expert_profile, label: "Type of user", as: :radio_buttons, collection: [['Student',false], ['Expert',true]], required: true, include_blank: true %>
+
       <%= f.input :photo, as: :file, direct_upload: true %>
       <%= f.input :video, as: :file, direct_upload: true %>
       <%= f.input :current_password,

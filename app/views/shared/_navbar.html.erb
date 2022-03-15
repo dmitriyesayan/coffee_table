@@ -3,14 +3,22 @@
     <nav class="container ">
         <i class="fas fa-coffee"></i>
         <%= link_to "Coffee Table", root_path, class: "nav-link px-2 navbar-link" %>
-        <%= link_to "Become an expert", become_an_expert_path, class: "nav-link px-2 navbar-link" %>
+        <% if user_signed_in? %>
+          <% if !current_user.expert_profile %>
+            <%= link_to "Become an expert", become_an_expert_path, class: "nav-link px-2 navbar-link" %>
+          <% else  %>
+            <%= link_to "", become_an_expert_path, class: "nav-link px-2 navbar-link" %>
+          <% end %>
+        <% else %>
+          <%= link_to "Become an expert", become_an_expert_path, class: "nav-link px-2 navbar-link" %>
+        <% end %>
         <%= link_to "About us", about_us_path, class: "nav-link px-2 navbar-link" %>
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Account
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <% if user_signed_in? %>
+          <% if user_signed_in? %>
             <a class="dropdown-item" href="/">Home</a>
             <a class="dropdown-item" href="/dashboard">My Dashboard</a>
             <a class="dropdown-item" href="/profile">My Profile</a>
