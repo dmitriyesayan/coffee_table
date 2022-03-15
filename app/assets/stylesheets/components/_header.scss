@@ -1,0 +1,99 @@
+// header expertpage
+
+.card-expert {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.card-expert > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  padding-bottom: 5px;
+}
+.card-body {
+  padding-left: 230px;
+}
+
+.card-expert p {
+  font-size: 20px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-expert .card-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+.card-infos .expert-img{
+  position: absolute;
+  left: 50px;
+  top: -70px;
+}
+
+.expert-img {
+  border: rgb(233, 236, 5) 5px solid;
+}
+
+// header profilepage
+
+.card-profile {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.card-profile > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  padding-bottom: 5px;
+}
+.card-body {
+  padding-left: 230px;
+}
+
+.card-profile p {
+  font-size: 20px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-profile .card-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+.card-infos .profile-img{
+  position: absolute;
+  left: 50px;
+  top: -70px;
+}
+
+.profile-img {
+  border: #fdae37 5px solid;
+}

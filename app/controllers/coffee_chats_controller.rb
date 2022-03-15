@@ -8,6 +8,7 @@ class CoffeeChatsController < ApplicationController
   end
 
   def create
+<<<<<<< HEAD
     @coffee_chat = CoffeeChat.new(coffee_chat_params).valid?
     raise
   end
@@ -15,6 +16,8 @@ class CoffeeChatsController < ApplicationController
 <<<<<<< HEAD
 =======
   def create
+=======
+>>>>>>> 0363c3e130cf6504c541d0071cd520986476ebfa
     coffee_chat_params.each do |param|
       duration = (param[:end] - param[:start])*24*60.to_f
       if duration == 30
@@ -47,7 +50,10 @@ class CoffeeChatsController < ApplicationController
     redirect_to dashboard_path
   end
 
+<<<<<<< HEAD
 >>>>>>> 3d52dc1cce3f32113ee51382ad67eeb086662cb6
+=======
+>>>>>>> 0363c3e130cf6504c541d0071cd520986476ebfa
   def update
   end
 
@@ -63,10 +69,23 @@ class CoffeeChatsController < ApplicationController
   private
 
   def coffee_chat_params
-    params[:start, :end]
+    coffee_chat_param_array = []
+    date_range = params["date_range"].split(",")
+    array = []
+    date_range.each do |date|
+      param_hash = {
+      start: DateTime.new(date.split("-")[0].to_i,date.split("-")[1].to_i,date.split("-")[2].to_i,params["start_time"].split(":")[0].to_i,params["start_time"].split(":")[1].to_i,0),
+      end: DateTime.new(date.split("-")[0].to_i,date.split("-")[1].to_i,date.split("-")[2].to_i,params["end_time"].split(":")[0].to_i,params["end_time"].split(":")[1].to_i,0)
+    }
+    array << param_hash
+    end
+    array
   end
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
 >>>>>>> 3d52dc1cce3f32113ee51382ad67eeb086662cb6
+=======
+>>>>>>> 0363c3e130cf6504c541d0071cd520986476ebfa
 end

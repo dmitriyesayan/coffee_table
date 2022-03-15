@@ -1,78 +1,100 @@
 <div class='container'>
-  <div class='profile-section'>
-    <div class='profile-details'>
-
-    <% if @user.photo.key %>
-      <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
-    <% else %>
-      <%= image_tag("default-user.png", class: "icon") %>
-    <% end %>
 
 
-      <h1><strong><%= current_user.first_name %> <%= current_user.last_name %></strong></h1>
-      <h4><%= current_user.id %></h4>
-      <h4><%= current_user.description %></h4>
-      <br><br>
-      <h5>Member since <%= (Date::MONTHNAMES[current_user.created_at.month])%> <%= current_user.created_at.year %> -- <%= current_user.id %></h5>
+  <div class="card-profile">
+    <%= cl_image_tag('https://res.cloudinary.com/gisla36/image/upload/v1647103762/development/pexels-mart-production-7577765_hssayu.jpg',
+    width: 1200, height: 250, crop: :fill) %>
+      <div class="card-infos">
 
-      <h5 id='edit-profile-a'><%= link_to "Edit Profile", edit_user_registration_path %></h5>
-    </div>
-      <div class='expert-section'>
-        <h5>EXPERT SECTION</h5>
-        <hr>
 
-        <h3>Expert in
-            <% @data.each do |t| %>
-              <strong>
-                <% t %>,
-              </strong>
-            <% end %>
-        <h3>
+          <div class="card-body">
+              <h1><strong><%= current_user.first_name %> <%= current_user.last_name %></strong></h1>
+              <h4><%= current_user.description %></h4>
+              <h5>Member since <%= (Date::MONTHNAMES[current_user.created_at.month])%> <%= current_user.created_at.year %> </h5>
+          </div>
+
+        <div class="profile-img">
+            <%= cl_image_tag('https://res.cloudinary.com/gisla36/image/upload/v1647078211/development/skovz4d6nzzr7smjaaevby8scx0a.jpg',
+          width: 150, height: 150, crop: :fill) %>
+        </div>
+
+          <h5 id='edit-profile-a'><%= link_to "Edit Profile", edit_user_registration_path %></h5>
       </div>
+  </div>
 
-    <div class='learner-section'>
-      <h5>LEARNER SECTION</h5>
-      <hr>
-      <h3>Learning
 
-      <h3>
 
+    <div>
+        <p class="profile-stripe"></p>
+    </div>
+
+
+
+
+
+  <div>
+    <div class="cards-profile">
+      <div class="card-box">
+         <h5>MY EXPERTISE</h5>
+          <hr>
+          <h3>Expert in
+              <% current_user.topics.each do |topic| %>
+                <%= topic.topic_name %>
+              <% end %>
+        </h3>
+        </div>
+
+
+        <div class="card-box">
+          <h5>LEARNER SECTION</h5>
+            <hr>
+          <h3>Learning</h3>
+        </div>
 
     </div>
 
-    <div class='history'>
-    <h5>COMPLETED COFFEE CHATS</h5>
-    <hr>
+</div>
+
+
+
+
+
+
+
+
     <table class="table table-bordered table-dark">
+
       <thead>
         <tr>
           <th scope="col"></th>
           <th scope="col">Last 30 days</th>
           <th scope="col">Last 90 days</th>
-          <th scope="col">All time</th>
+          <th scope="col">In total</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th scope="row">As a learner</th>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
         </tr>
         <tr>
           <th scope="row">As an expert</th>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
         </tr>
         <tr>
           <th scope="row">Attendance</th>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
+          <td>120</td>
+          <td>60</td>
+          <td>180</td>
         </tr>
       </tbody>
     </table>
+
+
     </div>
-  </div>
+
 </div>

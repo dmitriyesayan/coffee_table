@@ -1,0 +1,102 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+ /*header*/
+.card-expert {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 30px;
+  margin-top: 30px;
+
+}
+
+.card-expert > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  padding-bottom: 5px;
+}
+.card-body {
+  padding-left: 230px;
+}
+
+.card-expert p {
+  font-size: 20px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-expert .card-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+.card-infos .expert-img{
+  position: absolute;
+  left: 50px;
+  top: -70px;
+}
+
+.expert-img {
+  border: rgb(233, 236, 5) 5px solid;
+}
+
+
+/*stripe*/
+
+.expert-stripe {
+  background: #5693ad;
+  padding: 5px 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/*video*/
+.card-tutorial {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 100px;
+  padding: 30px 60px;
+  background: white;
+  border: rgb(233, 236, 5) 5px solid;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 50px;
+}
+
+.card-video {
+  padding-left: 0px;
+}
+
+.card-expert-info {
+  padding-right: 120px;
+}
+
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.card-vid {
+  border: rgb(233, 236, 5) 5px solid;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+}
+
+.card-teach {
+  padding: 80px 20px 20px 30px;
+  background-color: rgba(230, 230, 225, 0.164);
+}

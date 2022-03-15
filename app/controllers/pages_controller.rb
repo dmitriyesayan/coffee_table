@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:home, :become_an_expert, :about_us ]
 
   def home
     topics = Topic.all
@@ -41,14 +42,10 @@ class PagesController < ApplicationController
 
   def profile
     @user = current_user
-    @topics_all = Topic.all
-    @data = []
 
-    @test = current_user.expert_topics #Returns records from expert topics
+    @learner_bookings = Booking.where(user: current_user).select { |booking| booking.end < DateTime.now}
+    @expert_bookings = current_user.bookings.select { |booking| booking.end < DateTime.now}
 
-    @test.each do |x|
-      @data << @topics_all.find(x.topic_id)
-    end
 
   end
 
