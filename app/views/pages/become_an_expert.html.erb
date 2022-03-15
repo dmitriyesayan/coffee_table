@@ -6,5 +6,10 @@
       <h4>“A big importance of knowledge sharing in the workplace is that all employees have access to information.”</h4>
       <%= image_tag("expert1.svg") %>
     </div>
+    <% if user_signed_in? %>
+      <h5 id='edit-profile-a'><%= link_to "Edit Profile", edit_user_registration_path %></h5>
+    <% else %>
+      <h5 id='sign-up'><%= link_to "Become an expert", new_user_registration_path %></h5>
+    <% end %>
   </div>
 </div>
