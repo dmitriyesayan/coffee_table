@@ -1,0 +1,19 @@
+<h4 class="skills-grid-title">Focus on the skills you need</h4>
+
+<div class="skills-grid-container">
+  <div class="row">
+    <% @topic_with_expert.first(8).each do |x| %>
+      <div class="col-sm-3 skills-grid-item">
+        <%= link_to(experts_path(query:x.topic_name)) do %>
+        <div class="skills-grid-item-container">
+          <div class="skills-grid-item-icon">
+          <%= image_tag("#{x.topic_name}.png") %>
+          </div>
+          <h6 class="skills-grid-item-title"><%= x.topic_name %></h6>
+          <p class="skills-grid-item-description"><%= x.topic_description.truncate(50) %></p>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
