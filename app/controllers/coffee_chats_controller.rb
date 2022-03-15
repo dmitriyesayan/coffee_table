@@ -8,16 +8,6 @@ class CoffeeChatsController < ApplicationController
   end
 
   def create
-<<<<<<< HEAD
-    @coffee_chat = CoffeeChat.new(coffee_chat_params).valid?
-    raise
-  end
-
-<<<<<<< HEAD
-=======
-  def create
-=======
->>>>>>> 0363c3e130cf6504c541d0071cd520986476ebfa
     coffee_chat_params.each do |param|
       duration = (param[:end] - param[:start])*24*60.to_f
       if duration == 30
@@ -40,7 +30,7 @@ class CoffeeChatsController < ApplicationController
           unless @coffee_chat.save
             raise
           end
-          start_time += 30
+          start_time += 30*60
         end
       else
         raise
@@ -50,20 +40,10 @@ class CoffeeChatsController < ApplicationController
     redirect_to dashboard_path
   end
 
-<<<<<<< HEAD
->>>>>>> 3d52dc1cce3f32113ee51382ad67eeb086662cb6
-=======
->>>>>>> 0363c3e130cf6504c541d0071cd520986476ebfa
-  def update
-  end
-
   def destroy
     @coffee_chat = CoffeeChat.find(params["format"].to_i)
     @coffee_chat.destroy
     redirect_to dashboard_path
-  end
-
-  def show
   end
 
   private
@@ -81,11 +61,5 @@ class CoffeeChatsController < ApplicationController
     end
     array
   end
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> 3d52dc1cce3f32113ee51382ad67eeb086662cb6
-=======
->>>>>>> 0363c3e130cf6504c541d0071cd520986476ebfa
 end
