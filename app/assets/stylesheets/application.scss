@@ -78,61 +78,8 @@ h1 {
   margin: 10px;
 }
 
-.search-panel{
-  align-items: left;
-}
-
-.wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
-.search-wrapper {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 10px;
-  right: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.search-wrapper input {
-  width: 80%;
-}
-
-.topic-container {
-  text-align: center;
-  border-style: solid;
-  border-width: thin;
-  border-color: $orange;
-}
-
-.topic-description {
-  font-size: 6;
-  inline-size: 150px;
-  text-align: center;
-  align-items: center;
-}
-
 .p {
   font-size: 4;
-}
-
-.icon {
-  width:30%;
-  height:30%;
-}
-
-.usp {
-  text-align: center;
-  inline-size: 200px;
-  border-style: solid;
-  border-width: thin;
-  border-color: $light-pink;
-  border-radius: 15px;
-
 }
 
 .learn-more {
