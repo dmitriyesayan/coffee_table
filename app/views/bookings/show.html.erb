@@ -1,13 +1,18 @@
 
+
+
 <div class="container booking-show-flex">
-  <div class="card" style="width: 30rem;">
+
+
+
+  <div class="card-confirmation">
     <div class="card-body">
-      <h2 class="card-title">Booking confirmed!</h2>
-      <p>Expert: <%= @booking.coffee_chat.user.first_name %> <%= @booking.coffee_chat.user.last_name %></p>
-      <p>Student: <%= @booking.user.first_name %> <%= @booking.user.last_name %></p>
-      <p>Date and Time: <%= @booking.coffee_chat.start.strftime("%d") %> <%= @booking.coffee_chat.start.strftime("%b") %> <%= @booking.coffee_chat.start.strftime("%H")%>:<%= @booking.coffee_chat.start.strftime("%M")%></p>
-      <p>Duration: 30 Mintues</p>
-      <p>Topic: <%= @booking.topic.topic_name %></p>
+      <h2 class="card-title">BOOKING CONFIRMED!</h2>
+      <p><strong> Expert: </strong> <%= @booking.coffee_chat.user.first_name %> <%= @booking.coffee_chat.user.last_name %></p>
+      <p><strong>Student: </strong><%= @booking.user.first_name %> <%= @booking.user.last_name %></p>
+      <p><strong>Date and Time: </strong><%= @booking.coffee_chat.start.strftime("%d") %> <%= @booking.coffee_chat.start.strftime("%b") %> <%= @booking.coffee_chat.start.strftime("%H")%>:<%= @booking.coffee_chat.start.strftime("%M")%></p>
+      <p><strong>Duration: </strong>30 Mintues </p>
+      <p><strong>Topic: </strong><%= @booking.topic.topic_name %></p>
       <p><%= link_to "JOIN VIDEOCHAT", @booking.video_link, class: "btn btn-success", target: :_blank %></p>
       <p><%= link_to "Cancel the Booking", expert_booking_path(@booking.coffee_chat.user, @booking), class: "btn btn-danger", method: :delete, remote: true, data: {confirm: "Are you sure?"} %></p>
     </div>
@@ -18,7 +23,7 @@
 
 
 
-
+  <p>Chat with the expert</p>
   <div class="chatbox">
     <div id="messages" data-booking-id="<%= @booking.id %>">
       <% messages = @booking.messages.last(6) %>
