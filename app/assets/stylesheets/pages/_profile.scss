@@ -1,3 +1,18 @@
+.card-profile {
+  .card-infos {
+    .card-body {
+      width: 70%;
+      h1 {
+        text-align: left;
+      }
+    }
+    .profile-img {
+      img {
+        object-fit:cover;
+      }
+    }
+  }
+}
 
 
 .profile-stripe {
@@ -5,10 +20,6 @@
   padding: 5px 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
-
-/*  .cards-profile {
-  box-sizing: border-box;
-} */
 
 .card-box {
   width: 50%; /* three boxes (use 25% for four, and 50% for two, etc) */
