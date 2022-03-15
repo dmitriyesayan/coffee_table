@@ -5,7 +5,7 @@
 }
 
 .skills-grid-container {
-  margin-bottom: 20px;
+  margin-bottom: 60px;
 }
 
 .skills-grid-item {
@@ -13,6 +13,12 @@
 }
 
 .skills-grid-item a {
+  background: rgba(230, 230, 225, 0.164);
+  // border-style: solid;
+  // border-width: 2px;
+  // border-color: #ffffff;
+  // border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .2);
   display: flex;
   transition: background linear .1s;
 }
@@ -23,10 +29,6 @@
 }
 
 .skills-grid-item-container {
-  border-style: solid;
-  border-width: 2px;
-  border-color: #a2a2a2;
-  border-radius: 8px;
   flex-direction: column;
   display: flex;
   align-items: center;
@@ -36,6 +38,7 @@
 }
 
 .skills-grid-item-title {
+  color: $blue;
   font-weight: 600;
   font-size: 16px;
 }
