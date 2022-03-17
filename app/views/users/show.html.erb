@@ -12,11 +12,11 @@
         </div>
           <div class="expert-img">
             <% if @expert.photo.key %>
-              <%= cl_image_tag @expert.photo.key, width: 300, crop: :fill %>
+              <%= cl_image_tag @expert.photo.key, width: 220, height: 220, crop: :fill %>
             <% elsif @expert.id <= 10 %>
-              <%= image_tag "expert-#{@expert.id}.jpg", width: 300, height: 170, crop: :fill %>
+              <%= image_tag "expert-#{@expert.id}.jpg", width: 220, height: 220, crop: :fill %>
             <% else %>
-              <%= image_tag "default-user.png", width: 150, height: 150 %>
+              <%= image_tag "default-user.png", width:220, height: 220, crop: :fill %>
             <% end %>
           </div>
         </div>
