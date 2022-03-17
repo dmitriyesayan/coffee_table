@@ -55,9 +55,8 @@
 
 textarea.form-control {
   height: 150px;
-  border:  rgba(255, 166, 0, 0.767) 5px solid;
+  border:  $yellow 1px solid;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
 }
 
 .confirmation-stripe {
