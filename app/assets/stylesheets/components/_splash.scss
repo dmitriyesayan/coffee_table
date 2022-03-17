@@ -26,3 +26,19 @@
   display: flex;
   width: 60%;
 }
+
+@media (max-width: 768px) {
+  .splash {
+    flex-direction: column;
+  }
+  .splash-content {
+    width: inherit;
+  }
+  .splash-image {
+    height: auto;
+    width: 100%;
+  }
+  .splash-title {
+    font-size: 22px;
+  }
+}

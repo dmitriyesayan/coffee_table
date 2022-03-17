@@ -37,3 +37,12 @@
 .usp p {
   margin: 0;
 }
+
+@media (max-width: 992px) {
+  .usps-container {
+    margin-bottom: 60px;
+  }
+  .usps-container .col-lg-4 {
+    margin-bottom: 20px;
+  }
+}
