@@ -3,16 +3,22 @@
   width: 30%;
   margin: 0 auto;
   justify-content: space-between;
-  margin-bottom: 48px;
   font-weight: bold;
+  margin-bottom: 24px;
+  padding: 0;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  margin-bottom: 48px;
   a {
     background-color: white;
     font-size: 32px;
     color: $blue;
-    padding: 16px 12px;
+    padding: 24px 24px;
     text-decoration: none;
     border-radius: 5px;
     transition: 0.2s;
+    width: 50%;
+    border-radius: inherit;
   }
   a:hover {
     background-color: $light-pink;
@@ -21,11 +27,19 @@
   .background-blue {
     background-color: $blue;
     color: $yellow;
-    transition: 0.1;
+    transition: 200ms;
   }
   .background-blue:hover {
     background-color: $blue;
-    transition: 0.1s;
+    transition: 200ms;
+  }
+  .right-border {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .left-border {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
 
@@ -33,55 +47,64 @@
   display: none;
 }
 
+.width-50 {
+  width: 50%;
+  height: 100%;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
 .calendar {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
+  margin-top: 16px;
   .calendar-days {
     width: 100%;
   }
   .calendar-banner {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 24px;
-    width: 100%;
     .cancel-btn {
-      width: 34px;
-      height: 34px;
+      width: 24px;
+      height: 24px;
       text-align: center;
       border-radius: 50%;
-      font-size: 32px;
+      font-size: 12px;
       opacity: 50%;
-      color: black;
-      line-height: 27px;
+      font-weight: bolder;
+      line-height: 20px;
       border: 2px solid black;
       float: right;
       position: absolute;
       top: -12px;
       right: -12px;
       z-index: 1;
+      background-color: rgba(0, 0, 0, 0.315);
       visibility: hidden;
       a {
         text-align: center;
         align-self: center;
-        color: black;
+        color: rgb(255, 255, 255);
       }
     }
      .cancel-btn:hover {
       opacity: 80%;
     }
     .calendar-left {
-      width: 60%;
-      margin-right: 48px;
-      padding-left: 16px;
+      width: 100%;
+      text-align: center;
+      align-items: center;
     }
     .set-availability {
-      padding-right: 16px;
+      padding: 16px 16px;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.199);
+      margin-top: 14px;
       h3 {
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0 auto;
         margin-bottom: 24px;
         margin-top: 32px;
-        color: $orange;
+        color: $yellow;
       }
       form {
       width: 60%;
@@ -96,32 +119,36 @@
           width: 100%;
           height: 48px;
           margin-bottom: 8px;
+          border: 0.1px solid rgb(165, 165, 165);
+          border-radius: 4px;
         }
         button {
           margin-top: 16px;
           color: white;
-          background-color: $blue;
+          background-color: $yellow;
           padding: 15px 10px;
           border-radius: 4px;
           border: none;
           width: 100%;
           transition: 0.1;
+          margin-top: 38px;
         }
         button:hover {
-          background-color: $blue-hover;
+          background-color: $yellow-hover;
           transition: 0.1s;
         }
       }
     }
   }
   .meeting {
-    background-color: $light-pink;
+    background-color: $blue;
     transition: 0.1s;
-    font-size: 16px;
+    font-size: 10px;
     position:relative;
   }
   .meeting:hover {
-    background-color: $light-pink;
+    background-color: $yellow;
+    color: white;
     transition: 0.1s;
     .cancel-btn {
       visibility: visible;
@@ -136,14 +163,16 @@
 
 .dashboard-container {
   margin-bottom: 40px;
+  padding: 16px 16px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.400);
+
   .dashboard-banner {
     display: flex;
     background: white;
     padding-right: 16px;
     padding-left: 16px;
     padding-top: 8px;
-    margin-bottom: 16px;
-    // padding-bottom: 6px;
     i {
       font-size: 32px;
       margin-right: 16px;
@@ -158,7 +187,7 @@
     padding-bottom: 5px;
     border-bottom: 16px;
     align-self: center;
-    transition: 0.2;
+    transition: 100s;
     border-bottom: 0.1px solid black;
     align-items: flex-end;
     i {
@@ -166,8 +195,9 @@
     }
   }
   .hover-blue:hover {
-    transition: 0.2;
+    transition: 100s;
     border-bottom: 0.1px solid $blue;
+    cursor: pointer;
     i {
       color:$blue;
     }
@@ -181,6 +211,8 @@
       margin-bottom: 16px;
       transition: 0.1;
       border-radius: 4px;
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+      padding: 12px 12px;
       .booking-left {
         display: flex;
         justify-content: left;
@@ -200,6 +232,10 @@
           }
           .text-small {
             font-size: 16px;
+          }
+          img {
+            object-fit:cover;
+            border: 0.5px solid $yellow;
           }
         }
         .width-static {
@@ -239,4 +275,20 @@
       }
     }
   }
+}
+
+.completed-coffee-chats {
+  justify-content: space-between;
+}
+
+.completed-coffee-chats:hover {
+  transition: 100ms;
+  cursor: pointer;
+  .hover-black {
+    color: black;
+  }
+}
+
+.margin-top-24 {
+  margin-top: 24px;
 }

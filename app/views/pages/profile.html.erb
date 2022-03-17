@@ -7,7 +7,7 @@
       <div class="card-infos">
 
 
-          <div class="card-body">
+          <div class="card-body-profile-dm">
               <h1><strong><%= current_user.first_name %> <%= current_user.last_name %></strong></h1>
               <h4><%= current_user.description %></h4>
               <h5>Member since <%= (Date::MONTHNAMES[current_user.created_at.month])%> <%= current_user.created_at.year %> </h5>
@@ -40,14 +40,28 @@
   <div>
     <div class="cards-profile">
       <% if current_user.expert_profile %>
-        <div class="card-box">
+        <div class="card-box position">
           <h5>MY EXPERTISE</h5>
             <hr>
-            <h3>
+            <div class="flex">
                 <% current_user.topics.each do |topic| %>
-                  <%= topic.topic_name %>
+                  <div class="topic-line">
+                    <% expert_topic = ExpertTopic.find_by({topic: topic, user: current_user}) %>
+                    <h3 class="topic-name"><%= topic.topic_name %>  </h3>
+                    <%= link_to "x", expert_topic_path(expert_topic), method: :delete, class: 'remove-topic-btn', remote: true %>
+                  </div>
                 <% end %>
-          </h3>
+          </div>
+          <div class="flex align-items-center">
+                <div>
+                  <%= link_to "Add a new topic", "#", class: 'add-topic', remote: true %>
+                </div>
+
+                <%= form_tag("/expert_topics", method: "post", class: "add-topic-box invisible", remote: true) do%>
+                  <%= text_field_tag(:topic_name) %>
+                  <%= submit_tag("+") %>
+                <% end %>
+          </div>
         </div>
       <% end %>
 

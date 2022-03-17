@@ -21,10 +21,12 @@
     <% @experts.each do |expert| %>
     <div class="expert-card-width">
       <div class="image-containter">
-        <% if expert.id > 10 %>
+        <% if expert.photo.key %>
           <%= cl_image_tag expert.photo.key, width: 300, crop: :fill %>
-        <% else %>
+        <% elsif expert.id <= 10 %>
           <%= image_tag "expert-#{expert.id}.jpg", width: 300, height: 170, crop: :fill %>
+        <% else %>
+          <%= image_tag "default-user.png", width: 150, height: 150 %>
         <% end %>
       </div>
       <div class="expert-card-bottom">
