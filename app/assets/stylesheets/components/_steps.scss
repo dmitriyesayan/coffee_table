@@ -1,8 +1,6 @@
 .steps-container {
-  margin-bottom: 60px;
-  padding: 60px 0 40px;
+  margin-bottom: 50px;
 }
-
 
 .steps-container h4 {
   font-weight: 600;
@@ -23,7 +21,7 @@
 
 .steps-container li div {
   margin: 0;
-  padding: 0 0 20px 70px;
+  padding: 0 0 30px 70px;
   position: relative;
 }
 
@@ -57,4 +55,8 @@
 
 .steps-container h5 {
   font-weight: 600
+}
+
+.steps-container p {
+  margin: 0;
 }

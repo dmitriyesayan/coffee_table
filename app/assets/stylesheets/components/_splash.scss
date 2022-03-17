@@ -22,40 +22,6 @@
   margin-bottom: 20px;
 }
 
-.splash-content #search-bar {
-  width: 100%;
-}
-
-.splash-content #search-bar form {
-  flex-direction: column;
-}
-
-.splash-content #search-bar form .form-control {
-  border-color: $orange;
-  border-width: 2px;
-  border-radius: 4px;
-  flex: 1;
-  font-size: 18px;
-  max-width: inherit;
-  margin-bottom: 15px;
-  padding: 10px;
-  width: 100%;
-}
-
-.splash-content #search-bar form .btn-orange {
-  background: $blue;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  border-radius: 50px;
-  padding: 10px;
-  width: 100%;
-}
-
-.splash-content #search-bar form .btn-orange:hover {
-  background: $blue;
-}
-
 .splash-image {
   display: flex;
   width: 60%;

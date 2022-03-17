@@ -1,10 +1,8 @@
-<div id="search-bar">
-  <%= form_tag experts_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control col-sm-8",
-      placeholder: "Space, Tourism, Biology, Social Media..."
-    %>
-    <%= submit_tag "Search", class: "btn btn-orange" %>
-  <% end %>
-</div>
+<%= form_tag experts_path, class: "search-bar search-bar-#{layout}", method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Space, Tourism, Biology, Social Media..."
+  %>
+  <%= submit_tag "Search", class: "btn btn-search" %>
+<% end %>

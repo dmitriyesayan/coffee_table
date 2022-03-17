@@ -17,14 +17,14 @@
   // border-style: solid;
   // border-width: 2px;
   // border-color: #ffffff;
-  // border-radius: 8px;
+  border-radius: 8px;
   box-shadow: 0 0 5px rgba(0, 0, 0, .2);
   display: flex;
   transition: background linear .1s;
 }
 
 .skills-grid-item a:hover {
-  background: #fafafa;
+  background: rgba(65, 116, 246, 0.1);
   text-decoration: none;
 }
 
