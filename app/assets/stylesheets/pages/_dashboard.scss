@@ -147,8 +147,8 @@
     position:relative;
   }
   .meeting:hover {
-    background-color: $yellow;
-    color: white;
+    background: #5693adb7;
+    color: #182930;
     transition: 0.1s;
     .cancel-btn {
       visibility: visible;
