@@ -20,9 +20,10 @@ class UsersController < ApplicationController
     @coffee_chats = CoffeeChat.where(start: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week, availability: true)
   end
 
-  def create
+  def become_expert
+    current_user.update(expert_profile: true)
+    current_user.save
+    redirect_to profile_path
   end
-
-
 
 end

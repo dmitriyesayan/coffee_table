@@ -1,14 +1,89 @@
 
+.flex {
+  display: flex;
+}
+
+.topic-line {
+  margin-right: 12px;
+  display: flex;
+  position: relative;
+  transition: 400ms;
+  .remove-topic-btn {
+    color: black;
+    font-size: 18px;
+    float: top;
+    position: absolute;
+    right: -6px;
+    bottom: 20px;
+    display: none;
+  }
+}
+.topic-line:hover {
+  margin-right: 16px;
+  transition: 400ms;
+  .remove-topic-btn {
+    display: block;
+  }
+}
+
+.add-topic {
+  background-color: $yellow;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: 100ms;
+  a {
+    text-decoration: none;
+  }
+  border-bottom: 16px;
+}
+
+.add-topic:hover {
+  background-color: $yellow-hover;
+  transition: 100ms;
+  a {
+    text-decoration: none;
+  }
+}
+
+.add-topic-box {
+  margin-left: 16px;
+  #topic-name {
+    width: 25%;
+    border-radius: 4px;
+    height: 100%;
+  }
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+
+
+.card-profile {
+  .card-infos {
+    .card-body-profile-dm {
+      padding-left: 220px;
+      width: 70%;
+      h1 {
+        text-align: left;
+      }
+    }
+    .profile-img {
+      img {
+        object-fit:cover;
+      }
+    }
+  }
+}
+
 
 .profile-stripe {
   background: #5693ad;
   padding: 5px 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(10, 8, 8, 0.2);
 }
-
-/*  .cards-profile {
-  box-sizing: border-box;
-} */
 
 .card-box {
   width: 50%; /* three boxes (use 25% for four, and 50% for two, etc) */

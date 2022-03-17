@@ -1,0 +1,39 @@
+.edit-profile-container{
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgb(167, 167, 167);
+    h2 {
+      color: $blue;
+    }
+  }
+  .become-an-expert {
+    text-align: center;
+    align-items: center;
+    line-height: 26px;
+    font-size: 18px;
+    background-color: $yellow;
+    color: white;
+    transition: 100ms;
+    padding: 8px 16px;
+    border-radius: 2px;
+    text-decoration: none;
+  }
+  .become-an-expert:hover {
+    background-color: $yellow-hover;
+    transition: 100ms;
+  }
+  .form-actions {
+    display: block;
+    .save-btn {
+      background-color: $blue;
+      margin-bottom: 24px;
+      width: 200px;
+    }
+    .save-btn:hover {
+      background-color: $blue-hover;
+    }
+  }
+}

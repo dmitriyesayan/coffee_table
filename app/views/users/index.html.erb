@@ -10,21 +10,23 @@
       <h2>Found <%=@experts.count%> experts </h4>
     </div>
 
-    <%= image_tag "expert-page-top-illustration.png", alt: "expert-page-top-illustration", width: 400 %>
+    <%= image_tag "search.svg", alt: "expert-page-top-illustration", width: 200 %>
 
   </div>
   <div class="expert-page-search">
-    <%= render "shared/search_bar" %>
+    <%= render "shared/search_bar", :layout => 'horizontal' %>
   </div>
 
   <div class="results">
     <% @experts.each do |expert| %>
     <div class="expert-card-width">
       <div class="image-containter">
-        <% if expert.id > 10 %>
+        <% if expert.photo.key %>
           <%= cl_image_tag expert.photo.key, width: 300, crop: :fill %>
-        <% else %>
+        <% elsif expert.id <= 10 %>
           <%= image_tag "expert-#{expert.id}.jpg", width: 300, height: 170, crop: :fill %>
+        <% else %>
+          <%= image_tag "default-user.png", width: 150, height: 150 %>
         <% end %>
       </div>
       <div class="expert-card-bottom">

@@ -16,7 +16,7 @@
 
 @import "flatpickr";
 
-@import "flatpickr/themes/dark";
+@import "flatpickr/themes/airbnb";
 
 body {
   color: black;
@@ -43,6 +43,10 @@ h1 {
   height: 100%;
   width: 50%;
 
+}
+
+.bg-grey {
+  background: #f5f5f5;
 }
 
 .split {

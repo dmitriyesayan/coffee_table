@@ -7,15 +7,20 @@
       <div class="card-infos">
 
 
-          <div class="card-body">
+          <div class="card-body-profile-dm">
               <h1><strong><%= current_user.first_name %> <%= current_user.last_name %></strong></h1>
               <h4><%= current_user.description %></h4>
               <h5>Member since <%= (Date::MONTHNAMES[current_user.created_at.month])%> <%= current_user.created_at.year %> </h5>
           </div>
 
         <div class="profile-img">
-            <%= cl_image_tag('https://res.cloudinary.com/gisla36/image/upload/v1647078211/development/skovz4d6nzzr7smjaaevby8scx0a.jpg',
-          width: 150, height: 150, crop: :fill) %>
+          <% if current_user.photo.key %>
+            <%= cl_image_tag current_user.photo.key, width: 150, height: 150 %>
+          <% elsif current_user.id <= 10 %>
+            <%= image_tag "expert-#{current_user.id}.jpg", width: 150, height: 150 %>
+          <% else %>
+            <%= image_tag "default-user.png", width: 150, height: 150 %>
+          <% end %>
         </div>
 
           <h5 id='edit-profile-a'><%= link_to "Edit Profile", edit_user_registration_path %></h5>
@@ -34,21 +39,45 @@
 
   <div>
     <div class="cards-profile">
-      <div class="card-box">
-         <h5>MY EXPERTISE</h5>
-          <hr>
-          <h3>Expert in
-              <% current_user.topics.each do |topic| %>
-                <%= topic.topic_name %>
-              <% end %>
-        </h3>
+      <% if current_user.expert_profile %>
+        <div class="card-box position">
+          <h5>MY EXPERTISE</h5>
+            <hr>
+            <div class="flex">
+                <% current_user.topics.each do |topic| %>
+                  <div class="topic-line">
+                    <% expert_topic = ExpertTopic.find_by({topic: topic, user: current_user}) %>
+                    <h3 class="topic-name"><%= topic.topic_name %>  </h3>
+                    <%= link_to "x", expert_topic_path(expert_topic), method: :delete, class: 'remove-topic-btn', remote: true %>
+                  </div>
+                <% end %>
+          </div>
+          <div class="flex align-items-center">
+                <div>
+                  <%= link_to "Add a new topic", "#", class: 'add-topic', remote: true %>
+                </div>
+
+                <%= form_tag("/expert_topics", method: "post", class: "add-topic-box invisible", remote: true) do%>
+                  <%= text_field_tag(:topic_name) %>
+                  <%= submit_tag("+") %>
+                <% end %>
+          </div>
         </div>
+      <% end %>
 
 
         <div class="card-box">
           <h5>LEARNER SECTION</h5>
             <hr>
-          <h3>Learning</h3>
+          <h3>
+          <% if @learner_topics.empty? %>
+            You have not made a booking yet
+          <% else %>
+            <% @learner_topics.each do |topic| %>
+            <%= topic %>
+            <% end %>
+          <% end %>
+          </h3>
         </div>
 
     </div>
@@ -75,21 +104,15 @@
       <tbody>
         <tr>
           <th scope="row">As a learner</th>
-          <td>5</td>
-          <td>6</td>
-          <td>7</td>
+          <td><%=@learner_bookings.map { |booking| booking.end > (DateTime.now + 30*60*24)}.count   %></td>
+          <td><%=@learner_bookings.map { |booking| booking.end > (DateTime.now + 90*60*24)}.count %></td>
+          <td><%=@learner_bookings.count  %></td>
         </tr>
         <tr>
           <th scope="row">As an expert</th>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <th scope="row">Attendance</th>
-          <td>120</td>
-          <td>60</td>
-          <td>180</td>
+          <td><%=@expert_bookings.map { |booking| booking.end > (DateTime.now + 30*60*24)}.count   %></td>
+          <td><%=@expert_bookings.map { |booking| booking.end > (DateTime.now + 90*60*24)}.count %></td>
+          <td><%=@expert_bookings.count  %></td>
         </tr>
       </tbody>
     </table>

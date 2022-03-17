@@ -1,5 +1,11 @@
 .steps-container {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
+}
+
+.steps-container h4 {
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .steps-container ol {
@@ -15,7 +21,7 @@
 
 .steps-container li div {
   margin: 0;
-  padding: 0 0 20px 70px;
+  padding: 0 0 30px 70px;
   position: relative;
 }
 
@@ -32,21 +38,25 @@
 }
 
 .steps-container ol li:nth-child(1) div::before {
-  background-color: #3254AC;
+  background-color: #336276;
 }
 
 .steps-container ol li:nth-child(2) div::before {
-  background-color: #0069CA;
+  background-color: $blue;
 }
 
 .steps-container ol li:nth-child(3) div::before {
-  background-color: #9FB6F1;
+  background-color: #8dc2d8;
 }
 
 .steps-container ol li:nth-child(4) div::before {
-  background-color: #CFDBF8;
+  background-color: #cfe9f4;
 }
 
 .steps-container h5 {
   font-weight: 600
+}
+
+.steps-container p {
+  margin: 0;
 }

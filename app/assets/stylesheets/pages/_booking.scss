@@ -6,6 +6,12 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.card-confirmation b,
+.card-confirmation strong {
+    font-weight: bolder;
+    color: rgba(233, 156, 84, 0.945)
+}
+
 .card-body {
   flex: 1 1 auto;
   min-height: 1px;
@@ -55,7 +61,7 @@
 
 textarea.form-control {
   height: 150px;
-  border:  rgba(255, 166, 0, 0.767) 5px solid;
+  border:  $yellow 1px solid;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-top: 0px;
 }

@@ -11,8 +11,13 @@
           <p>JavaScript expert</p>
         </div>
           <div class="expert-img">
-            <%= cl_image_tag('https://res.cloudinary.com/gisla36/image/upload/v1647078211/development/skovz4d6nzzr7smjaaevby8scx0a.jpg',
-            width: 150, height: 150, crop: :fill) %>
+            <% if @expert.photo.key %>
+              <%= cl_image_tag @expert.photo.key, width: 220, height: 220, crop: :fill %>
+            <% elsif @expert.id <= 10 %>
+              <%= image_tag "expert-#{@expert.id}.jpg", width: 220, height: 220, crop: :fill %>
+            <% else %>
+              <%= image_tag "default-user.png", width:220, height: 220, crop: :fill %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -25,16 +30,21 @@
       <div class="cards">
         <div class="card-teach">
           <h5 class="card-title">What can I teach you?</h5>
-            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-            <p class="card-text"><small class="text-muted">Last updated 1 day ago</small></p>
+            <p class="card-text"><%= @expert.description %></p>
+            <% days = ((Time.zone.now-@expert.updated_at)/86400).floor %>
+            <% if days > 1 %>
+              <p class="card-text"><small class="text-muted">Last updated <%=days%> days ago</small></p>
+            <% else %>
+              <p class="card-text"><small class="text-muted">Last updated <%=days%> day ago</small></p>
+            <% end %>
         </div>
 
         <div class="card-vid">
           <% if @expert.video.key %>
               <%= cl_video_tag @expert.video.key, controls: true, transformation: [ width: 200, height: 190, crop: 'pad' ] %>
-            <% else %>
-              <iframe width="400" height="250" src="https://www.youtube.com/embed/c-I5S_zTwAc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <% end %>
+          <% else %>
+            <iframe width="400" height="250" src="https://www.youtube.com/embed/c-I5S_zTwAc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <% end %>
         </div>
       </div>
 
@@ -44,15 +54,17 @@
       </div>
 
 
-
+        <h3 id="cal">Make a booking</h3>
         <%= month_calendar(events: @coffee_chats, attribute: :start, end_attribute: :end) do |date, coffee_chats| %>
           <%= date %>
         <% coffee_chats.each do |coffee_chat| %>
       <% id = @expert.id %>
-        <%= link_to expert_bookings_path(@expert, coffee_chat: coffee_chat, topic: params[:q]), method: :post do %>
+        <% if (coffee_chat.end > DateTime.now) && (coffee_chat.availability == true) %>
+          <%= link_to expert_bookings_path(@expert, coffee_chat: coffee_chat, topic: params[:q]), method: :post do %>
           <div class="meeting">
             <small><%= coffee_chat.time unless coffee_chat.multi_days? %></small>
           </div>
+        <% end %>
         <% end %>
       <% end %>
     <% end %>
