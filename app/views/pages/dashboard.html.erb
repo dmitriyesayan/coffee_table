@@ -1,12 +1,12 @@
 <div class="container">
   <% if current_user.expert_profile == true %>
-    <% if (!Booking.find_by(user_id: current_user) != nil) && (params[:interface] == nil) %>
+    <% if (Booking.find_by(user_id: current_user) != nil) && (params[:interface] == nil) %>
       <div class="switch-box">
         <%= link_to "Learner", dashboard_path(interface: "learner") %>
-        <%= link_to "Expert", dashboard_path, { class: "background-blue" }  %>
+        <%= link_to "Expert", dashboard_path, { class: "background-blue left-border" }  %>
       </div>
 
-      <div class="dashboard-container">
+      <div class="dashboard-container", id='cal'>
         <div class="dashboard-banner hover-blue", style="justify-content: space-between;">
           <h2>Manage Availability</h2>
           <i class="lni lni-arrow-down-circle"></i>
@@ -24,33 +24,35 @@
                   <%# maybe you will need to put the target in the link_to%>
 
                   <% coffee_chats.each do |coffee_chat| %>
-                  <%= link_to coffee_chat_path(current_user, coffee_chat), method: :delete, data: { confirm: "Would you like to remove your availability?" }, remote: true do %>
+                  <% if (coffee_chat.end > DateTime.now) && (coffee_chat.availability == true) %>
+                    <%= link_to coffee_chat_path(current_user, coffee_chat), method: :delete, data: { confirm: "Would you like to remove your availability?" }, remote: true do %>
                     <div class="meeting">
                       <div class="cancel-btn">
-                        <%= link_to 'x', coffee_chat_path(current_user, coffee_chat), method: :delete, data: { confirm: "Would you like to remove your availability?" }, remote: true %>
+                        <%= link_to '<i class="lni lni-close"></i>'.html_safe, coffee_chat_path(current_user, coffee_chat), method: :delete, data: { confirm: "Would you like to remove your availability?" }, remote: true %>
                       </div>
                       <small><%= coffee_chat.time unless coffee_chat.multi_days? %></small>
                     </div>
                   <% end %>
                   <% end %>
+                  <% end %>
                 <% end %>
             </div>
-          </div>
-          <div class="calendar-banner">
-            <div class="calendar-left">
-              <h3>ADD AVAILABLE HOURS</h3>
-            </div>
-            <div class="set-availability",style="visibility: hidden; display: none", data-open-timeslots-target="times">
+          <div class="calendar-banner width-50">
+            <div class="set-availability", data-open-timeslots-target="times">
+              <div class="calendar-left">
+                <h3 >Add available hours</h3>
+              </div>
               <%= form_with url: "/experts/#{current_user.id}/coffee_chats", method: :post do |f| %>
-                  <%= f.label :start_time, "START TIME:" %>
+                  <%= f.label :start_time, "Start Time:" %>
                   <%= f.text_field(:start_time, class: 'time-selector')%>
-                  <%= f.label :start_time, "END TIME:" %>
+                  <%= f.label :start_time, "End Time:" %>
                   <%= f.text_field(:end_time, class: 'time-selector')%>
-                  <%= f.label :start_time, "DATES:" %>
+                  <%= f.label :start_time, "Dates:" %>
                   <%= f.text_field(:date_range, class: 'date-selector')%>
                   <%= f.button "Submit", type: 'submit'%>
               <% end %>
             </div>
+          </div>
           </div>
         </div>
       </div>
@@ -62,7 +64,7 @@
           <h2>Upcoming Coffee Chats</h2>
         </div>
 
-        <div class="dashboard-list">
+        <div class="dashboard-list margin-top-24">
           <% if !@upcoming_bookings.empty? %>
             <% @upcoming_bookings.each do |booking| %>
             <div class="booking">
@@ -84,11 +86,11 @@
                   </div>
                   <div class="booking-col width-static">
                     <% if booking.user.photo.key %>
-                      <%= cl_image_tag booking.user.photo.key, height: 90, crop: :fill %>
+                      <%= cl_image_tag booking.user.photo.key, height: 90 %>
                     <% elsif booking.user.id <= 10 %>
-                      <%= image_tag "expert-#{booking.user.id}.jpg", height: 90, crop: :fill %>
+                      <%= image_tag "expert-#{booking.user.id}.jpg", height: 90 %>
                     <% else %>
-                      <%= image_tag "default-user.png", height: 90, crop: :fill %>
+                      <%= image_tag "default-user.png", height: 90 %>
                     <% end %>
                     <p><%= booking.user.first_name%> <%= booking.user.last_name %></p>
                   </div>
@@ -101,12 +103,15 @@
 
       <div class="dashboard-container">
 
-        <div class="dashboard-banner">
-          <i class="lni lni-coffee-cup"></i>
-          <h2>Completed Coffee Chats</h2>
+        <div class="dashboard-banner completed-coffee-chats">
+          <div class='flex'>
+            <i class="lni lni-coffee-cup"></i>
+            <h2>Completed Coffee Chats</h2>
+          </div>
+          <h2 class="hover-black">o o o</h2>
         </div>
 
-        <div class="dashboard-list">
+        <div class="dashboard-list completed-coffee-chats-list invisible margin-top-24">
           <% if !@completed_bookings.empty? %>
             <% @completed_bookings.each do |booking| %>
               <div class="booking">
@@ -132,11 +137,11 @@
                   </div>
                   <div class="booking-col width-static">
                     <% if booking.user.photo.key %>
-                      <%= cl_image_tag booking.user.photo.key, height: 90, crop: :fill %>
+                      <%= cl_image_tag booking.user.photo.key, height: 90 %>
                     <% elsif booking.user.id <= 10 %>
-                      <%= image_tag "expert-#{booking.user.id}.jpg", height: 90, crop: :fill %>
+                      <%= image_tag "expert-#{booking.user.id}.jpg", height: 90 %>
                     <% else %>
-                      <%= image_tag "default-user.png", height: 90, crop: :fill %>
+                      <%= image_tag "default-user.png", height: 90 %>
                     <% end %>
                     <p><%= booking.user.first_name%> <%= booking.user.last_name %></p>
                   </div>
@@ -148,7 +153,7 @@
       </div>
     <% elsif params[:interface] == "learner" %>
         <div class="switch-box">
-          <%= link_to "Learner", dashboard_path(interface: "learner"), { class: "background-blue" } %>
+          <%= link_to "Learner", dashboard_path(interface: "learner"), { class: "background-blue right-border" } %>
           <%= link_to "Expert", dashboard_path %>
         </div>
 
@@ -159,7 +164,7 @@
           <h2>Upcoming Coffee Chats</h2>
         </div>
 
-        <div class="dashboard-list">
+        <div class="dashboard-list margin-top-24">
           <% if !@user_upcoming_bookings.empty? %>
             <% @user_upcoming_bookings.each do |booking| %>
             <div class="booking">
@@ -181,11 +186,11 @@
                   </div>
                   <div class="booking-col width-static">
                     <% if booking.coffee_chat.user.photo.key %>
-                      <%= cl_image_tag booking.coffee_chat.user.photo.key, height: 90, crop: :fill %>
+                      <%= cl_image_tag booking.coffee_chat.user.photo.key, height: 90 %>
                     <% elsif booking.coffee_chat.user.id <= 10 %>
-                      <%= image_tag "expert-#{booking.coffee_chat.user.id}.jpg", height: 90, crop: :fill %>
+                      <%= image_tag "expert-#{booking.coffee_chat.user.id}.jpg", height: 90 %>
                     <% else %>
-                      <%= image_tag "default-user.png", height: 90, crop: :fill %>
+                      <%= image_tag "default-user.png", height: 90 %>
                     <% end %>
                     <p><%= booking.coffee_chat.user.first_name%> <%= booking.coffee_chat.user.last_name %></p>
                   </div>
@@ -198,12 +203,15 @@
 
       <div class="dashboard-container">
 
-        <div class="dashboard-banner">
-          <i class="lni lni-coffee-cup"></i>
-          <h2>Completed Coffee Chats</h2>
+        <div class="dashboard-banner completed-coffee-chats">
+          <div class="flex">
+            <i class="lni lni-coffee-cup"></i>
+            <h2>Completed Coffee Chats</h2>
+          </div>
+          <h2 class="hover-black">o o o</h2>
         </div>
 
-        <div class="dashboard-list">
+        <div class="dashboard-list completed-coffee-chats margin-top-24 invisible">
           <% if !@user_completed_bookings.empty? %>
             <% @user_completed_bookings.each do |booking| %>
               <div class="booking">
@@ -232,11 +240,11 @@
                     <% end %>                </div>
                   <div class="booking-col width-static">
                     <% if booking.coffee_chat.user.photo.key %>
-                      <%= cl_image_tag booking.coffee_chat.user.photo.key, height: 90, crop: :fill %>
+                      <%= cl_image_tag booking.coffee_chat.user.photo.key, height: 90 %>
                     <% elsif booking.coffee_chat.user.id <= 10 %>
-                      <%= image_tag "expert-#{booking.coffee_chat.user.id}.jpg", height: 90, crop: :fill %>
+                      <%= image_tag "expert-#{booking.coffee_chat.user.id}.jpg", height: 90 %>
                     <% else %>
-                      <%= image_tag "default-user.png", height: 90, crop: :fill %>
+                      <%= image_tag "default-user.png", height: 90 %>
                     <% end %>
                     <p><%= booking.coffee_chat.user.first_name%> <%= booking.coffee_chat.user.last_name %></p>
                   </div>
@@ -254,7 +262,7 @@
           <h2>Upcoming Coffee Chats</h2>
         </div>
 
-        <div class="dashboard-list">
+        <div class="dashboard-list margin-top-24">
           <% if !@upcoming_bookings.empty? %>
             <% @upcoming_bookings.each do |booking| %>
             <div class="booking">
@@ -276,11 +284,11 @@
                   </div>
                   <div class="booking-col width-static">
                     <% if booking.user.photo.key %>
-                      <%= cl_image_tag booking.user.photo.key, height: 90, crop: :fill %>
+                      <%= cl_image_tag booking.user.photo.key, height: 90 %>
                     <% elsif booking.user.id <= 10 %>
-                      <%= image_tag "expert-#{booking.user.id}.jpg", height: 90, crop: :fill %>
+                      <%= image_tag "expert-#{booking.user.id}.jpg", height: 90 %>
                     <% else %>
-                      <%= image_tag "default-user.png", height: 90, crop: :fill %>
+                      <%= image_tag "default-user.png", height: 90 %>
                     <% end %>
                     <p><%= booking.user.first_name%> <%= booking.user.last_name %></p>
                   </div>
@@ -293,12 +301,15 @@
 
       <div class="dashboard-container">
 
-        <div class="dashboard-banner">
-          <i class="lni lni-coffee-cup"></i>
-          <h2>Completed Coffee Chats</h2>
+        <div class="dashboard-banner completed-coffee-chats">
+          <div class="flex">
+            <i class="lni lni-coffee-cup"></i>
+            <h2>Completed Coffee Chats</h2>
+          </div>
+          <h2 class="hover-black">o o o</h2>
         </div>
 
-        <div class="dashboard-list">
+        <div class="dashboard-list completed-coffee-chats-list invisible margin-top-24">
           <% if !@completed_bookings.empty? %>
             <% @completed_bookings.each do |booking| %>
               <div class="booking">
@@ -324,11 +335,11 @@
                   </div>
                   <div class="booking-col width-static">
                     <% if booking.user.photo.key %>
-                      <%= cl_image_tag booking.user.photo.key, height: 90, crop: :fill %>
+                      <%= cl_image_tag booking.user.photo.key, height: 90 %>
                     <% elsif booking.user.id <= 10 %>
-                      <%= image_tag "expert-#{booking.user.id}.jpg", height: 90, crop: :fill %>
+                      <%= image_tag "expert-#{booking.user.id}.jpg", height: 90 %>
                     <% else %>
-                      <%= image_tag "default-user.png", height: 90, crop: :fill %>
+                      <%= image_tag "default-user.png", height: 90 %>
                     <% end %>
                     <p><%= booking.user.first_name%> <%= booking.user.last_name %></p>
                   </div>
@@ -351,7 +362,7 @@
         <h2>Upcoming Coffee Chats</h2>
       </div>
 
-      <div class="dashboard-list">
+      <div class="dashboard-list margin-top-24">
         <% if !@user_upcoming_bookings.empty? %>
           <% @user_upcoming_bookings.each do |booking| %>
           <div class="booking">
@@ -373,11 +384,11 @@
                 </div>
                 <div class="booking-col width-static">
                   <% if booking.coffee_chat.user.photo.key %>
-                    <%= cl_image_tag booking.coffee_chat.user.photo.key, height: 90, crop: :fill %>
+                    <%= cl_image_tag booking.coffee_chat.user.photo.key, height: 90 %>
                   <% elsif booking.coffee_chat.user.id <= 10 %>
-                    <%= image_tag "expert-#{booking.coffee_chat.user.id}.jpg", height: 90, crop: :fill %>
+                    <%= image_tag "expert-#{booking.coffee_chat.user.id}.jpg", height: 90 %>
                   <% else %>
-                    <%= image_tag "default-user.png", height: 90, crop: :fill %>
+                    <%= image_tag "default-user.png", height: 90 %>
                   <% end %>
                   <p><%= booking.coffee_chat.user.first_name%> <%= booking.coffee_chat.user.last_name %></p>
                 </div>
@@ -390,12 +401,15 @@
 
     <div class="dashboard-container">
 
-      <div class="dashboard-banner">
-        <i class="lni lni-coffee-cup"></i>
-        <h2>Completed Coffee Chats</h2>
+      <div class="dashboard-banner completed-coffee-chats">
+        <div class="flex">
+          <i class="lni lni-coffee-cup"></i>
+          <h2>Completed Coffee Chats</h2>
+        </div>
+        <h2 class="hover-black">o o o</h2>
       </div>
 
-      <div class="dashboard-list">
+      <div class="dashboard-list completed-coffee-chats-list invisible margin-top-24">
         <% if !@user_completed_bookings.empty? %>
           <% @user_completed_bookings.each do |booking| %>
             <div class="booking">
@@ -424,11 +438,11 @@
                   <% end %>                </div>
                 <div class="booking-col width-static">
                   <% if booking.coffee_chat.user.photo.key %>
-                    <%= cl_image_tag booking.coffee_chat.user.photo.key, height: 90, crop: :fill %>
+                    <%= cl_image_tag booking.coffee_chat.user.photo.key, height: 90 %>
                   <% elsif booking.coffee_chat.user.id <= 10 %>
-                    <%= image_tag "expert-#{booking.coffee_chat.user.id}.jpg", height: 90, crop: :fill %>
+                    <%= image_tag "expert-#{booking.coffee_chat.user.id}.jpg", height: 90 %>
                   <% else %>
-                    <%= image_tag "default-user.png", height: 90, crop: :fill %>
+                    <%= image_tag "default-user.png", height: 90 %>
                   <% end %>
                   <p><%= booking.coffee_chat.user.first_name%> <%= booking.coffee_chat.user.last_name %></p>
                 </div>

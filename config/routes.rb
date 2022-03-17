@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   post 'coffee_chats', to: 'coffee_chats#create'
   get 'dashboard/new', to: 'coffee_chats#new'
 
+  patch 'users/:id/become_an_expert', to: "users#become_expert", as: :user_become_an_expert
+
+  resources :expert_topics, only: [:create, :destroy]
+
   resources :experts, controller: 'users', only: [:index, :show, :update] do
     resources :bookings
   end
