@@ -2,13 +2,33 @@
 
 
     <div class="card-expert">
-      <%= cl_image_tag('https://res.cloudinary.com/gisla36/image/upload/v1647102307/development/pexels-mart-production-7577806_w2djf5.jpg',
-        width: 900, height: 250, crop: :fill) %>
+      <%= image_tag("blue-smoke.jpg", width: 900, height: 250, crop: :fill) %>
           <div class="card-infos">
         <div class="card-body">
           <h2 class="card-title"><%= @expert.first_name %> <%= @expert.last_name %></h2>
           <p>&#x2B50 &#x2B50 &#x2B50 &#x2B50</p>
-          <p>JavaScript expert</p>
+          <% topics = @expert.topics %>
+            <% if topics.count == 1 %>
+              <% if topics[0].topic_name.length > 21 %>
+                <p><%= topics[0].topic_name %></p>
+              <% else %>
+                <p><%=topics[0].topic_name%> expert</p>
+              <% end %>
+            <% else %>
+              <% topics_string = "" %>
+              <% topics.each do |topic| %>
+              <% if topics_string == "" %>
+                <% topics_string += topic.topic_name %>
+              <% else %>
+                <% topics_string += ", #{topic.topic_name}" %>
+              <% end %>
+              <% end %>
+              <% if topics_string.length > 21 %>
+                <p><%= topics_string%></p>
+              <% else %>
+                <p><%=topics_string%> expert</p>
+              <% end %>
+            <% end %>
         </div>
           <div class="expert-img">
             <% if @expert.photo.key %>
