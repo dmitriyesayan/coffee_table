@@ -2,7 +2,7 @@
   width: 60%;
   border:  #5693ad 2px solid;
   margin-left: 200px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
@@ -24,7 +24,7 @@
     font-weight: bold;
     margin: 0;
     padding-bottom: 40px;
-    color: black;
+    color: rgba(255, 166, 0, 0.767);
 }
 
 .btn-success {
@@ -63,6 +63,7 @@ textarea.form-control {
   height: 150px;
   border:  $yellow 1px solid;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-top: 0px;
 }
 
 .confirmation-stripe {
@@ -72,4 +73,16 @@ textarea.form-control {
   margin-left: 200px;
   margin-bottom: 40px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+b, strong {
+    font-weight: bolder;
+    color: rgba(233, 156, 84, 0.945)
+}
+
+.chat-title {
+  font-size: 24px;
+  margin-left: 200px;
+  margin-bottom: 0px;
+  color: #5693ad;
 }
