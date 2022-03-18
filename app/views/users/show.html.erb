@@ -36,7 +36,13 @@
                 <p><%=topics_string%> expert</p>
               <% end %>
             <% end %>
-            <p><strong><%= @expert.bookings.count %> sessions</strong> completed</p>
+            <% if @expert.bookings.count == 0 %>
+              <p><strong>New</strong></p>
+            <% elsif @expert.bookings.count == 1 %>
+              <p><strong>1 session</strong> completed</p>
+            <% else %>
+              <p><strong><%= @expert.bookings.count %> sessions</strong> completed</p>
+            <% end %>
         </div>
           <div class="expert-img">
             <% if @expert.photo.key %>

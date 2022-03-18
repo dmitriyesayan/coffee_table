@@ -67,7 +67,13 @@
           </div>
         </div>
         <div class="expert-card-bottom-right">
+        <% if expert.bookings.count == 0 %>
+          <p><strong>New</strong></p>
+        <% elsif expert.bookings.count == 1 %>
+          <p><strong>1 session</strong> completed</p>
+        <% else %>
           <p><strong><%= expert.bookings.count %> sessions</strong> completed</p>
+        <% end %>
           <%= link_to "Open profile", expert_path(expert.id, q: params[:query]) %>
         </div>
       </div>
