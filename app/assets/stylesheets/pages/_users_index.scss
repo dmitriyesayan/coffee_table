@@ -44,12 +44,14 @@
   column-gap: 2%;
   .expert-card-width {
     background-color: white;
-    height: 260px;
+    height: 480px;
     row-gap: 24px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    padding: 8px 8px;
+    border-radius: 8px;
     .image-containter{
-      border: 1px solid $orange;
-      height: 70%;
-      border-radius: 4px;
+      height: 75%;
+      border-radius: 8px;
       img {
         border-radius: 4px;
         object-fit: cover;
@@ -63,7 +65,7 @@
       display: flex;
       justify-content: space-between;
       height: 80px;
-      margin-top: 2%;
+      margin-top: 8%;
       .expert-card-bottom-left {
         padding-right: 5px;
         h4 {

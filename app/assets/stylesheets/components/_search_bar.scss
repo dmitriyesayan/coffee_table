@@ -26,7 +26,7 @@
 }
 
 .btn-search:hover {
-  background: $blue;
+  background: $blue-hover;
   color: white;
 }
 
@@ -36,4 +36,8 @@
 
 .search-bar-vertical .btn-search {
   width: 100%;
+}
+
+.search-bar-vertical .btn-search:hover {
+  background-color: $blue-hover;
 }
