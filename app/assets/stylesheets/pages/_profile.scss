@@ -48,6 +48,7 @@
 
 .add-topic-box {
   margin-left: 16px;
+
   #topic-name {
     width: 25%;
     border-radius: 4px;
@@ -91,7 +92,7 @@
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: rgba(230, 230, 225, 0.164);
-  border: #fdae37 5px solid;
+  border: #fdae37 2px solid;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 
 }
@@ -107,14 +108,14 @@
 /*table*/
 
 .table-dark.table-bordered {
-  border: #5693ad4b 5px solid;
+  border: #5693ad4b 2px solid;
 
 }
 
 .table-dark {
   margin-top: 60px;
   color: #5693ad;
-  background-color: #5693ad4b;
+  background-color: whitesmoke;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
