@@ -18,7 +18,7 @@
   grid-gap: 100px;
   padding: 30px 60px;
   background: white;
-  border: rgb(233, 236, 5) 5px solid;
+  border: rgb(236, 174, 5) 5px solid;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 50px;
 }
@@ -40,9 +40,9 @@
 }
 
 .card-vid {
-  border: rgb(233, 236, 5) 5px solid;
+  border: rgb(236, 174, 5) 3px solid;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
+  width: 400px;
 }
 
 .card-teach {
@@ -55,4 +55,14 @@
   img {
     object-fit:cover;
   }
+}
+
+.expert-img {
+    border: rgb(236, 174, 5) 3px solid;
+}
+
+video {
+    object-fit: contain;
+    width: 300px;
+    height: 200px;
 }
