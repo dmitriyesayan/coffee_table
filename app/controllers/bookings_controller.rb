@@ -18,7 +18,6 @@ class BookingsController < ApplicationController
     end
     if booking.save
       booking.coffee_chat.update(availability: false)
-      redirect_to booking_path(booking)
 
       http = Net::HTTP.new(URI("https://api.daily.co/v1/rooms").host, URI("https://api.daily.co/v1/rooms").port)
       http.use_ssl = true
@@ -38,7 +37,7 @@ class BookingsController < ApplicationController
       link = JSON.parse(response.body)["url"]
       booking.video_link = link
       booking.save
-
+      redirect_to booking_path(booking)
     else
       raise
     end
