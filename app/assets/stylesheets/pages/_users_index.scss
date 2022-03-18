@@ -24,6 +24,18 @@
   margin-top: 20px;
 }
 
+
+.rating-inline {
+  margin-top: 0;
+  display: flex;
+}
+
+.rating-inline i {
+  font-size: 20px;
+  color: $yellow;
+  padding-top: 5px;
+}
+
 .results {
   margin-top: 60px;
   display: grid;
@@ -61,18 +73,6 @@
           margin-top: 0;
           margin-bottom: 0;
           font-size: 15px;
-        }
-        .rating-inline {
-          margin-top: 0;
-          display: flex;
-          justify-content: left;
-        }
-        .rating-inline {
-          i {
-            font-size: 20px;
-            color: $yellow;
-            padding-top: 5px;
-          }
         }
       }
       .expert-card-bottom-right {
