@@ -1,1 +1,3 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Coffee Table’s mission is to help people who want to learn from the best to have an easy way to do so.
+
+Deployed at awesome-coffee-table.herokuapp.com
