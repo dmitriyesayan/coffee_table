@@ -1,0 +1,26 @@
+h1 {
+  text-align: center;
+}
+.why-expert {
+  margin-top: 3%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  img {
+    width: 70%;
+    height: 70%;
+    margin: auto;
+  }
+  h4 {
+    font-size: 2em;
+    align-self: center;
+  }
+  align-content: center;
+}
+
+#sign-up {
+    border: 1px solid black;
+    width: 20%;
+    padding: 1%;
+    border-radius: 5px;
+    text-align: center;
+  }

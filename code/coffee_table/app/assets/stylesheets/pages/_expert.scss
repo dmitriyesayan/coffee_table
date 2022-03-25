@@ -1,0 +1,68 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/*stripe*/
+
+.expert-stripe {
+  background: #5693ad;
+  padding: 5px 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/*video*/
+.card-tutorial {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 100px;
+  padding: 30px 60px;
+  background: white;
+  border: rgb(236, 174, 5) 5px solid;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 50px;
+}
+
+.card-video {
+  padding-left: 0px;
+}
+
+.card-expert-info {
+  padding-right: 120px;
+}
+
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.card-vid {
+  border: rgb(236, 174, 5) 3px solid;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 400px;
+}
+
+.card-teach {
+  padding: 30px 20px 20px 30px;
+  background-color: rgba(230, 230, 225, 0.164);
+  width: 100%;
+}
+
+.expert-img {
+  img {
+    object-fit:cover;
+  }
+}
+
+.expert-img {
+    border: rgb(236, 174, 5) 3px solid;
+}
+
+video {
+    object-fit: contain;
+    width: 300px;
+    height: 200px;
+}

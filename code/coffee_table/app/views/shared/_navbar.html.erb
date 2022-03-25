@@ -1,0 +1,36 @@
+ <header>
+  <div class='navbar-new'>
+    <nav class="container ">
+      <%= link_to root_path, class: "nav-link px-2 navbar-link navbar-logo" do %>
+        <i class="fas fa-coffee"></i> Coffee Table
+      <% end %>
+      <div class="navbar-items">
+        <% if user_signed_in? %>
+          <% if !current_user.expert_profile %>
+            <%= link_to "Become an expert", become_an_expert_path, class: "nav-link px-2 navbar-link" %>
+          <% else  %>
+            <%= link_to "", become_an_expert_path, class: "nav-link px-2 navbar-link" %>
+          <% end %>
+        <% else %>
+          <%= link_to "Become an expert", become_an_expert_path, class: "nav-link px-2 navbar-link" %>
+        <% end %>
+        <%= link_to "About us", about_us_path, class: "nav-link px-2 navbar-link" %>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <% if user_signed_in? %>
+            <a class="dropdown-item" href="/">Home</a>
+            <a class="dropdown-item" href="/dashboard">My Dashboard</a>
+            <a class="dropdown-item" href="/profile">My Profile</a>
+            <a class="dropdown-item" href="logout"><%= button_to "Log out", destroy_user_session_path, method: :delete  %></a>
+          <% else %>
+            <a href="/users/sign_in" class="nav-link px-2 navbar-link">Log In</a>
+            <a href="/users/sign_up" class="nav-link px-2 navbar-link">Sign Up</a>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

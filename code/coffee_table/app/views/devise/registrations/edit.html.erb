@@ -1,0 +1,48 @@
+<div class='container edit-profile-container'>
+  <div class="flex">
+    <h2>Edit Profile</h2>
+
+    <% unless current_user.expert_profile %>
+      <%= link_to "Become an Expert", user_become_an_expert_path(current_user), :method=> :patch, data: { confirm: "Would you like to become an Expert?" }, class: 'become-an-expert' %>
+    <% end %>
+  </div>
+
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%# <%= f.input :email, required: true, autofocus: true %>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <% end %>
+
+      <%= f.input :description,
+                  hint: "About yourself",
+                  required: false
+                  %>
+
+      <%= f.input :photo, as: :file, direct_upload: true, label: 'Upload a Photo', class: 'btn btn-secondary' %>
+      <%= f.input :video, as: :file, direct_upload: true, label: 'Upload a Video', class: 'btn btn-secondary' %>
+      <div class="password-edit-box">
+        <%= f.input :current_password,
+                    hint: "we need your current password to confirm your changes",
+                    required: true,
+                    input_html: { autocomplete: "current-password" } %>
+        <%= f.input :password,
+                    hint: "leave it blank if you don't want to change it",
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: false,
+                    input_html: { autocomplete: "new-password" } %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Save" , class: 'become-an-expert save-btn' %>
+    </div>
+  <% end %>
+
+  <p>Unhappy? <%= link_to "Cancel My Account", registration_path(resource_name), data: { confirm: "Are you sure you would like to cancel your account?" }, method: :delete %></p>
+</div>

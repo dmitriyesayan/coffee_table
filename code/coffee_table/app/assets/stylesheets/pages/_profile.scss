@@ -1,0 +1,151 @@
+
+.flex {
+  display: flex;
+}
+
+.topic-line {
+  margin-right: 12px;
+  display: flex;
+  position: relative;
+  transition: 400ms;
+  .remove-topic-btn {
+    color: black;
+    font-size: 18px;
+    float: top;
+    position: absolute;
+    right: -6px;
+    bottom: 20px;
+    display: none;
+  }
+}
+.topic-line:hover {
+  margin-right: 16px;
+  transition: 400ms;
+  .remove-topic-btn {
+    display: block;
+  }
+}
+
+.add-topic {
+  background-color: $yellow;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: 100ms;
+  a {
+    text-decoration: none;
+  }
+  border-bottom: 16px;
+}
+
+.add-topic:hover {
+  background-color: $yellow-hover;
+  transition: 100ms;
+  a {
+    text-decoration: none;
+  }
+}
+
+.add-topic-box {
+  margin-left: 16px;
+
+  #topic-name {
+    width: 25%;
+    border-radius: 4px;
+    height: 100%;
+  }
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+
+
+.card-profile {
+  .card-infos {
+    .card-body-profile-dm {
+      padding-left: 220px;
+      width: 70%;
+      h1 {
+        text-align: left;
+      }
+    }
+    .profile-img {
+      img {
+        object-fit:cover;
+      }
+    }
+  }
+}
+
+
+.profile-stripe {
+  background: #5693ad;
+  padding: 5px 5px;
+  box-shadow: 0 0 15px rgba(10, 8, 8, 0.2);
+}
+
+.card-box {
+  width: 50%; /* three boxes (use 25% for four, and 50% for two, etc) */
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: rgba(230, 230, 225, 0.164);
+  border: #fdae37 2px solid;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+}
+
+.cards-profile h3 {
+  font-size: 20px;
+}
+
+
+
+
+
+/*table*/
+
+.table-dark.table-bordered {
+  border: #5693ad4b 2px solid;
+
+}
+
+.table-dark {
+  margin-top: 60px;
+  color: #5693ad;
+  background-color: whitesmoke;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.table-dark th, .table-dark td, .table-dark thead th {
+    border-color: #5693ad4b;
+}
+
+.history-learner {
+  padding-top: 48px;
+  margin: 0 auto;
+  align-self: center;
+  h5 {
+    text-align: center;
+  }
+}
+
+#edit-profile-a{
+  margin-top: 16px;
+  a {
+    border-top: 5px;
+    background-color: $blue;
+    color: white;
+    border-radius: 3px;
+    padding: 10px 10px;
+    align-self: bottom;
+    text-decoration: none;
+    margin-right: 0;
+    text-align: center;
+  }
+  a:hover {
+    background-color: $blue-hover;
+  }
+}

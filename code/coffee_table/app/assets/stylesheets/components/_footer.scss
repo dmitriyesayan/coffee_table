@@ -1,0 +1,35 @@
+.footer-section {
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 0%;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  box-shadow: 10px 1px 20px -2px rgb(212, 212, 212);
+  position:sticky;
+  bottom: 0;
+  height: 140px;
+  width: 100%;
+  padding-top: 16px;
+  margin-top: 300px;
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  a {
+    font-size: 32px;
+    color:rgb(151, 151, 151);
+  }
+  a:hover {
+    color:rgb(65, 65, 65);
+  }
+  h4 {
+    font-weight: 600;
+    font-size: 20px;
+  }
+  h5 {
+    font-size: 16px;
+  }
+  p {
+    margin-top: 2%;
+    color: gray;
+  }
+}

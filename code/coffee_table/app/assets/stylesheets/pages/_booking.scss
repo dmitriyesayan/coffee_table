@@ -1,0 +1,82 @@
+.card-confirmation {
+  width: 60%;
+  border:  #5693ad 2px solid;
+  margin-left: 200px;
+  margin-bottom: 60px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-confirmation b,
+.card-confirmation strong {
+    font-weight: bolder;
+    color: rgba(233, 156, 84, 0.945)
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding-left: 10px;
+  text-align: center;
+}
+
+.card-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+    padding-bottom: 10px;
+    color: rgba(255, 166, 0, 0.767);
+}
+
+.btn-success {
+    margin-top: 30px;
+    color: white;
+    background-color:#81aabb;
+    border-color: #5693ad;
+}
+
+.btn-success:hover {
+    color: white;
+    background-color:#5693ad8a;
+    border-color: #5693ad8a;
+}
+
+.btn-danger {
+    color: black;
+    background-color: white;
+    border-color: white;
+}
+
+.btn-danger:hover {
+    color: black;
+    background-color: white;
+    border-color: white;
+}
+
+.chatbox {
+  width: 60%;
+  margin-left: 200px;
+  margin-top: 20px;
+}
+
+textarea.form-control {
+  height: 150px;
+  border:  $yellow 1px solid;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-top: 0px;
+}
+
+.confirmation-stripe {
+  background: #5693ad;
+  width: 60%;
+  padding: 5px 5px;
+  margin-left: 200px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.chat-title {
+  font-size: 24px;
+  margin-left: 200px;
+  margin-bottom: 0px;
+  color: #5693ad;
+}

@@ -1,0 +1,109 @@
+<div class="container">
+
+
+    <div class="card-expert">
+      <%= image_tag("blue-smoke.jpg", width: 900, height: 250, crop: :fill) %>
+          <div class="card-infos">
+        <div class="card-body">
+          <h2 class="card-title"><%= @expert.first_name %> <%= @expert.last_name %></h2>
+          <% rating = @expert.reviews.average(:rating).to_f.round %>
+          <div class="rating-inline">
+            <p>
+            <% rating.times do %>
+                <i class="lni lni-star-filled"></i>
+            <% end %>
+            </p>
+          </div>
+          <% topics = @expert.topics %>
+            <% if topics.count == 1 %>
+              <% if topics[0].topic_name.length > 21 %>
+                <p><%= topics[0].topic_name %></p>
+              <% else %>
+                <p><%=topics[0].topic_name%> expert</p>
+              <% end %>
+            <% else %>
+              <% topics_string = "" %>
+              <% topics.each do |topic| %>
+              <% if topics_string == "" %>
+                <% topics_string += topic.topic_name %>
+              <% else %>
+                <% topics_string += ", #{topic.topic_name}" %>
+              <% end %>
+              <% end %>
+              <% if topics_string.length > 21 %>
+                <p><%= topics_string%></p>
+              <% else %>
+                <p><%=topics_string%> expert</p>
+              <% end %>
+            <% end %>
+            <% if @expert.bookings.count == 0 %>
+              <p><strong>New</strong></p>
+            <% elsif @expert.bookings.count == 1 %>
+              <p><strong>1 session</strong> completed</p>
+            <% else %>
+              <p><strong><%= @expert.bookings.count %> sessions</strong> completed</p>
+            <% end %>
+        </div>
+          <div class="expert-img">
+            <% if @expert.photo.key %>
+              <%= cl_image_tag @expert.photo.key, width: 220, height: 220, crop: :fill %>
+            <% elsif @expert.id <= 10 %>
+              <%= image_tag "expert-#{@expert.id}.jpg", width: 220, height: 220, crop: :fill %>
+            <% else %>
+              <%= image_tag "default-user.png", width:220, height: 220, crop: :fill %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="expert-stripe"></p>
+      </div>
+
+
+      <div class="cards">
+        <div class="card-teach">
+          <h5 class="card-title">What can I teach you?</h5>
+            <p class="card-text"><%= @expert.description %></p>
+            <% days = ((Time.zone.now-@expert.updated_at)/86400).floor %>
+            <% if days > 1 %>
+              <p class="card-text"><small class="text-muted">Last updated <%=days%> days ago</small></p>
+            <% else %>
+              <p class="card-text"><small class="text-muted">Last updated <%=days%> day ago</small></p>
+            <% end %>
+        </div>
+
+        <div class="card-vid">
+          <% if @expert.video.key %>
+              <%= cl_video_tag @expert.video.key, controls: true, transformation: [ width: 200, height: 190, crop: 'pad' ] %>
+          <% else %>
+            <iframe width="400" height="250" src="https://www.youtube.com/embed/c-I5S_zTwAc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <% end %>
+        </div>
+      </div>
+
+
+      <div>
+        <p class="expert-stripe"></p>
+      </div>
+
+
+        <h3 id="cal">Make a booking</h3>
+        <%= month_calendar(events: @coffee_chats, attribute: :start, end_attribute: :end) do |date, coffee_chats| %>
+          <%= date %>
+        <% coffee_chats.each do |coffee_chat| %>
+      <% id = @expert.id %>
+        <% if (coffee_chat.end > DateTime.now) && (coffee_chat.availability == true) %>
+          <%= link_to expert_bookings_path(@expert, coffee_chat: coffee_chat, topic: params[:q]), method: :post do %>
+          <div class="meeting">
+            <small><%= coffee_chat.time unless coffee_chat.multi_days? %></small>
+          </div>
+        <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+
+
+
+</div>

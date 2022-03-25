@@ -1,0 +1,28 @@
+ <script crossorigin src="https://unpkg.com/@daily-co/daily-js"></script>
+  <script>
+  let myLink = '<%= (@start_session_link) %>'
+  if (window.innerWidth <= 400) {
+    callFrame = window.DailyIframe.createFrame({
+    showLeaveButton: true,
+        iframeStyle: {
+        bottom: 0,
+        width: '100%',
+        height: '100%'
+        }
+  });
+
+    callFrame.join({ url: myLink })
+  } else {
+        callFrame = window.DailyIframe.createFrame({
+        showLeaveButton: true,
+        iframeStyle: {
+        top: 0,
+        right: 0,
+        width: '50%',
+        height: '100%'
+        }
+  });
+
+    callFrame.join({ url: myLink })
+  }
+  </script>

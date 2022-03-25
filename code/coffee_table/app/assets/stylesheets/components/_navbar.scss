@@ -1,0 +1,55 @@
+.navbar-lewagon {
+  justify-content: space-between;
+  background: white;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+header {
+  padding: 0;
+}
+
+.navbar-new {
+  width: 100%;
+  background-color: white;
+  font-size: 1.1em;
+  padding: 10px 0;
+  color: black;
+  margin-bottom: 2%;
+  box-shadow: 0 2px 15px -2px rgb(177, 177, 177);
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .navbar-logo {
+    align-items: center;
+    display: flex;
+  }
+  .navbar-items {
+    display: flex;
+  }
+  i {
+    font-size: 1.5em;
+    margin-right: 10px;
+  }
+  .dropdown {
+    justify-self: end;
+  }
+  .exp {
+    justify-self: end;
+  }
+  .nav-link {
+    color: black;
+  }
+
+  .dropdown button {
+    border-radius: 18px;
+  }
+}
