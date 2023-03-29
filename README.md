@@ -45,6 +45,7 @@ yarn install
 rails db:drop
 rails db:create
 rails db:migrate
+rails db:seed
 
 
 8. **Start the Rails server:**
