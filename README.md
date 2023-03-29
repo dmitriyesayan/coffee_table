@@ -2,9 +2,6 @@
 
 Coffee Table's mission is to help people who want to learn from the best to have an easy way to do so. Coffee Table is a platform for people interested in learning about specific topics and booking a video call with experts offering those topics. 📚👩‍🏫
 
-## 🌐 Live Demo
-
-Check out the live demo of Coffee Table deployed on Heroku: [https://awesome-coffee-table.herokuapp.com](https://awesome-coffee-table.herokuapp.com)
 
 ## 🚀 Local Setup
 
